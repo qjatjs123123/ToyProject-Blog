@@ -144,26 +144,28 @@ const BlogListWithSuspense = withSuspense(
 ### 1. form 최적화
 Form의 상태를 부모 컴포넌트에서 관리하면, 상태가 변경될 때마다 **매번 리렌더링**이 발생합니다. Form이 복잡하거나 무거워질 경우, 이는 **성능 문제**를 야기할 수 있습니다. 따라서 저는 Form 요소를 **최적화**하여 이러한 성능 이슈를 방지했습니다.
   
- - **비제어 컴포넌트**를 만들었습니다.
-   - 각 `Field` 컴포넌트가 자체적으로 상태를 관리하도록 하여, 부모 컴포넌트에서 상태를 직접 관리하지 않도록 했습니다.
-   - 상태 변경 시, 부모 컴포넌트에서 관리하는 **ref**를 업데이트하여, 불필요한 렌더링이 발생하지 않도록 했습니다.
-   -  제출 버튼 클릭 시, 부모 컴포넌트가 관리하는 ref 데이터를 모아 **Form 제출 처리**에 활용했습니다.
+ - **리액트 훅 폼 라이브러리** 를 사용하였습니다.
+   - 성능을 최적화하였습니다.
+   - 코드 가독성을 향상하였습니다. 
 
 ``` javascript
-  const formData = useRef<FormValues>({
-    businessNumber: "",
-    userName: "string",
-    password: "",
-    companyName: "",
-    phone: "",
-    email: "",
-    partnerId: "string",
-    birthDate: "",
-    isMarketingConsent: true,
-    businessNumberVerifyToken: "string",
-  })
+  <Controller
+      name={name}
+      control={control}
+      rules={rules}
+      render={({ field, fieldState }) => (
+        <div className="flex flex-col gap-1">
+          {/* Label */}
+          <div className="flex items-center justify-between h-[32px]">
+            <Text
+              type="body"
+              size="3"
+              className="text-[var(--color-label-700)]"
+            >
+              {label}
+            </Text>
+...
 ```
-**state가 아닌 ref**로 데이터를 관리하였습니다.
 
   <br />
 
@@ -270,4 +272,49 @@ export const formatBirth = (raw: string) => {
 ```
 
 <br />
+
+
+
+
+
+
+
+# 배운점
+## 1. 적절히 상태 관리하는 방법을 배웠습니다.
+- **전역 상태 관리 도구** 는 상태가 복잡하지 않거나 꼭 필요한 상황이 아니라면 굳이 사용할 필요가 없다는 것을 느꼈습니다.
+  - 오히려 전역 상태 관리 도구는 단방향 상태 흐름이 아니기 때문에, 에러를 추적하고 원인을 찾는 것이 어려울 수 있습니다.
+
+- **Context API** 는 하나의 문맥, 즉 연관된 기능 단위에서 **props drilling 문제** 를 해결할 때 사용하는 것이 적절합니다.
+  - 만약 여러 문맥이 섞여 공유되는 상태가 복잡해지면, 불필요한 리렌더링이 발생할 수 있기 때문입니다.
+  - props를 내려주는 것 자체를 지나치게 꺼릴 필요는 없다고 느꼈습니다.
+  - 오히려 단방향으로 데이터를 전달하는 구조가 에러 추적과 디버깅에 훨씬 유리합니다.
+
+- 서버 상태 관리는 **TanStack Query** 를 사용하는 것이 좋다고 느꼈습니다.
+  - 그 이유는 서버 데이터를 효율적으로 캐싱하고, 데이터 동기화와 에러 처리까지 편리하게 관리할 수 있기 때문입니다.
+
+## 2. API 호출 효과적으로 처리하기
+- Suspense
+  - Tanstack Query와 연동하여 사용하면 API 호출 동안에 스켈레톤 UI를 간편하게 보여줄 수 있습니다.
+
+- react-error-boundary
+  - Tanstack Query와 연동하여 사용하면 API 호출 동안에 발생하는 에러를 효과적으로 잡고 에러 UI를 쉽게 보여줄 수 있습니다.
+ 
+## 3. 코드 리팩토링
+- react-hook-form
+  - 리액트 훅 폼 라이브러리를 사용하면서 품의 성능을 최적화했습니다.
+  - 기존에는 ref를 사용하여 비제어 컴포넌트 방식으로 최적화를 시도했지만, 코드가 복잡해지고 가독성이 떨어진다는 단점을 느꼈습니다.
+  - 반면, React Hook Form과 같은 라이브러리는 이러한 문제를 효과적으로 해결해 주어 코드가 더 간결하고 관리하기 쉬워집니다.
+
+- useReducer
+  - 기존에는 state를 관리할 때 useState로 관리했습니다.
+  - 그러다보니까 복잡한 컴포넌트 같은 경우 useState가 굉장히 많아서 관리하기 힘들었습니다.
+  - 또한 상태변경 로직이 컴포넌트안에 있어 가독성, 유지보수성이 떨어졌습니다.
+  - useReducer는 연관된 상태를 하나로 관리하고, reducer 함수로 상태 변경 로직을 컴포넌트로 분리할 수 있습니다.
+
+
+## 4. 디자인 패턴
+제가 느낀 점은, 개발을 시작하기 전에 가장 작은 단위의 공통 컴포넌트를 먼저 작성하는 것이 유리하다는 것입니다.
+그 이유는 작은 단위의 컴포넌트를 조합하여 큰 컴포넌트를 만들고, 이를 기반으로 페이지를 구성할 수 있기 때문입니다.
+또한, 의존성을 분리하기 위해 props나 children 형태로 데이터를 전달하면 컴포넌트 간 결합도를 낮추고 재사용성을 높일 수 있습니다.
+ 
 
