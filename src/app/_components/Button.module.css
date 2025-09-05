@@ -1,0 +1,121 @@
+
+
+.button {
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-background-default);
+}
+
+.button[disabled] {
+  background-color: var(--color-status-disable);
+  border: none !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* 타입 - primary */
+.button--type-primary {
+  background-color: var( --color-primary);
+  color: white;
+}
+
+/* 타입 - default */
+.button--type-default {
+  background-color: var( --color-background-default);
+}
+
+/* 스타일 - outline */
+.button--type-primary.button--style-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-secondary-300);
+  color: var(--color-primary);
+}
+
+.button--type-default.button--style-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-line-400);
+  color: var(--color-label-800);
+}
+
+/* 스타일 - fill */
+.button--type-primary.button--style-fill {
+  border: 1px solid var(--color-secondary-300);
+  color: var(--color-label-100);
+}
+
+.button--type-default.button--style-fill {
+  border: 1px solid var(--color-line-400);
+  color: var(--color-label-800);
+}
+
+
+
+/* 버튼 호버 */
+.button--type-primary.button--style-outline:hover,
+.button--type-default.button--style-outline:hover {
+  background-color: var(--color-label-100);
+}
+
+.button--type-primary.button--style-fill:hover {
+  background-color: var( --color-secondary-400);
+}
+
+
+/* active */
+.button--type-primary.button--style-fill:active {
+  background-color: var( --color-secondary-600);
+}
+
+.button--type-primary.button--style-outline:active,
+.button--type-default.button--style-outline:active {
+  background-color: var(--color-background-alternative);
+}
+
+
+
+
+/* 사이즈 */
+.button--size-medium {
+  height: 32px;
+  font-size: 0.9rem;      /* 16px */
+  padding: 0 1rem;    /* 8px 16px */
+}
+
+.button--size-big {
+  font-size: 1.25rem;   /* 20px */
+  padding: 0.75rem 1.5rem;  /* 12px 24px */
+}
+
+/* radius */
+
+.button--rd {
+  border-radius: var(--radius-sm);
+}
+
+
+@media (min-width: 768px) {
+  .button--size-medium {
+    height: 40px;
+    font-size: 1rem; /* 필요하면 폰트도 늘리기 */
+    padding: 0 1rem; 
+  }
+
+  .button--rd {
+    border-radius: var(--radius-md);
+  }
+}
+
+/* PC (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .button--size-medium {
+    height: 48px;
+    font-size: 1rem;
+    padding: 0 1rem; 
+    
+  }
+
+  .button--rd {
+    border-radius: var(--radius-lg);
+  }
+
+}
