@@ -1,152 +1,418 @@
-## 로그인
-- [x] 사업자등록번호 입력(회원가입했던 ID로)
-- [x] 숫자만 입력하도록 해야 함
-- [x] 에러시 에러 메시지
+# 블로그
 
-- [x] 비밀번호
-  - [x] 비밀번호 에러 시 에러메시지
+반응형 블로그
 
-- [] 아이디 저장 체크박스
-  - [] 아이디 저장 체크 박스 선택 후 로그인 성공 시 아이디 저장
+<br />
 
+## 🚀 프로젝트 개요
 
-## 회원가입
-### 체크박스
-#### 진행척도
-- [x] 아무것도 안했을 때 0
-- [x] 약관선택시 15
+개인 프로젝트 입니다. <br />
+`Jotai`, `Tanstack-Query`, `Next`, `react-error-boundary`, `react-hook-form`, `framer-motion` 등 라이브러리를 학습하고, 각각을 왜 사용하는지와 장단점을 더 깊이 이해하기 위해 직접 프로젝트를 기획했습니다. 
 
-- [x] 전체 동의 기능
-- [x] 필수값 체크 안되면 다음 버튼 비활성화
-- [x] 필수값 체크되면 다음 버튼 활성
+<br />
 
-### 폼
-#### 사업자 등록 번호 
-- [] 사업자등록번호를 아이디로 사용한다.
+## ⚙ 내가 사용한 기술 스택
 
-- [x] 사업자 인증 전에는 2가지 입력창만 노출한다.
-  - [x] 사업자 등록번호
-  - [x] 비밀번호
-
-- [x] 인풋 유효성 검사
-  - [x] 숫자만 입력해야 한다. (다른건 입력 안되게)
-  - [x] 10자만 입력해야 한다. (10자 이상 입력 안되게)
-  - [x] 사업자등록번호 입력 전 비밀번호 입력 가능
-
-- [x] 인풋 포맷팅
-  - [x] 입력 후 -으로 포맷팅 해야 한다.
-
-- [x] 유효성 검사 통과
-  - [x] 버튼이 인증하기로 바꿔야 한다.
-  - [x] 에러메시지가 사라진다.
-
-- [x] 유효성 검사 실패
-  - [x] 에러메시지 띄어야 한다.
-
-- [x] 인증 통과
-  - [x] 제공된 API를 통해 검증한다.
-  - [x] 성공메시지 출력한다.
-  - [x] 버튼이 클릭이 안된다.
-  - [x] 비노출 되어있던 상호명, 대표자명, 생년월일, 휴대폰번호, 이메일도 노출 처리
-  - [x] 프로그래스 바가 32퍼 오른다.  
-  - [x] 스낵바 UI가 출력된다.
-
-- [x] 인증 실패
-  - [x] 이미 가입된 사업자등록번호 -> API 에러일 경우, 에러메시지 노출
-  - [x] 잘못 입력된 사업자등록번호인 경우 에러메시지 노출
-
-- [x] 사업자 등록번호 찾기 버튼
-  - [x] 링크 연결되어야 한다.
-
-#### 비밀번호
-- [x] 인풋 유효성 검사 
-  - [x] 영문, 숫자, 특수문자 포함
-  - [x] 8~15자리
-  - [x] 같은지 비교한다. (두번째)
-
-- [x] 비밀번호 보기
-  - [x] 비밀번호인 상태에서 누르면 텍스트 상태
-  - [x] 텍스트 상태에서 누르면 비밀번호 상태
-
-- [x] 첫번째 비밀번호 인풋 유효성 검사 실패
-  - [x] 에러 메시지 출력한다.
-
-- [x] 첫번째 비밀번호 인풋 유효성 검사 성공
-  - [x] 아무것도 안뜬다.
-  - [x] 프로그래스바 11퍼 오른다.
-
-- [x] 두번째 비밀번호 인풋 유효성 검사 실패
-  - [x] 에러 메시지 출력한다.
-
-- [x] 첫번째 비밀번호 인풋 유효성 검사 성공
-  - [x] 아무것도 안뜬다.
-  - [x] 성공 메시지 뜬다.
-  - [x] 프로그래스바 10퍼 오른다.
+<div>
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+  <img src="https://img.shields.io/badge/TanStack%20Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white" />
+  <img src="https://img.shields.io/badge/Jotai-000000?style=for-the-badge&logo=react&logoColor=white" />
+  <img src="https://img.shields.io/badge/react--error--boundary-FF6B6B?style=for-the-badge&logo=react&logoColor=white" />
+  <img src="https://img.shields.io/badge/react--hook--form-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white" />
+  <img src="https://img.shields.io/badge/framer--motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
+  <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+</div>
 
 
-#### 상호명
-- [x] 사업자등록번호 인증할 때 가져온 상호명을 자동으로 입력
-  - [x] 수정 못한다.
-
-- [] 통판매 API 오류로 국세청 API로 사업자등록번호 인증한 경우, 상호명은 못가져오므로 공란
+<br />
 
 
-#### 대표자
-- [x] 사업자등록증에 기재된 대표자명 초기에 입력된다.
-- [x] 숫자 영어 공백 특수문자 모두 허용
+## 📚 왜 이 라이브러리를 사용했나?
+### `Jotai`
+#### WHY? 👍
+- API 응답이나 사용자 인터랙션 결과를 토스트 UI로 보여주는 간단한 전역 상태만 필요
+  - **복잡한 전역 상태 관리** 가 필요하지 않음
+- 가장 작은 번들 크기의 라이브러리
+- React 훅과 친화적이라 사용이 간편함
+
+#### 내가 생각한 Jotai 단점 👎
+- 복잡한 상태 관리에는 적합하지 않음
+  - 전역 변수 느낌
+  - 디버깅 시 어떤 컴포넌트, 어떤 함수에서 상태를 변경했는지 추적하기가 힘듬
+
+`정리하자면, Jotai는 복잡한 전역 상태 관리보단 간단한 전역 상태 관리로 적합합니다.` <br />
+`또한 Recoil보단 Jotai가 더 큰 장점을 가지고 있어 Atomic 상태 관리 도구로 Jotai를 사용합니다.` <br />
+
+## 
+
+### `Next`
+#### WHY? 👍
+- Next는 프레임워크라 React의 단점을 해결해 줌
+  - React는 라이브러리이기 때문에 버전에 맞게 또 다른 라이브러리를 설치해야 함 → 버전 호환성 문제 발생 가능
+  - **서버 컴포넌트**로 인해서 JS 번들 크기가 줄어들어 초기 로딩 속도 개선됨
+  - Next는 기본적으로 **파일 경로 기반 라우팅, 자체 코드 스플리팅**
+  - ISR / SSG 등 다양한 **렌더링 전략** 지원
+  - **SEO, prefetching, 이미지, 폰트 등 최적화**를 위한 다양한 유틸리티 제공
+
+`정리하자면, Next는 단순히 SSR 관점보단, React의 단점을 해결해주고 개발자 경험(DX) 적으로 향상시켜 줍니다.` <br />
+`(프레임워크로 개발에 필요한 라이브러리가 자체적으로 내장되어 있음, 간편하게 개발 가능)` <br />
+
+## 
+
+### `TanStack-Query`
+#### WHY? 👍
+- TanStack-Query 없이 서버 상태를 관리하려면 Jotai나 Redux를 사용해야 하며, 리패칭, 캐싱, 전역 상태 공유를 직접 구현해야 함
+- TanStack Query는 **상태 관리, 캐싱, 리패칭** 등 다양한 옵션을 자체적으로 제공
+- `staleTime`을 통해 데이터 신선도를 개발자가 설정하고, 캐싱을 활용해 불필요한 API 호출을 줄여 **성능 최적화**
+- **낙관적 업데이트** 등 다양한 UX적 향상 기능 지원
+- **Suspense, react-error-boundary**와 함께 사용하여 선언적으로 로딩/에러 처리 가능
+
+`정리하자면, Tanstack-Query는 API 호출 최적화 (캐싱 기능, 같은 타이밍 동일한 API는 한 번)을 자체적으로 지원하고` <br />
+`서버 상태 관리, retry나 낙관적 업데이트 등 다양한 API 관련 기능을 옵션적으로 사용 가능하고` <br />
+`Suspense, react-error-boundary와 함께 사용하여 코드를 줄이고 개발자 경험(DX)을 향상 시켜줍니다.`  <br />
+
+## 
+
+### `framer-motion`
+#### WHY? 👍
+- 기존에는 애니메이션을 구현하기 위해 직접 **setInterval, setTimeout** 등을 사용하여 직접 코드를 구현해야 했다.
+- framer-motion을 사용해서 **선언적으로** 애니메이션을 사용하고, 개발자 경험을 높일 수 있다.
+
+`정리하자면, 간편하고 코드 가독성 있게 애니메이션을 보여줄 수 있다.`  <br />
 
 
-#### 대표자 생년월일
-- [x] 유효성 검사
-  - [x] '-'없이 생년월일 숫자 8자리만 입력
-  - [x] 숫자만 입력 가능하다
-
-- [x] 포맷팅
-  - [x] 입력 완료되면 yyyy-mm-dd로 포맷팅 된다.
-
-- [x] 에러
-  - [x] 에러 메시지 노출한다.
-
-- [x] 성공
-  - [x] 에러 메시지 사라진다.
-  - [x] 프로그래스 바 11퍼 오른다.
-
-#### 대표자 휴대폰번호
-- [x] 유효성 검사
-  - [x] '-'없이 휴대폰번호 입력
-  - [x] 숫자 입력만 가능하다
-  - [x] 11자리까지만 입력 가능하다
-
-- [x] 포맷팅
-  - [x] 입력이 완료되면 ddd-dddd-dddd로 포맷탱 된다.
-
-- [x] 에러
-  - [x] 에러 발생 시 에러메시지 노출한다.
-
-- [x] 성공
-  -[x] 에러 메시지 사라진다.
-  - [x] 프로그래스 바 10퍼 오른다.
+<br /> <br />
 
 
-#### 대표자 이메일
-- [x] 유효성 검사
-  - [x] 모든 문자 가능
-  - [x] 메일주소에 @,. 없는 경우 
+## 개발하면서 고민한 내용
+### 📝 어떻게 하면 확장성 있고, 유지보수 용이한 코드를 작성할 수 있을까?
+### 1. Atomic 단위의 컴포넌트를 설계하고, 이를 조합해서 컴포넌트를 만들자.
+> 작은 단위 **(버튼, 인풋, 텍스트, 체크 박스 등)** 부터 설계하였고, 이를 조합하여 상위 레벨의 컴포넌트를 만들어 나갔습니다. <br />
+> 그 결과 불필요한 중복을 줄이고, 기능 확장시에도 컴포넌트를 재활용할 수 있어 유지보수 부담이 줄어들었습니다.
+- **classnames 라이브러리**를 사용했습니다.
+  - 공통 컴포넌트를 재사용할 때, props로 다양한 옵션을 제어해야 하는 상황이 많았습니다.
+  - 이때 classnames 라이브러리를 활용해 조건부로 클래스를 깔끔하게 적용할 수 있었고, 코드 가독성과 유지보수성을 높일 수 있었습니다.
+ 
+- **CSS module** 을 사용하였습니다.
+  - 스타일을 컴포넌트 단위로 분리할 수 있어, 각 컴포넌트가 독립적으로 관리됩니다. **(전역 스타일과의 충돌을 방지)**
+  - CSS 파일이 컴포넌트와 함께 존재하므로, 코드 구조가 명확해지고 유지보수가 용이합니다.
 
-- [x] 에러
-  -[x] 에러메시지 출력
+<br />
 
-- [x] 성공
-  - [x] 에러메시지 없어진다.
-  - [x] 프로그래스바 11퍼 오른다.
+### 2. Atomic 디자인 패턴을 적용하여 개발하기
+> 회원가입 페이지를 개발할 때는 다음과 같이 **Atomic Design**을 적용했습니다.
+- **1. Atomic 단위**
+  - `Input`, `Button`, `Text`와 같은 최소 단위 컴포넌트를 먼저 구현했습니다.
+- **2. Molecules**
+  - 위의 Atomic 컴포넌트들을 조합하여 `Field`와 같은 **중간 단위 컴포넌트**를 만들었습니다.
 
-#### 가입하기 버튼
-- [x] 가입하기 버튼
-  - [x] 100이면 enabled가 된다.
-  - [x] 100이 아니면 disabled가 된다.
+- **3. Organisms**
+  - 여러 Field 컴포넌트를 조합하여 `Form`을 구성했습니다.
+
+- **4. Pages**
+  - 마지막으로 Organisms를 조합하여 **회원가입 페이지 전체**를 점진적으로 완성했습니다.
+
+
+<br />
+
+### 3. 컴파운드 컴포넌트 패턴을 사용하자
+> **Form의 Field**는 다음과 같은 요소로 구성되어 있습니다.
+
+- `Label`: 입력 필드의 제목
+- `Input`: 실제 입력을 받는 컴포넌트
+- `Error Label`: 유효성 검사 결과를 표시
+
+컴파운드 컴포넌트 패턴을 적용하여 **내부 상태를 Context**에서 관리하고, 자식 컴포넌트들은 Context를 통해 **인풋값과 에러 상태를 공유**하면서 독립적으로 UI를 렌더링합니다. <br />
+이 패턴을 적용하여 `Field` 컴포넌트를 구현한 결과, **회원가입 폼뿐만 아니라 로그인 폼에서도 동일한 Field 컴포넌트를 재사용**할 수 있었습니다. 즉, 추후 새로운 폼을 개발할 경우에도 해당 컴포넌트를 그대로 활용할 수 있어 **확장성**이 향상됩니다.
+
+<br />
+
+### 4. 컴포지션 패턴을 사용하자
+> 블로그 상세보기의 경우, 세부 요소를 나누어 보면 **Title, Category, CreateAt, Thumbnail** 등으로 구성되어 있습니다.  <br />
+> 저는 이것을 다음과 형식으로 설계했습니다. <br />
+
+``` javascript
+    <BlogDetail>
+      <BlogDetail.Category category={blog.category} />
+      <BlogDetail.Title>{blog.title}</BlogDetail.Title>
+      <BlogDetail.CreateAt value={blog.createdAt} />
+      <BlogDetail.Thumbnail title={blog.title} thumbnail={blog.thumbnail} />
+      <BlogDetail.Summary>{blog.summary}</BlogDetail.Summary>
+      <BlogDetail.Content blog={blog.content} />
+      <BlogDetail.Footer> <BlogDetailFooter /> </BlogDetail.Footer>
+    </BlogDetail>
+```
+
+이렇게 설계한 결과 얻을 수 있는 이점은 다음과 같습니다.
+- 필요에 따라 자식 컴포넌트를 선택적으로 조합 가능
+- UI 계층 구조를 직관적으로 표현 가능
+
+<br />
+
+### 5. 그 외
+> 저는 **확장성 있는 코드는 의존성이 적은 코드**라고 생각합니다. <br />
+> 그래서 컴포넌트를 외부에서 주입받도록 설계합니다. <br />
+> 예를 들어, 특정 슬롯(`header`, `content`, `footer`)에 넣을 컴포넌트를 외부에서 전달받거나, `children` props를 활용하여 **유연하게 구성**할 수 있도록 합니다. <br />
+
+<br />
+
+### 📝  API 우아하게 처리하기
+#### 1. suspense, react-error-boundary 사용하기
+> 블로그 배너 조회, 목록 조회, 상세 조회 등 **다양한 API 요청**이 존재합니다. <br />
+> 이러한 비동기 API 상태를 **우아하게 처리하고, 로딩과 에러 상황을 명확하게 관리**할 필요가 있었습니다.
+
+- **Suspense**를 사용하였습니다.
+  - **Skeleton UI**를 Suspense에 적용하여 **API 호출 중 로딩 상태**를 직관적으로 표시했습니다.
+  - **TanStack Query**를 연동하여, API 호출 로직과 비동기 처리 로직을 **컴포넌트와 분리**함으로써 유지보수성을 높였습니다.
+
+
+- **react-error-boundary 라이브러리**를 사용하였습니다.
+  - **TanStack Query**를 연동하여, API 호출 에러 로직을 **컴포넌트와 분리**함으로써 유지보수성을 높였습니다.
+  - API 호출 중 에러가 발생하면, `Error`라는 컴포넌트를 fallback UI로 렌더링하도록 하였습니다.
+
+``` javascript
+// Suspense를 Wrapping하는 고차 컴포넌트입니다.
+const BlogListWithSuspense = withSuspense(
+  BlogList,
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-15 mt-9 md:mt-10">
+    {Array.from({ length: 12 }).map((_, idx) => (
+      <BlogCardSkeleton key={idx} />
+    ))}
+  </div>
+);
+
+<HydrationBoundary state={dehydrate(queryClient)}>
+  <ErrorBoundary fallback={<Error type="Error" />}>
+    <BlogListWithSuspense />
+  </ErrorBoundary>
+  <Pagination />
+</HydrationBoundary>
+```
+
+<br />
+
+### 📝  에러 핸들링
+#### 1. react-error-boundary, error.tsx 사용하기
+> 웹 서비스에서는 **에러 핸들링이 매우 중요**하다고 생각하여, 이에 신경을 썼습니다.
+- **서버 컴포넌트**에서 API 처리는 `try-catch`문으로 처리하였고,
+- **클라이언트 컴포넌트**에서는 `react-error-boundary`를 활용하여 에러 발생 시 `fallback UI → (Error.tsx)`를 제공했습니다.
+- 또한, 예기치 못한 에러가 발생할 경우를 대비해 **최상위 루트에 error.tsx**를 만들어 전체 애플리케이션 수준에서 에러를 처리하도록 했습니다.
+
+
+<br />
+
+### 📝 상태 관리
+#### 1. 전역 상태 도구 jotai 사용하기
+> **페이지 단위나 전역 단위**에서 상태를 여러 컴포넌트가 공유해야 하는 경우 전역 상태 도구를 사용합니다. <br />
+> 전역 상태 관리를 적용해야 했던 경우는 **스낵바 메시지와 유저 정보**입니다. <br />
+> 
+> - **jotai**를 사용했습니다.
+>  - 간단한 전역 상태 관리에는 Jotai를 활용합니다. 그 이유는 번들 사이즈가 가장 작고, 사용법이 직관적이기 때문입니다.
+>  - 전역 상태 관리 도구를 사용함으로써 **Provider 지옥에서 벗어나 개발 가독성을 높일 수 있습니다.**
+
+#### 2. Context API 사용하기
+> 컴포넌트 단위에서 **props drilling**이 심할 경우에는 Context API를 사용합니다. <br />
+> Context API를 적용한 사례는 **프로그래스 상태와 Field 상태**입니다. <br />
+> Context API는 여러 상태를 복잡하게 관리할 경우 **불필요한 렌더링**이 발생할 수 있기 때문에, 주로 하> 나의 기능 단위에서 사용했습니다.
+> 
+> - **Context API**를 사용했습니다.
+>  - props drilling 문제를 해결하였습니다.
+
+#### 3. 서버 상태 관리하기
+> 저는 서버 상태, 즉 useQuery를 통해 가져오는 데이터를 관리하기 위해 **TanStack Query**를 사용합니다. <br />
+> 블로그 목록 데이터가 **서버 상태**로 관리되었습니다.
+>
+> - **TanStack Query**를 사용하였습니다.
+>  - 블로그 데이터 목록을 관리하여, **페이징 컴포넌트(BlogPagination.tsx)** 와 **요약 컴포넌트(BlogSearchSummary.tsx)** 등에서 공유할 수 있도록 하였습니다.
+>  - 캐싱 기능을 통해, **fresh 타임 동안 불필요한 API 호출이 발생하지 않도록** 하였습니다. 
   
+  <br />
+  
+### 📝 최적화
+#### 1. form 최적화
+> Form의 상태를 부모 컴포넌트에서 관리하면, 상태가 변경될 때마다 **매번 리렌더링**이 발생합니다. <br />
+> Form이 복잡하거나 무거워질 경우, 이는 **성능 문제**를 야기할 수 있습니다. <br />
+> 따라서 저는 Form 요소를 **최적화**하여 이러한 성능 이슈를 방지했습니다.
+  
+ - **리액트 훅 폼 라이브러리** 를 사용하였습니다.
+   - 성능을 최적화하였습니다.
+   - 코드 가독성을 향상하였습니다. 
+
+``` javascript
+  <Controller
+      name={name}
+      control={control}
+      rules={rules}
+      render={({ field, fieldState }) => (
+        <div className="flex flex-col gap-1">
+          {/* Label */}
+          <div className="flex items-center justify-between h-[32px]">
+            <Text
+              type="body"
+              size="3"
+              className="text-[var(--color-label-700)]"
+            >
+              {label}
+            </Text>
+...
+```
+
+  <br />
+
+#### 2. 서버 사이드 렌더링(SSR) 최적화
+> 기존에는 `router.push`를 사용하였고, 매번 서버에서 SSR을 수행했습니다. <br />
+> 하지만 매번 페이징이나 검색 요청마다 SSR을 수행하는 것은 **서버에 과도한 부담**을 줄 수 있다고 판단했습니다.
+
+- **초기 로딩 및 리로드 시 SSR, 그 이후 CSR을 하였습니다.**
+  - `router.push` 대신 `window.history.pushState`를 사용하여 URL은 변경되지만, 실제 서버 요청은 발생하지 않도록 처리했습니다.
+  - 서버에서 데이터를 **prefetch 후 dyhydrate** 하여 클라이언트로 보내주었습니다. 
+  - **hydrationBoundary**를 사용하여 서버에서 데이터를 클라이언트에서 **캐싱**하였습니다.
+  - 그 이후부터 CSR을 적용하였습니다.
+
+``` javascript
+// API prefetch 이후...
+
+<HydrationBoundary state={dehydrate(queryClient)}>
+  <ErrorBoundary fallback={<Error type="Error" />}>
+    <BlogListWithSuspense />
+  </ErrorBoundary>
+  <Pagination />
+</HydrationBoundary>
+```
+
+  <br />
+
+### 📝 SSR / ISR / SSG
+#### 1. SSG
+> 블로그 상세보기 페이지는 내용이 거의 변경되지 않습니다. <br />
+> 사용자가 내용을 수정할 경우, **revalidate API**를 호출하여 데이터를 재검증할 수 있습니다. <br />
+>  따라서 블로그 상세보기 페이지는 **SSG(Static Site Generation)** 방식으로 설계했습니다. 
+
+``` javascript
+// 데이터 캐시를 했지만, 동적 라우트 경로를 사용하고 있어서 자동으로 SSG 되지 않았습니다. 
+// 그래서 강제로 SSG 했습니다.
+
+export const dynamic = "force-static"
+```
+
+#### 2. SSR / ISR
+> 블로그 배너와 블로그 목록 조회 데이터는 수시로 변경됩니다. <br />
+> 상황에 따라 API 데이터를 캐싱할 수도 있지만, **no-cache** 전략으로 설계했습니다.
+
+ <br />
+
+### 📝  비즈니스 로직 분리하기
+#### 1. 커스텀 훅
+> 커스텀 훅을 구현하였으며, 그 중 **디바운스 훅**과 **유니크 값**을 반환하는 훅을 만들었습니다. <br />
+> 디바운스 훅은 입력창에서 **마지막 호출 시점에만 API가 호출**되도록 처리했습니다. <br />
+> 유니크 값 반환 훅은, 상태가 동일할 때 **강제로 랜더링**을 시키기 위해 만들었습니다.
+
+- **커스텀 훅**의 장점
+  - 비즈니스 로직을 재사용할 수 있습니다. 
+  - 컴포넌트로 부터 로직을 분리시킬 수 있습니다.
+
+``` javascript
+// 유니크 반환 커스텀 훅
+export function useUniqueValue<T extends string>() {
+  const [value, setValue] = useState<T | "">("");
+
+  const setUniqueValue = useCallback((val: T) => {
+    if (!val) return;
+    const random = Math.random().toString(36).substring(2, 8); 
+    setValue(`${val}_${random}` as T);
+  }, []);
 
 
-### 모달
-- [x] 회원가입 완료 시 모달 노출한다.
-- [x] 정산금 조회하면 메인 페이지로 이동한다.
+  const displayValue = value?.split("_")[0] ?? "";
+
+  return [displayValue, setUniqueValue, value] as const;
+}
+
+```
+
+
+#### 2. Tanstack-Query 커스텀 훅
+> 다양한 API를 호출해야 했습니다. <br />
+> 이때 **TanStack-Query**를 사용하여 API를 호출하고, 해당 쿼리 로직을 **커스텀 훅**으로 분리했습니다. <br />
+> 이렇게 한 이유는, 컴포넌트에서 **패칭 로직**을 분리하고, 성공 및 실패 처리 로직을 훅 안에 구현함으로써 **관심사를 분리**하기 위함입니다.
+
+``` javascript
+// 블로그 목록 조회 커스텀 훅
+
+export function useBlogsQuery() {
+    const searchParams = useSearchParams();
+  
+    const page = searchParams.get('page') ?? "";
+    const category = searchParams.get('category') ?? "";
+    const term = searchParams.get('term') ?? "";
+
+  return useSuspenseQuery({
+    queryKey: ["blogs", {page, category, term}],
+    queryFn: () => fetchBlogs({ page, category, term }),
+    staleTime: 1000 * 60, 
+  });
+}
+
+```
+
+
+#### 3. 그 외
+> **상수, 포맷팅 함수, 유효성 검사 함수**는 외부 함수로 분리하여 재사용하였습니다.
+
+``` javascript
+// 생일 포맷팅 함수
+export const formatBirth = (raw: string) => {
+    if (raw.length < 5) return raw;                // YYYY, YYYYM
+    if (raw.length < 7) return `${raw.slice(0,4)}-${raw.slice(4)}`; // YYYY-MM
+    return `${raw.slice(0,4)}-${raw.slice(4,6)}-${raw.slice(6,8)}`; // YYYY-MM-DD
+  }
+```
+
+<br />
+
+
+
+
+
+
+
+# 배운점
+## 1. 적절히 상태 관리하는 방법을 배웠습니다.
+- **전역 상태 관리 도구** 는 상태가 복잡하지 않거나 꼭 필요한 상황이 아니라면 굳이 사용할 필요가 없다는 것을 느꼈습니다.
+  - 오히려 전역 상태 관리 도구는 단방향 상태 흐름이 아니기 때문에, 에러를 추적하고 원인을 찾는 것이 어려울 수 있습니다.
+
+- **Context API** 는 하나의 문맥, 즉 연관된 기능 단위에서 **props drilling 문제** 를 해결할 때 사용하는 것이 적절합니다.
+  - 만약 여러 문맥이 섞여 공유되는 상태가 복잡해지면, 불필요한 리렌더링이 발생할 수 있기 때문입니다.
+  - props를 내려주는 것 자체를 지나치게 꺼릴 필요는 없다고 느꼈습니다.
+  - 오히려 단방향으로 데이터를 전달하는 구조가 에러 추적과 디버깅에 훨씬 유리합니다.
+
+- 서버 상태 관리는 **TanStack Query** 를 사용하는 것이 좋다고 느꼈습니다.
+  - 그 이유는 서버 데이터를 효율적으로 캐싱하고, 데이터 동기화와 에러 처리까지 편리하게 관리할 수 있기 때문입니다.
+
+## 2. API 호출 효과적으로 처리하기
+- Suspense
+  - Tanstack Query와 연동하여 사용하면 API 호출 동안에 스켈레톤 UI를 간편하게 보여줄 수 있습니다.
+
+- react-error-boundary
+  - Tanstack Query와 연동하여 사용하면 API 호출 동안에 발생하는 에러를 효과적으로 잡고 에러 UI를 쉽게 보여줄 수 있습니다.
+ 
+## 3. 코드 리팩토링
+- react-hook-form
+  - 리액트 훅 폼 라이브러리를 사용하면서 품의 성능을 최적화했습니다.
+  - 기존에는 ref를 사용하여 비제어 컴포넌트 방식으로 최적화를 시도했지만, 코드가 복잡해지고 가독성이 떨어진다는 단점을 느꼈습니다.
+  - 반면, React Hook Form과 같은 라이브러리는 이러한 문제를 효과적으로 해결해 주어 코드가 더 간결하고 관리하기 쉬워집니다.
+
+- useReducer
+  - 기존에는 state를 관리할 때 useState로 관리했습니다.
+  - 그러다보니까 복잡한 컴포넌트 같은 경우 useState가 굉장히 많아서 관리하기 힘들었습니다.
+  - 또한 상태변경 로직이 컴포넌트안에 있어 가독성, 유지보수성이 떨어졌습니다.
+  - useReducer는 연관된 상태를 하나로 관리하고, reducer 함수로 상태 변경 로직을 컴포넌트로 분리할 수 있습니다.
+
+
+## 4. 디자인 패턴
+제가 느낀 점은, 개발을 시작하기 전에 가장 작은 단위의 공통 컴포넌트를 먼저 작성하는 것이 유리하다는 것입니다.
+그 이유는 작은 단위의 컴포넌트를 조합하여 큰 컴포넌트를 만들고, 이를 기반으로 페이지를 구성할 수 있기 때문입니다.
+또한, 의존성을 분리하기 위해 props나 children 형태로 데이터를 전달하면 컴포넌트 간 결합도를 낮추고 재사용성을 높일 수 있습니다.
+ 
+
