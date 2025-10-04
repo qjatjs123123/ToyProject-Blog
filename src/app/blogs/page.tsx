@@ -19,7 +19,7 @@ export default async function Page({ searchParams }: SearchParamsProps) {
           <BlogTitle />
         </article>
 
-        <BlogBanner />
+        {/* <BlogBanner /> */}
 
         <article>
           <BlogNavigation />

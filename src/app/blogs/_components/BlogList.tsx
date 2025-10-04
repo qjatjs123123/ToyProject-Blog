@@ -13,6 +13,7 @@ import { useSearchParams } from "next/navigation";
 export default function BlogList() {
   const searchParams = useSearchParams();
   const { data } = useBlogsQuery();
+
   const term = searchParams.get('term') ?? "";
 
 

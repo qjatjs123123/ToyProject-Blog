@@ -22,7 +22,7 @@ function Button(props: Props) {
     className,
     ...rest
   } = props;
-    console.log("!2");
+
   return (
     <button
       type="button"

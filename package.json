@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@faker-js/faker": "^10.0.0",
     "@tanstack/react-query": "^5.85.5",
     "@tanstack/react-query-devtools": "^5.85.5",
     "@types/classnames": "^2.3.4",
@@ -31,7 +32,13 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
+    "msw": "^2.11.3",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

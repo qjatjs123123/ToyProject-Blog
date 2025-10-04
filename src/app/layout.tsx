@@ -5,6 +5,16 @@ import TanStackProvider from "./_provider/TanStackProvider";
 import { Snackbar } from "./_components/SnackUI";
 import { PortalProvider } from "./_provider/GlobalPortal";
 import Header from "./_components/Header";
+import { MSWProvider } from "./_components/MSWcomponent";
+
+if (process.env.NEXT_RUNTIME === 'nodejs' && process.env.NODE_ENV !== 'production') {
+  (async () => {
+    const { server } = await import('@/mocks/server')
+    server.listen()
+    console.log('[MSW] Server-side mock enabled')
+  })()
+}
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,12 +49,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TanStackProvider>
-          <Header />
-          <header className="w-full h-[60px]"></header>
-          <PortalProvider>{children}</PortalProvider>
-        </TanStackProvider>
-        <Snackbar />
+        <MSWProvider>
+          <TanStackProvider>
+            <Header />
+            <header className="w-full h-[60px]"></header>
+            <PortalProvider>{children}</PortalProvider>
+          </TanStackProvider>
+          <Snackbar />
+        </MSWProvider>
       </body>
     </html>
   );

@@ -22,6 +22,8 @@ export async function fetchBlogs({ page, category, term }: FetchBlogsParams) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/blogs?${params.toString()}`
   );
+  
+  console.log(res);
 
   if (!res.ok) {
     throw new Error("Failed to fetch blogs");
