@@ -1,7 +1,7 @@
 import { setupWorker } from 'msw/browser';
-import { handlers } from './handlers';
+import { blogHandlers } from '@/entities/blog/api/__mocks__/blogListHandler';
 
-export const worker = setupWorker(...handlers);
+export const worker = setupWorker(...blogHandlers);
 
 
 // 브라우저 환경에서 작동할 가짜 API 서버(service worker)를 초기화 하는 코드이다.

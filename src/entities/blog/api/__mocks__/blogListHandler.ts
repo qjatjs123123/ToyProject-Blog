@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 
 const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export const handlers = [
+export const blogHandlers = [
   http.get(`${baseUrl}/api/blogs`, ({ request }) => {
     const url = new URL(request.url);
     const page = Number(url.searchParams.get('page')) || 1;

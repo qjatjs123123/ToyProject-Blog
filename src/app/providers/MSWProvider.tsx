@@ -1,7 +1,7 @@
 'use client'
 
 import { Suspense, use } from 'react'
-import { handlers } from '@/mocks/handlers'
+import { blogHandlers } from '@/entities/blog/api/__mocks__/blogListHandler';
 
 const mockingEnabledPromise =
   typeof window !== 'undefined'
@@ -17,7 +17,7 @@ const mockingEnabledPromise =
           print.warning()
         },
       })
-      worker.use(...handlers);
+      worker.use(...blogHandlers);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (module as any).hot?.dispose(() => { worker.stop(); });
       console.log(worker.listHandlers())

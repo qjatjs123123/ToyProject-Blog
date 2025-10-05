@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+:root {
+  --color-background-default: #fff;
+  --color-background-alternative: #f5f6fa;
+  --color-component-dark: #23272e;
+  
+  /* font */
+  --text-body-1: 1rem;
+  --text-body-2: .9375rem;
+  --text-body-3: .875rem;
+  --text-title-1: 2rem;
+  --text-title-2: 1.625rem;
+  --text-title-3: 1.25rem;
+  --text-title-4: 1.125rem;
+  --text-caption-1 : 0.75rem;
+  
+  /* font bold */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* status */
+  --color-status-disable: #cbd5e1;
+  --color-status-correct: #07cc32;
+  --color-status-error: #ff2d2d;
+  
+  /* button color */
+  --color-primary : #18a0fb;
+  --color-secondary-300: #77c9ff;
+  --color-secondary-400: #2fadff;
+  --color-secondary-600: #0074d0;
+
+  /* border */
+  --color-line-200: #f3f4f6;
+  --color-line-400: #dfe3e8;
+
+  /* label */
+  --color-label-100: #f9fafb;
+  --color-label-200: #f3f4f6;
+  --color-label-500: #9ca3af;
+  --color-label-700: #6e747e;
+  --color-label-800: #32373f;
+  --color-label-900: #0d0e0e;
+
+  /* radius */
+  --radius-2xl: calc(1rem - 2px);
+  --radius-xl: calc(1rem - 4px);
+  --radius-lg: calc(1rem - 6px);
+  --radius-md: calc(1rem - 8px);
+  --radius-sm: calc(1rem - 10px);
+  --radius-xs: calc(1rem - 12px);
+}
+.custom-line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 2줄까지만 표시 */
+  overflow: hidden;
+}
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;   /* 모바일 기본 padding */
+  padding-right: 16px;
+}
+
+/* sm 이상 (640px ~) */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* md 이상 (768px ~) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* lg 이상 (1024px ~) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* xl 이상 (1280px ~) */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* 2xl 이상 (1536px ~) */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+* {
+  font-family: 'Pretendard', sans-serif;
+}

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import TanStackProvider from "../src/app_/_provider/TanStackProvider";
+import TanStackProvider from "../src/app/providers/TanStackProvider";
 import { Snackbar } from "../src/app_/_components/SnackUI";
-import { PortalProvider } from "../src/app_/_provider/GlobalPortal";
+import { PortalProvider } from "../src/app/providers/PortalProvider";
 import Header from "../src/app_/_components/Header";
 import { MSWProvider } from "../src/app_/_components/MSWcomponent";
 
