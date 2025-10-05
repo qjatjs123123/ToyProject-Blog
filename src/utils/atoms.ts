@@ -1,4 +1,4 @@
-import { User } from "@/app/sign-up/types/type";
+import { User } from "@/app_/sign-up/types/type";
 import { atom } from "jotai";
 
 const snackMsgAtom = atom("");

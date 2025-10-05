@@ -5,11 +5,21 @@ const nextConfig: NextConfig = {
   logging: {
     fetches: {
       fullUrl: true,
-    }
+    },
   },
 
   images: {
-    domains: ["s3-ap-northeast-2.amazonaws.com"], // 외부 도메인 허용
+    // 기존 허용 도메인 + 추가
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "s3-ap-northeast-2.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "picsum.photos", // ✅ 이 도메인 추가
+      },
+    ],
   },
 };
 
