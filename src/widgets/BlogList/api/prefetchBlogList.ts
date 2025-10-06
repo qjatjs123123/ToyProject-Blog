@@ -5,7 +5,7 @@ import { paramsProps } from "./types";
 
 export async function prefetchBlogList({ page, category, term }: paramsProps) {
   const queryClient = new QueryClient();
-  const queryKey = ["blogs", { page, category, term }];
+  const queryKey = ["blogs", page, category, term];
 
   await queryClient.prefetchQuery({
     queryKey,
@@ -18,5 +18,5 @@ export async function prefetchBlogList({ page, category, term }: paramsProps) {
     page: 1,
   };
 
-  return data;
+  return {data, queryClient};
 }

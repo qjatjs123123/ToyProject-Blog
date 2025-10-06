@@ -1,1 +1,1 @@
-export {SearchBlogButton} from './ui/SearchBlogButton';
+export {SearchBlogInput} from './ui/SearchBlogInput';
