@@ -1,7 +1,6 @@
 'use client';
 
-import Input from "@/app_/_components/Input";
-import Text from "@/app_/_components/Text";
+import { Text } from "@/shared/ui";
 import { useDebounce } from "@/app_/hooks/useDebounce";
 import { SearchBlogButton } from "@/features/blog/searchBlog";
 import { useCallback, useEffect, useState } from "react";
