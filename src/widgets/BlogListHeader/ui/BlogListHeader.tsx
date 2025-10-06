@@ -3,6 +3,7 @@
 import Input from "@/app_/_components/Input";
 import Text from "@/app_/_components/Text";
 import { useDebounce } from "@/app_/hooks/useDebounce";
+import { SearchBlogButton } from "@/features/blog/searchBlog";
 import { useCallback, useEffect, useState } from "react";
 
 export function BlogListHeader() {
@@ -51,15 +52,7 @@ export function BlogListHeader() {
         </Text>
       </h2>
       <div>
-        <Input
-          type="search"
-          placeholder="검색어를 입력해주세요"
-          error={false}
-          className="md:!w-[400px] lg:!w-[468px]"
-          value={term}
-          onChange={(e) => setTerm(e.target.value)}
-          onKeyDown={handleKeyDown}
-        />
+        <SearchBlogButton />
       </div>
     </header>
   );

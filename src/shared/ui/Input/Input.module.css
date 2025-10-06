@@ -1,0 +1,29 @@
+.input {
+  width: 100%;
+  outline: none;
+  border: 0.5px solid var(--color-line-200);
+  padding: 0 1rem;
+  height: 48px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-body-3);
+}
+.input[readonly] {
+  background-color: var(--color-background-alternative);
+}
+.input.error{
+  border: 0.5px solid var(--color-status-error);
+}
+
+
+.input[type="search"] {
+  padding-left: 3rem;
+}
+
+/* 포커스 */
+.input:focus {
+  border: 2px solid var(--color-label-900);
+}
+
+.input.error:focus {
+  border: 2px solid var(--color-status-error) 
+}
