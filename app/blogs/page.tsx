@@ -1,3 +1,4 @@
+import { BlogBannerList } from "@/widgets/BlogBannerList";
 import { BlogList } from "@/widgets/BlogList";
 import { prefetchBlogList } from "@/widgets/BlogList/api/prefetchBlogList";
 import { BlogListHeader } from "@/widgets/BlogListHeader";
@@ -25,8 +26,10 @@ export default async function Page({ searchParams }: SearchParamsProps) {
   return (
     <div>
       <BlogListHeader />
+      <BlogBannerList />
       <HydrationBoundary state={dehydrate(queryClient)}>
         <ErrorBoundary fallback={<div></div>}>
+
           <BlogList />
         </ErrorBoundary>
       </HydrationBoundary>

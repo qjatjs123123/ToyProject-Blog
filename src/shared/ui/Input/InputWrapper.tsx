@@ -1,3 +1,4 @@
+'use client'
 import { useState, ReactNode, ChangeEvent } from "react";
 
 interface InputRenderProps {

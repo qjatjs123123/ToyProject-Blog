@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, InputDebounceWrapper } from "@/shared/ui";
+import { Input, InputWrapper } from "@/shared/ui";
 import { SearchIcon } from "@/shared/ui";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
@@ -29,7 +29,7 @@ export function SearchBlogInput() {
   );
 
   return (
-    <InputDebounceWrapper delay={500}>
+    <InputWrapper>
       {({ value, onChange }) => (
         <div className="relative w-full">
           <div className="absolute top-1/2 transform -translate-y-1/2 left-5 pointer ">
@@ -45,6 +45,6 @@ export function SearchBlogInput() {
           />
         </div>
       )}
-    </InputDebounceWrapper>
+    </InputWrapper>
   );
 }
