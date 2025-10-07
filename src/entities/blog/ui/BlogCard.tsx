@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import Text from "@/app_/_components/Text";
-import { BlogCard as BlogCardType} from "../model/types";
+import { BlogCard as BlogCardType } from "../model/types";
+import { ImageSkeleton, ImageSkeletonWrapper } from "@/shared/ui";
 
 interface Params {
   data: BlogCardType;
@@ -12,7 +13,7 @@ export default function BlogCard({ data }: Params) {
     <Link href={`/blogs/${data.id}`}>
       <div className="flex flex-col gap-2">
         <div className="relative aspect-[2/1] overflow-hidden rounded-2xl">
-          <Image src={data.thumbnail} loading="lazy" alt={data.title} fill/>
+          <ImageSkeletonWrapper data={data} Skeleton={<ImageSkeleton />} />
         </div>
         <p>
           <Text
