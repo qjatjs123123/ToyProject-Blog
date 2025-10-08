@@ -1,5 +1,5 @@
 'use client'
-import { useState, ReactNode, ChangeEvent } from "react";
+import { useState, ReactNode, ChangeEvent, useEffect } from "react";
 
 interface InputRenderProps {
   value: string;
@@ -8,10 +8,15 @@ interface InputRenderProps {
 
 interface InputProps {
   children: (props: InputRenderProps) => ReactNode;
+  initialValue?: string;
 }
 
-export function InputWrapper({ children }: InputProps) {
+export function InputWrapper({ children, initialValue = "" }: InputProps) {
   const [value, setValue] = useState("");
+
+  useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);

@@ -5,7 +5,7 @@ import { SearchBlogInput } from "@/features/blog/searchBlog";
 
 export function BlogListHeader() {
   return (
-    <header className="flex flex-col justify-between md:flex-row gap-6">
+    <header className="flex flex-col justify-between md:flex-row gap-6 pb-10 pt-[24px] md:pt-[40px] lg:pt-[80px]">
       <h2>
         <Text type="title" size="1" weight="bold">
           블로그

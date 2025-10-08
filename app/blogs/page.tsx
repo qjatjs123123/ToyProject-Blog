@@ -26,10 +26,10 @@ export default async function Page({ searchParams }: SearchParamsProps) {
 
   return (
     <Layout>
+      <BlogListHeader />
+      <BlogBannerList />
       <HydrationBoundary state={dehydrate(queryClient)}>
         <ErrorBoundary fallback={<div></div>}>
-          <BlogListHeader />
-          <BlogBannerList />
           <BlogCategoryList />
           <BlogList />
         </ErrorBoundary>

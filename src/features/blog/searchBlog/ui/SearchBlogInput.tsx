@@ -1,13 +1,16 @@
 "use client";
 
+import { CATEGORY, PAGE, TERM } from "@/entities/blog";
 import { Input, InputWrapper } from "@/shared/ui";
 import { SearchIcon } from "@/shared/ui";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 
 export function SearchBlogInput() {
   const router = useRouter();
-  
+  const searchParams = useSearchParams();
+  const term = searchParams?.get(TERM) ?? "";
+
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Enter") {
@@ -15,12 +18,12 @@ export function SearchBlogInput() {
         const value = (e.target as HTMLInputElement).value;
 
         if (value) {
-          params.set("term", value);
+          params.set(TERM, value);
         } else {
-          params.delete("term");
+          params.delete(TERM);
         }
-        params.delete("page");
-
+        params.delete(CATEGORY);
+        params.delete(PAGE);
         const newUrl = `${window.location.pathname}?${params.toString()}`;
         router.replace(newUrl);
       }
@@ -29,7 +32,7 @@ export function SearchBlogInput() {
   );
 
   return (
-    <InputWrapper>
+    <InputWrapper initialValue = {term}>
       {({ value, onChange }) => (
         <div className="relative w-full">
           <div className="absolute top-1/2 transform -translate-y-1/2 left-5 pointer ">

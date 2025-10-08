@@ -1,31 +1,31 @@
+import { CATEGORY, PAGE, TERM } from "@/entities/blog";
 import { Text } from "@/shared/ui";
 import classname from "classnames";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 interface CategoryBlogButtonProps {
   title: string;
   tabCategory: string;
-  activeTab: string;
-  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
+
 }
 
 export function CategoryBlogButton({
   title,
   tabCategory,
-  activeTab,
-  setActiveTab,
 }: CategoryBlogButtonProps) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const activeTab = searchParams?.get(CATEGORY) ?? "";
 
   const handleTabClick = (tabCategory: string) => {
-    setActiveTab(tabCategory);
-
     const params = new URLSearchParams(window.location.search);
-    if (tabCategory) params.set("category", tabCategory);
-    else params.delete("category");
+    
+    if (tabCategory) params.set(CATEGORY, tabCategory);
+    else params.delete(CATEGORY);
 
-    params.delete("page");
+    params.delete(TERM);
+    params.delete(PAGE);
     const newUrl = `${window.location.pathname}?${params.toString()}`;
     router.replace(newUrl);
   };
