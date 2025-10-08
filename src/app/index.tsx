@@ -7,7 +7,6 @@ export default function App({ children } : { children : ReactNode }) {
   return (
     <MSWProvider>
       <TanStackProvider>
-        App
         <PortalProvider>{children}</PortalProvider>
       </TanStackProvider>
     </MSWProvider>

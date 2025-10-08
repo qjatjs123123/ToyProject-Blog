@@ -3,6 +3,7 @@ import { BlogCategoryList } from "@/widgets/Blog/BlogCategoryList";
 import { BlogList } from "@/widgets/Blog/BlogList";
 import { prefetchBlogList } from "@/widgets/Blog/BlogList/api/prefetchBlogList";
 import { BlogListHeader } from "@/widgets/Blog/BlogListHeader";
+import { Layout } from "@/widgets/Layout";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { ErrorBoundary } from "react-error-boundary";
 
@@ -24,15 +25,15 @@ export default async function Page({ searchParams }: SearchParamsProps) {
   });
 
   return (
-    <div>
+    <Layout>
       <HydrationBoundary state={dehydrate(queryClient)}>
         <ErrorBoundary fallback={<div></div>}>
           <BlogListHeader />
           <BlogBannerList />
-          <BlogCategoryList/>
+          <BlogCategoryList />
           <BlogList />
         </ErrorBoundary>
       </HydrationBoundary>
-    </div>
+    </Layout>
   );
 }
