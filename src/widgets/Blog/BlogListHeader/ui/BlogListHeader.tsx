@@ -1,7 +1,7 @@
 'use client';
 
 import { Text } from "@/shared/ui";
-import { SearchBlogInput } from "@/features/blog/searchBlog";
+import { SearchBlogInput } from "@/features/blog/termInQuery";
 
 export function BlogListHeader() {
   return (
