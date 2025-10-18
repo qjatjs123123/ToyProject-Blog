@@ -1,19 +1,17 @@
-'use client'
-
-import { useRouter } from "next/navigation";
-import { goPage } from "../model/actions";
+"use client";
+import { useChangePageQuery } from "../model/actions";
 
 interface PageButtonProps {
   page: number;
   currentPage: number;
 }
 
-export function PageButton({page, currentPage} : PageButtonProps) {
-  const router = useRouter();
+export function PageButton({ page, currentPage }: PageButtonProps) {
+  const changePageQuery = useChangePageQuery();
 
   return (
     <button
-      onClick={() => goPage(page, router)}
+      onClick={() => changePageQuery(page)}
       className={`px-3 py-1 rounded-full cursor-pointer ${
         currentPage === page
           ? "bg-[#f1f5f9] text-[var(--color-label-900)] font-bold"

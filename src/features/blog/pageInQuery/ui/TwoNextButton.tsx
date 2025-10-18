@@ -1,4 +1,3 @@
-
 import TwoRightIcon from "@/shared/ui/Icon/TwoRightIcon";
 
 interface TwoNextButtonProps {

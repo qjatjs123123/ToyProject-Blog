@@ -8,7 +8,7 @@ export function useGetPageList() {
   const { data } = useGetBlogsList();
   const { page, totalPages } = data;
   const searchParams = useSearchParams();
-  const currentPage = Number(searchParams?.get(PAGE)) ?? 1;
+  const currentPage = searchParams?.get(PAGE) ? Number(searchParams?.get(PAGE)) : 1;
   const groupIndex = Math.floor((page - 1) / buttonCnt);
 
   const startPage = groupIndex * buttonCnt + 1;

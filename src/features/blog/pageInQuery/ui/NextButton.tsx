@@ -1,21 +1,24 @@
 import RightIcon from "@/shared/ui/Icon/RightIcon";
+import { useChangePageQuery } from "../model/actions";
 
 interface NextButtonProps {
-  page: number;
+  currentPage: number;
   totalPages: number;
 }
 
-export function NextButton({page, totalPages}: NextButtonProps) {
+export function NextButton({ currentPage, totalPages }: NextButtonProps) {
+  const changePageQuery = useChangePageQuery();
+
   return (
     <button
-      disabled={page === totalPages}
-      // onClick={goNext}
+      disabled={currentPage === totalPages}
+      onClick={() => changePageQuery(currentPage + 1)}
       className={`px-2 py-1 rounded cursor-pointer ${
-       page === totalPages &&
+        currentPage === totalPages &&
         "!text-[var(--color-status-disable)] cursor-not-allowed"
       }`}
     >
-      <RightIcon color={page=== totalPages ? "#cbd5e1" : "black"} />
+      <RightIcon color={currentPage === totalPages ? "#cbd5e1" : "black"} />
     </button>
   );
 }

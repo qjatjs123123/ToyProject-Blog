@@ -1,16 +1,43 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 
+import { useRouter, usePathname } from "next/navigation";
+import { useCallback } from "react";
 
-function changePageQuery(page: number, router: any) {
-  const params = new URLSearchParams(window.location.search);
-  if (page > 1) {
-    params.set("page", page.toString());
-  } else {
-    params.delete("page");
-  }
-  const newUrl = `${window.location.pathname}?${params.toString()}`;
-  router.replace(newUrl);
+export function useChangePageQuery() {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const changePageQuery = useCallback(
+    (page: number) => {
+      const params = new URLSearchParams(window.location.search);
+
+      if (page > 1) {
+        params.set("page", page.toString());
+      } else {
+        params.delete("page");
+      }
+
+      const newUrl = `${pathname}?${params.toString()}`;
+      router.replace(newUrl);
+    },
+    [router, pathname]
+  );
+
+  return changePageQuery;
 }
 
-export const goPage = (page: number, router: any) =>
-  changePageQuery(page, router);
+
+
+// function changePageQuery(page: number, router: any) {
+//   const params = new URLSearchParams(window.location.search);
+//   if (page > 1) {
+//     params.set("page", page.toString());
+//   } else {
+//     params.delete("page");
+//   }
+//   const newUrl = `${window.location.pathname}?${params.toString()}`;
+//   router.replace(newUrl);
+// }
+
+// export const goPage = (page: number, router: any) =>
+//   changePageQuery(page, router);

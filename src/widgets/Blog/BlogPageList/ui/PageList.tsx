@@ -17,7 +17,7 @@ export function PageList() {
       {pageNumbers.map((page) => (
         <PageButton key={page} page={page} currentPage={currentPage} />
       ))}
-      <NextButton page={0} totalPages={totalPages} />
+      <NextButton currentPage={currentPage} totalPages={totalPages} />
       <TwoNextButton page={currentPage} totalPages={totalPages} />
     </div>
   );
