@@ -3,9 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import App from "../src/app/index";
 import "../src/app/styles/globals.css";
 
-if (
-  process.env.NEXT_RUNTIME === "nodejs" 
-) {
+if (typeof window === "undefined") {
   (async () => {
     const { server } = await import("@/mocks/server");
     server.listen({
