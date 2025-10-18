@@ -1,1 +1,1 @@
-export { BlogBannerList } from "./ui/BlogBannerList"
+export { BlogBanner } from './ui/BlogBanner'

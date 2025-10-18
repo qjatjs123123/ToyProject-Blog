@@ -1,9 +1,9 @@
-import { BlogBannerList } from "@/widgets/Blog/BlogBannerList";
+import { BlogBanner } from "@/widgets/Blog/BlogBannerList";
 import { BlogCategoryList } from "@/widgets/Blog/BlogCategoryList";
 import { BlogList } from "@/widgets/Blog/BlogList";
 import { prefetchBlogList } from "@/widgets/Blog/BlogList/api/prefetchBlogList";
 import { BlogListHeader } from "@/widgets/Blog/BlogListHeader";
-import { PageList } from "@/widgets/Blog/BlogPageList/ui/PageList";
+import { PageList } from "@/widgets/Blog/BlogPageList";
 import { Layout } from "@/widgets/Layout";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { ErrorBoundary } from "react-error-boundary";
@@ -28,7 +28,7 @@ export default async function Page({ searchParams }: SearchParamsProps) {
   return (
     <Layout>
       <BlogListHeader />
-      <BlogBannerList />
+      <BlogBanner term={term}/>
       <HydrationBoundary state={dehydrate(queryClient)}>
         <ErrorBoundary fallback={<div></div>}>
           <BlogCategoryList />
