@@ -1,16 +1,22 @@
+import { GroupingProps } from "@/entities/blog/model/types";
 import TwoLeftIcon from "@/shared/ui/Icon/TwoLeftIcon";
+import { useChangePageQuery } from "../model/actions";
 
 interface TwoPrevButtonProps {
-  page: number;
+  grouping: GroupingProps;
 }
 
-export function TwoPrevButton({ page }: TwoPrevButtonProps) {
+export function TwoPrevButton({ grouping }: TwoPrevButtonProps) {
+  const { currentGroupIndex, getStartPageByGroup } = grouping;
+    const newStartPage = getStartPageByGroup(currentGroupIndex - 1);
+    const changePageQuery = useChangePageQuery();
+
   return (
     <button
-      disabled={Math.floor((page - 1) / 5) === 0}
-      // onClick={goFirst}
+      disabled={currentGroupIndex === 0}
+      onClick={() => changePageQuery(newStartPage)}
       className={`px-2 py-1 rounded cursor-pointer ${
-        Math.floor((page - 1) / 5) === 0 &&
+        currentGroupIndex === 0 &&
         "text-[var(--color-status-disable)] cursor-not-allowed"
       }`}
     >

@@ -12,7 +12,7 @@ export function PageList() {
 
   return (
     <div className="flex items-center gap-2 justify-center mt-[50px] pb-[50px]">
-      <TwoPrevButton page={pagination.currentPage} />
+      <TwoPrevButton grouping={grouping} />
       <PrevButton pagination={pagination} />
       {pagination.pageNumbers.map((page: number) => (
         <PageButton
