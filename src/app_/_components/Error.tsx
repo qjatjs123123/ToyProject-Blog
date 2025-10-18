@@ -1,17 +1,26 @@
 import Image from "next/image";
 import Text from "./Text";
-import Link from "next/link";
 
 interface ErrorProps {
-  type: "Error" | "Empty";
+  image: string;
+  title: string;
+  content: string;
+  alt: string;
+  children?: React.ReactNode;
 }
 
-export default function Error({ type }: ErrorProps) {
-  const title = type === "Error" ? "다시 시도해주세요" : "검색 결과가 없어요";
-  const content =
-    type === "Error"
-      ? "서버에 잠깐 문제가 생겼어요"
-      : "아래와 같은 단어로 다시 검색해보세요";
+export default function Error({
+  image,
+  alt,
+  title,
+  content,
+  children,
+}: ErrorProps) {
+  // const title = type === "Error" ? "다시 시도해주세요" : "검색 결과가 없어요";
+  // const content =
+  //   type === "Error"
+  //     ? "서버에 잠깐 문제가 생겼어요"
+  //     : "아래와 같은 단어로 다시 검색해보세요";
 
   return (
     <div className="flex flex-col items-center py-[50px]">
@@ -22,8 +31,8 @@ export default function Error({ type }: ErrorProps) {
     lg:w-[100px] lg:h-[100px] mb-[20px]"
       >
         <Image
-          src="/empty-box.webp"
-          alt="빈 공간"
+          src={image}
+          alt={alt}
           fill
           className="object-cover rounded"
         />
@@ -42,13 +51,14 @@ export default function Error({ type }: ErrorProps) {
           {content}
         </Text>
 
-        {type === "Empty" && (
+        {children}
+        {/* {type === "Empty" && (
           <div className="flex text-[var(--color-primary)] text-[0.875.rem] font-semibold gap-3 justify-center">
             <Link href={"/blogs?term=트렌드"}>트렌드</Link>
             <Link href={"/blogs?term=올라소식"}>올라소식</Link>
             <Link href={"/blogs?term=이커머스"}>이커머스</Link>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

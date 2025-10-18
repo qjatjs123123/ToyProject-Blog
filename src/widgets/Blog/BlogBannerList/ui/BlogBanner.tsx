@@ -1,3 +1,4 @@
+import { validateShowBanner } from "../lib/validateShowBanner";
 import { BlogBannerList } from "./BlogBannerList";
 
 interface BlogBannerProps {
@@ -5,5 +6,5 @@ interface BlogBannerProps {
 }
 
 export async function BlogBanner({ term }: BlogBannerProps) {
-  return term ? null : <BlogBannerList />;
+  return validateShowBanner(term) ? null : <BlogBannerList />;
 }

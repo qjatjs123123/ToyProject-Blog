@@ -7,7 +7,7 @@ import { PrevButton } from "@/features/blog/pageInQuery/ui/PrevButton";
 import { NextButton } from "@/features/blog/pageInQuery/ui/NextButton";
 import { TwoNextButton } from "@/features/blog/pageInQuery/ui/TwoNextButton";
 
-export function PageList() {
+export function Pagination() {
   const { pagination, grouping } = useGetPagiNation();
 
   return (

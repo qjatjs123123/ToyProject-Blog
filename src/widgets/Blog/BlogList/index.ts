@@ -1,1 +1,1 @@
-export { BlogList } from "./ui/BlogList";
+export { BlogContent } from "./ui/BlogContent";

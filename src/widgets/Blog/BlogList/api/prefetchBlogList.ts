@@ -16,7 +16,10 @@ export async function prefetchBlogList({ page, category, term }: paramsProps) {
     list: [],
     totalPages: 1,
     page: 1,
+    totalCount: 0
   };
 
-  return {data, queryClient};
+  console.log(data);
+
+  return { totalPages: data.totalCount, queryClient };
 }
