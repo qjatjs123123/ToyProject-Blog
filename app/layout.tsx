@@ -4,8 +4,7 @@ import App from "../src/app/index";
 import "../src/app/styles/globals.css";
 
 if (
-  process.env.NEXT_RUNTIME === "nodejs" &&
-  process.env.NODE_ENV !== "production"
+  process.env.NEXT_RUNTIME === "nodejs" 
 ) {
   (async () => {
     const { server } = await import("@/mocks/server");
@@ -15,6 +14,19 @@ if (
     console.log("[MSW] Server-side mock enabled");
   })();
 }
+
+// if (
+//   process.env.NEXT_RUNTIME === "nodejs" &&
+//   process.env.NODE_ENV !== "production"
+// ) {
+//   (async () => {
+//     const { server } = await import("@/mocks/server");
+//     server.listen({
+//       onUnhandledRequest: "bypass",
+//     });
+//     console.log("[MSW] Server-side mock enabled");
+//   })();
+// }
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
