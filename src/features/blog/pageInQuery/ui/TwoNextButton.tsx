@@ -1,17 +1,22 @@
 import TwoRightIcon from "@/shared/ui/Icon/TwoRightIcon";
+import { GroupingProps } from "@/widgets/Blog/BlogPageList/model/type";
+import { useChangePageQuery } from "../model/actions";
 
 interface TwoNextButtonProps {
-  page: number;
-  totalPages: number;
+  grouping: GroupingProps;
 }
 
-export function TwoNextButton({ page, totalPages }: TwoNextButtonProps) {
+export function TwoNextButton({ grouping }: TwoNextButtonProps) {
+  const { currentGroupIndex, lastGroupIndex, getStartPageByGroup } = grouping;
+  const newStartPage = getStartPageByGroup(currentGroupIndex + 1);
+  const changePageQuery = useChangePageQuery();
+
   return (
     <button
-      disabled={Math.floor((page - 1) / 5) === Math.floor((totalPages - 1) / 5)}
-      // onClick={goLast}
+      disabled={currentGroupIndex === lastGroupIndex}
+      onClick={() => changePageQuery(newStartPage)}
       className={`px-2 py-1 rounded cursor-pointer ${
-        Math.floor((page - 1) / 5) === Math.floor((totalPages - 1) / 5) &&
+        currentGroupIndex === lastGroupIndex &&
         "text-[var(--color-status-disable)] cursor-not-allowed"
       }`}
     >

@@ -8,17 +8,21 @@ import { NextButton } from "@/features/blog/pageInQuery/ui/NextButton";
 import { TwoNextButton } from "@/features/blog/pageInQuery/ui/TwoNextButton";
 
 export function PageList() {
-  const { currentPage, pageNumbers, totalPages } = useGetPageList();
+  const { pagination, grouping } = useGetPageList();
 
   return (
     <div className="flex items-center gap-2 justify-center mt-[50px] pb-[50px]">
-      <TwoPrevButton page={currentPage} />
-      <PrevButton page={currentPage} />
-      {pageNumbers.map((page) => (
-        <PageButton key={page} page={page} currentPage={currentPage} />
+      <TwoPrevButton page={pagination.currentPage} />
+      <PrevButton page={pagination.currentPage} />
+      {pagination.pageNumbers.map((page: number) => (
+        <PageButton
+          key={page}
+          page={page}
+          currentPage={pagination.currentPage}
+        />
       ))}
-      <NextButton currentPage={currentPage} totalPages={totalPages} />
-      <TwoNextButton page={currentPage} totalPages={totalPages} />
+      <NextButton pagination={pagination} />
+      <TwoNextButton grouping={grouping} />
     </div>
   );
 }
