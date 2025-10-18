@@ -1,6 +1,6 @@
 import RightIcon from "@/shared/ui/Icon/RightIcon";
 import { useChangePageQuery } from "../model/actions";
-import { PageNationProps } from "@/widgets/Blog/BlogPageList/model/type";
+import { PageNationProps } from "@/entities/blog/model/types";
 
 interface NextButtonProps {
   pagination : PageNationProps

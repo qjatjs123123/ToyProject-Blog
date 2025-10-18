@@ -1,12 +1,14 @@
-import { PAGE, useGetBlogsList } from "@/entities/blog";
+'use client'
+
+import { useGetBlogsList } from "@/entities/blog";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { getCurrentPage } from "../lib/action";
-import { PageListProps } from "./type";
+import { PageListProps } from "./types";
 
 const buttonCnt = 5;
 
-export function useGetPageList(): PageListProps {
+export function useGetPagiNation(): PageListProps {
   const { data } = useGetBlogsList();
   const { page, totalPages } = data;
   const searchParams = useSearchParams();

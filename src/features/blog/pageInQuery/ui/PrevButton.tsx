@@ -1,17 +1,21 @@
 import LeftIcon from "@/shared/ui/Icon/LeftIcon";
-import RightIcon from "@/shared/ui/Icon/RightIcon";
+import { useChangePageQuery } from "../model/actions";
+import { PageNationProps } from "@/entities/blog/model/types";
 
 interface PrevButtonProps {
-  page: number;
+  pagination: PageNationProps
 }
 
-export function PrevButton({ page }: PrevButtonProps) {
+export function PrevButton({ pagination }: PrevButtonProps) {
+  const changePageQuery = useChangePageQuery();
+  const { currentPage } = pagination;
+
   return (
     <button
-      disabled={page === 1}
-      // onClick={goPrev}
+      disabled={currentPage === 1}
+      onClick={() => changePageQuery(currentPage - 1)}
       className={`px-2 py-1 rounded cursor-pointer ${
-        page === 1 && "text-[var(--color-status-disable)] cursor-not-allowed"
+        currentPage === 1 && "text-[var(--color-status-disable)] cursor-not-allowed"
       }`}
     >
       <LeftIcon />
