@@ -1,5 +1,5 @@
 import TwoRightIcon from "@/shared/ui/Icon/TwoRightIcon";
-import { GroupingProps } from "@/entities/blog/model/types";
+import { GroupingProps } from "@/entities/blog";
 import { useChangePageQuery } from "../model/actions";
 
 interface TwoNextButtonProps {

@@ -1,9 +1,9 @@
 "use client";
 
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { getBlogList } from "../api/getBlogList";
+import { getBlogList } from "../api/get-blog-list";
 import { useSearchParams } from "next/navigation";
-import { CATEGORY, PAGE, TERM } from "./constants";
+import { CATEGORY, PAGE, TERM } from "../config/constants";
 
 export function useGetBlogsList() {
   const searchParams = useSearchParams();

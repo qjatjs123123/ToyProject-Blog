@@ -1,6 +1,6 @@
 import LeftIcon from "@/shared/ui/Icon/LeftIcon";
 import { useChangePageQuery } from "../model/actions";
-import { PageNationProps } from "@/entities/blog/model/types";
+import { PageNationProps } from "@/entities/blog";
 
 interface PrevButtonProps {
   pagination: PageNationProps

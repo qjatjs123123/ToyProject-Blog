@@ -3,10 +3,10 @@
 import { useGetBlogsList } from "@/entities/blog";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useMemo } from "react";
-import { getCurrentPage } from "../lib/action";
-import { PageListProps } from "./types";
+import { getCurrentPage } from "../lib/getCurrentPage";
+import { PageListProps } from "@/entities/blog";
+import { buttonCnt } from "../config/constants";
 
-const buttonCnt = 5;
 
 export function useGetPagiNation(): PageListProps {
   const { data } = useGetBlogsList();

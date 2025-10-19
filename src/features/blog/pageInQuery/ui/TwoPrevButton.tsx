@@ -1,4 +1,4 @@
-import { GroupingProps } from "@/entities/blog/model/types";
+import { GroupingProps } from "@/entities/blog";
 import TwoLeftIcon from "@/shared/ui/Icon/TwoLeftIcon";
 import { useChangePageQuery } from "../model/actions";
 

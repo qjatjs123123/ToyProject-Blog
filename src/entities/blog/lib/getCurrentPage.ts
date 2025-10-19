@@ -1,4 +1,4 @@
-import { PAGE } from "@/entities/blog/model/constants";
+import { PAGE } from "@/entities/blog/config/constants";
 
 // 
 export function getCurrentPage(searchParams: URLSearchParams | null) {

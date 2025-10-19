@@ -1,5 +1,5 @@
 "use client";
-import { blogNavigationData } from "@/entities/blog/model/constants";
+import { blogNavigationData } from "@/entities/blog/config/constants";
 import { CategoryBlogButton } from "@/features/blog/categoryInQuery";
 
 export function BlogCategoryList() {

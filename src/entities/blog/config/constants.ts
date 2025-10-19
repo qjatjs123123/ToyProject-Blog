@@ -13,3 +13,4 @@ export const PAGE = "page";
 
 export const queryParameter = [CATEGORY, TERM, PAGE];
 
+export const buttonCnt = 5;
