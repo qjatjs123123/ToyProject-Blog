@@ -9,9 +9,9 @@ export const metadata = {
 type Props = { children: ReactNode };
 export default function Layout({ children }: Props) {
   return (
-    <>
+    <div className="mt-[100px]">
       {children}
       <Footer />
-    </>
+    </div>
   );
 }

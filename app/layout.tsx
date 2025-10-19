@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import App from "../src/app/index";
 import "../src/app/styles/globals.css";
 import { Toast } from "@/shared/ui";
+import { Header } from "@/widgets/Header";
 
 if (typeof window === "undefined") {
   (async () => {
@@ -61,6 +62,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <App>
+          <Header />
           {children}
           <Toast />
         </App>
