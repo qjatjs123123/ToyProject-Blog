@@ -2,7 +2,6 @@
 
 import { Suspense, use } from 'react'
 import { blogHandlers } from '@/entities/blog/api/__mocks__/get-blog-list-handler';
-import { blogDetailHandlers } from '../../entities/blog/api/__mocks__/get-blog-detail-handler';
 
 const mockingEnabledPromise =
   typeof window !== 'undefined'
@@ -18,7 +17,7 @@ const mockingEnabledPromise =
           print.warning()
         },
       })
-      worker.use(...blogHandlers, ...blogDetailHandlers);
+      worker.use(...blogHandlers);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (module as any).hot?.dispose(() => { worker.stop(); });
       console.log(worker.listHandlers())
