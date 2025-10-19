@@ -1,3 +1,4 @@
+export { Toast } from "./Toast/ui/Toast";
 export { ImageSkeletonWrapper } from "./Image/ImageSkeletonWrapper";
 export { ImageSkeleton } from "./Image/ImageSkeleton";
 export { SearchIcon } from "./Icon/SearchIcon";

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import App from "../src/app/index";
 import "../src/app/styles/globals.css";
+import { Toast } from "@/shared/ui";
 
 if (typeof window === "undefined") {
   (async () => {
@@ -59,7 +60,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <App>{children}</App>
+        <App>
+          {children}
+          <Toast />
+        </App>
       </body>
     </html>
   );

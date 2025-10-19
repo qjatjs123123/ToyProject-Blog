@@ -5,7 +5,7 @@ import { useState } from "react";
 import Text from "@/app_/_components/Text";
 import Link from "next/link";
 import { useAtom } from "jotai";
-import { snackMsg } from "@/utils/atoms";
+import { toastMessage } from "@/shared/ui/Toast/model/action";
 
 interface CopyLinkProps {
   url?: string; // 기본값은 현재 페이지
@@ -13,7 +13,7 @@ interface CopyLinkProps {
 
 export default function BlogDetailFooter({ url }: CopyLinkProps) {
   const [copied, setCopied] = useState(false);
-  const [, setSnackMsg] = useAtom(snackMsg);
+  const [, setSnackMsg] = useAtom(toastMessage);
   const linkToCopy =
     url || typeof window !== "undefined" ? window.location.href : "";
 
