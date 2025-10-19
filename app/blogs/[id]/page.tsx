@@ -3,6 +3,7 @@ import { getBlogDetail } from "@/entities/blog/api/get-blog-detail";
 import RightIcon from "@/shared/ui/Icon/RightIcon";
 import Link from "next/link";
 import Image from "next/image";
+import { DetailFooter } from "@/widgets/Detail/DetailFooter";
 
 interface SearchParamsProps {
   params?: Promise<{ id: string }>;
@@ -46,6 +47,8 @@ export default async function Page({ params }: SearchParamsProps) {
         className="prose max-w-none prose-img:rounded-lg prose-h2:text-xl prose-h3:text-lg prose-p:leading-relaxed"
         dangerouslySetInnerHTML={{ __html: content }}
       />
+
+      <DetailFooter />
     </div>
   );
 }
