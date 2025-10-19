@@ -1,4 +1,4 @@
-export interface BlogDetail {
+export interface BlogDetailDTO {
   id: number;
   category: string; // TIP, NEWS 등 카테고리
   title: string;

@@ -1,6 +1,12 @@
 import { mapBlogList } from "../lib/mapBlogList";
-import { BlogListDTO, FetchBlogsParams } from "./types";
+import { BlogListDTO } from "./dto/get-blog-list-DTO";
 
+
+export interface FetchBlogsParams {
+  page?: string;
+  category?: string;
+  term?: string;
+}
 export async function getBlogList({ page, category, term }: FetchBlogsParams) {
   const params = new URLSearchParams();
   if (page) params.append("page", page);
@@ -16,6 +22,6 @@ export async function getBlogList({ page, category, term }: FetchBlogsParams) {
     throw new Error("Failed to fetch blogs");
   }
 
-  const data: BlogListDTO = await res.json(); 
-  return mapBlogList(data);                    
+  const data: BlogListDTO = await res.json();
+  return mapBlogList(data);
 }

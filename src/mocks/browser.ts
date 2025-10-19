@@ -1,5 +1,5 @@
 import { setupWorker } from 'msw/browser';
-import { blogHandlers } from '@/entities/blog/api/__mocks__/blogListHandler';
+import { blogHandlers } from '@/entities/blog/api/__mocks__/get-blog-list-handler';
 import { blogBannerListHandler } from '@/entities/banner';
 
 export const worker = setupWorker(...blogHandlers, ...blogBannerListHandler);

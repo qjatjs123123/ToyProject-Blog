@@ -1,8 +1,3 @@
-export interface FetchBlogsParams {
-  page?: string;
-  category?: string;
-  term?: string;
-}
 
 export interface BlogDTO {
   id: number;

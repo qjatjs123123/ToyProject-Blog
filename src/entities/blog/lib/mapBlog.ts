@@ -1,5 +1,5 @@
-import { BlogDTO } from "../api/types";
-import { BlogCard } from "../model/types";
+import { BlogDTO } from "../api/dto/get-blog-list-DTO";
+import { BlogCard } from "../model/blog-list";
 
 
 export function mapBlog(dto: BlogDTO): BlogCard {

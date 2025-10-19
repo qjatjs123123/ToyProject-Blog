@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import Text from "@/app_/_components/Text";
 import { BlogCard as BlogCardType } from "../model/blog-list"
