@@ -1,6 +1,6 @@
 import { setupServer } from 'msw/node';
 import { blogHandlers } from '@/entities/blog/api/__mocks__/get-blog-list-handler';
-import { blogBannerListHandler } from '@/entities/banner';
+import { blogBannerListHandler } from '@/entities/blog';
 import { blogDetailHandlers } from '@/entities/detail';
 
 export const server = setupServer(...blogHandlers, ...blogBannerListHandler, ...blogDetailHandlers);

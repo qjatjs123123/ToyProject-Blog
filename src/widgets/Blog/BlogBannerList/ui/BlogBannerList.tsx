@@ -1,4 +1,4 @@
-import { BlogBannerCard, BlogBannerList as BannerType, getBlogBannerList } from "@/entities/banner";
+import { BlogBannerCard, BlogBannerList as BannerType, getBlogBannerList} from "@/entities/blog"
 
 export async function BlogBannerList() {
   const data: BannerType = await getBlogBannerList();

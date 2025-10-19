@@ -1,5 +1,5 @@
-import { BlogBannerDTO } from "../api/types";
-import { BlogBanner } from "../model/types";
+import { BlogBannerDTO } from "../api/dto/get-blog-banner-list-DTO";
+import { BlogBanner } from "../model/blog-banner";
 
 export function mapBanner(dto: BlogBannerDTO): BlogBanner {
   return {

@@ -1,4 +1,4 @@
-import { BlogBanner } from "../model/types";
+import { BlogBanner } from "../model/blog-banner";
 import { ImageSkeleton, ImageSkeletonWrapper } from "@/shared/ui";
 
 interface BlogCardProps {

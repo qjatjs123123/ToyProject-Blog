@@ -1,5 +1,5 @@
 import { mapBannerList } from "../lib/mapBannerList";
-import { BlogBannerListDTO } from "./types";
+import { BlogBannerListDTO } from "./dto/get-blog-banner-list-DTO";
 
 export async function getBlogBannerList() {
   const res = await fetch(
