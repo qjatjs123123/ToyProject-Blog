@@ -1,0 +1,17 @@
+.button {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: relative;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-component-dark);
+}
+
+.label--type-title {
+  font-size: var(--text-title-4);
+  font-weight: 500;
+}
+
+.label--type-normal {
+  color: var(--color-label-700);
+  font-size: var(--text-body-2);
+}

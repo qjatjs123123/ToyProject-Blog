@@ -1,13 +1,13 @@
 "use client";
 
 import Text from "../_components/Text";
-import ProgressBar from "../_components/ProgressBar";
+
 import PolicyCheckBoxForm from "./_components/PolicyForm/PolicyCheckBoxForm";
 import { useState } from "react";
 import SignupForm from "./_components/SignupForm/SignupForm";
-import ProgressStatusText from "./_components/SignupForm/ProgressStatusText";
 
-export default function SignUp() {
+
+export default function Page() {
   const [step, setStep] = useState(0);
   return (
     <>
@@ -25,11 +25,10 @@ export default function SignUp() {
       <div>
         <div className="flex items-center justify-between ">
           <Text type="body" size="3" className="text-[var(--color-primary)]">
-            최대 1,250만원까지 무료 선정산이 가능해요.
+            최대 1,250만원까지 무료  가능해요.
           </Text>
-          <ProgressStatusText />
         </div>
-        <ProgressBar />
+
       </div>
 
       {step === 0 && <PolicyCheckBoxForm setStep={setStep} />}
