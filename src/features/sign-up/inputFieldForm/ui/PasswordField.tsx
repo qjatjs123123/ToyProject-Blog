@@ -5,6 +5,7 @@ import { handlePasswordFirst } from "../model/action";
 import EyeOffIcon from "@/shared/ui/Icon/EyeOffIcon";
 import EyeIcon from "@/shared/ui/Icon/EyeIcon";
 import { useWatch } from "react-hook-form";
+import { PASSWORD } from "../config/constants";
 
 interface PasswordFieldProps {
   control: any;
@@ -24,12 +25,12 @@ export function PasswordField({ control }: PasswordFieldProps) {
           pattern: {
             value:
               /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d\d!@#$%^&*(),.?":{}|<>]{8,15}$/,
-            message: "8~15자리 영문, 숫자, 특수문자로 조합하여 입력해주세요",
+            message: PASSWORD.first_validation_error,
           },
         }}
         title={
           <Text type="body" size="3" className="text-[var(--color-label-700)]">
-            {"비밀번호"}
+            {PASSWORD.title}
           </Text>
         }
         content={(field, fieldState) => (
@@ -40,7 +41,7 @@ export function PasswordField({ control }: PasswordFieldProps) {
                   <Input
                     {...field}
                     type={type}
-                    placeholder={"8~15자리/영문, 숫자, 특수문자 조합 입력"}
+                    placeholder={PASSWORD.first_placeholder}
                     error={fieldState.isTouched && fieldState.error}
                     onChange={(e) => handlePasswordFirst(e, field)}
                   />
@@ -79,7 +80,7 @@ export function PasswordField({ control }: PasswordFieldProps) {
         name="confirmPassword"
         rules={{
           validate: (value: string) =>
-            value === password || "비밀번호가 일치하지 않습니다",
+            value === password || PASSWORD.second_validation_error,
         }}
         title={null}
         content={(field, fieldState) => (
@@ -89,7 +90,7 @@ export function PasswordField({ control }: PasswordFieldProps) {
                 <Input
                   {...field}
                   type={type}
-                  placeholder={"재입력"}
+                  placeholder={PASSWORD.second_placeholder}
                   error={fieldState.isTouched && fieldState.error}
                   onChange={(e) => handlePasswordFirst(e, field)}
                 />
@@ -124,7 +125,7 @@ export function PasswordField({ control }: PasswordFieldProps) {
                 size="1"
                 className="text-[var(--color-status-correct)]"
               >
-                비밀번호가 일치합니다.
+                {PASSWORD.success_message}
               </Text>
             );
           }

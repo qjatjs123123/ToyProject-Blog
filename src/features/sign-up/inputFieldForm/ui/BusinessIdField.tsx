@@ -1,14 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Input, InputField } from "@/shared/ui";
 import { Text } from "@/shared/ui";
-import {
-  title,
-  subtitle,
-  link,
-  placeholder,
-  validation_error,
-  success_message,
-} from "../config/constants";
+import { BUSINESS_ID } from "../config/constants";
 import { handleBusinessNumber } from "../model/action";
 
 interface BusinessIdFieldProps {
@@ -29,29 +22,31 @@ export function BusinessIdField({
       rules={{
         pattern: {
           value: /^\d{10}$/,
-          message: validation_error,
+          message: BUSINESS_ID.validation_error,
         },
       }}
-
       title={
         <>
           <Text type="body" size="3" className="text-[var(--color-label-700)]">
-            {title}
+            {BUSINESS_ID.title}
           </Text>
-          <a target="_blank" href={link} rel="noopener noreferrer">
-            <Text type="body" size="3" className="text-[var(--color-label-700)] underline underline-offset-4 hover:bg-[var(--color-background-alternative)]">
-              {subtitle}
+          <a target="_blank" href={BUSINESS_ID.link} rel="noopener noreferrer">
+            <Text
+              type="body"
+              size="3"
+              className="text-[var(--color-label-700)] underline underline-offset-4 hover:bg-[var(--color-background-alternative)]"
+            >
+              {BUSINESS_ID.subtitle}
             </Text>
           </a>
         </>
       }
-
       content={(field, fieldState) => (
         <div className="flex gap-2 w-full">
           <Input
             {...field}
             type="text"
-            placeholder={placeholder}
+            placeholder={BUSINESS_ID.placeholder}
             error={fieldState.isTouched && fieldState.error}
             onChange={(e) => handleBusinessNumber(e, field)}
           />
@@ -66,19 +61,28 @@ export function BusinessIdField({
           </Button>
         </div>
       )}
-
-      footer={(_ ,fieldState) => {
+      footer={(_, fieldState) => {
         if (isSuccess) {
           return (
-            <Text align="left" type="caption" size="1" className="text-[var(--color-status-correct)]" >
-              {success_message}
+            <Text
+              align="left"
+              type="caption"
+              size="1"
+              className="text-[var(--color-status-correct)]"
+            >
+              {BUSINESS_ID.success_message}
             </Text>
           );
         }
 
         if (fieldState.isTouched && fieldState.error) {
           return (
-            <Text align="left" type="caption" size="1" className="text-[var(--color-status-error)]">
+            <Text
+              align="left"
+              type="caption"
+              size="1"
+              className="text-[var(--color-status-error)]"
+            >
               {fieldState.error.message}
             </Text>
           );
