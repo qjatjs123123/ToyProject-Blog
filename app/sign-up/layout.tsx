@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { ProgressProvider } from "../../src/shared/ui/Progress/model/ProgressProvider";
+import { StepProvider } from "@/features/sign-up/stepSignUpForm";
 type Props = { children: ReactNode };
 
 export const metadata = {
@@ -10,7 +11,11 @@ export const metadata = {
 export default function Layout({ children }: Props) {
   return (
     <section className="mt-[100px] pt-[80px] pb-10 relative mx-auto max-w-[520px] md:px-7 space-y-8">
-      <ProgressProvider>{children}</ProgressProvider>
+      <ProgressProvider>
+        <StepProvider>
+          {children}
+        </StepProvider>
+      </ProgressProvider>
     </section>
   );
 }

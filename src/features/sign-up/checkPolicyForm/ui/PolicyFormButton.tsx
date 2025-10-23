@@ -3,14 +3,16 @@
 import { useProgress } from "@/shared/ui/Progress/model/ProgressProvider";
 import { Button } from "@/shared/ui";
 import { useSelected } from "../model/SelectedProvider";
+import { useStep } from "../../stepSignUpForm/model/StepProvider";
 
 export function PolicyFormButton() {
   const { setProgress } = useProgress();
+  const { setStep } = useStep();
   const { enabled } = useSelected();
   const disabled = !enabled;
 
   const clickBtn = () => {
-    // setStep(1);
+    setStep("form");
     setProgress(15);
   };
   return (
