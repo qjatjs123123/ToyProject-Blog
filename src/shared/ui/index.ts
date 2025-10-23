@@ -1,3 +1,4 @@
+export { InputField } from './InputField/InputField';
 export { ProgressText } from './Progress/ui/ProgressText';
 export {ProgressBar } from './Progress/ui/ProgressBar';
 export { ProgressProvider } from "./Progress/model/ProgressProvider";

@@ -1,0 +1,1 @@
+export { type SingUpFormProps } from "./model/sign-up-form"
