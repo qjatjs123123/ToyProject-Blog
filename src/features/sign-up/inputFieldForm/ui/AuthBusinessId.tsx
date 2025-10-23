@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useVerifyBusinessNumber } from "../model/useVerifyBusinessNumber";
 import { BusinessIdField } from "./BusinessIdField";
-import { SingUpFormProps } from "../../signUpForm";
+import { SingUpFormProps } from "../model/sign-up-form";
+import { PasswordField } from "./PasswordField";
 
 export function AuthBusinessId() {
   const { mutate, isSuccess } = useVerifyBusinessNumber();
@@ -16,6 +17,7 @@ export function AuthBusinessId() {
         mutate={mutate}
         isSuccess={isSuccess}
       />
+      <PasswordField control={control}/>
       {isSuccess && <div>성공</div>}
     </>
   );

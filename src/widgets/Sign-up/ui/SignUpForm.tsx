@@ -1,5 +1,5 @@
 
-import { AuthBusinessId } from "@/features/sign-up/authBusinessId"
+import { AuthBusinessId } from "@/features/sign-up/inputFieldForm"
 
 
 export function SignUpForm() {

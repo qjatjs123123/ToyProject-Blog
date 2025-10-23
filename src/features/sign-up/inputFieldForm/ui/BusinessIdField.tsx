@@ -67,7 +67,7 @@ export function BusinessIdField({
         </div>
       )}
 
-      footer={(fieldState) => {
+      footer={(_ ,fieldState) => {
         if (isSuccess) {
           return (
             <Text align="left" type="caption" size="1" className="text-[var(--color-status-correct)]" >

@@ -7,3 +7,11 @@ export function handleBusinessNumber(
     field.onChange(value);
   }
 }
+
+export function handlePasswordFirst(
+  e: React.ChangeEvent<HTMLInputElement>,
+  field: { onChange: (value: string) => void }
+) {
+  const value = e.target.value;
+  field.onChange(value);
+}
