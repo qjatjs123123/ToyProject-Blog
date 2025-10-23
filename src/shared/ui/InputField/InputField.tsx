@@ -28,7 +28,7 @@ export function InputField({
       rules={rules}
       render={({ field, fieldState }) => (
         <div className="flex flex-col gap-1">
-          <div className="flex items-center justify-between h-[32px]">
+          <div className="flex items-center justify-between">
             {title}
           </div>
 

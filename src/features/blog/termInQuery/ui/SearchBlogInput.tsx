@@ -32,7 +32,7 @@ export function SearchBlogInput() {
   );
 
   return (
-    <InputWrapper initialValue = {term}>
+    <InputWrapper initialValue={term}>
       {({ value, onChange }) => (
         <div className="relative w-full">
           <div className="absolute top-1/2 transform -translate-y-1/2 left-5 pointer ">
@@ -41,7 +41,7 @@ export function SearchBlogInput() {
           <Input
             value={value}
             onChange={onChange}
-            onKeyDown = {handleKeyDown}
+            onKeyDown={handleKeyDown}
             placeholder="검색어를 입력해주세요"
             error={false}
             className="!pl-[3rem] md:!w-[400px] lg:!w-[468px] "
