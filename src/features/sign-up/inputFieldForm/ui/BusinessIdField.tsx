@@ -45,6 +45,7 @@ export function BusinessIdField({
         <div className="flex gap-2 w-full">
           <Input
             {...field}
+            readonly={isSuccess}
             type="text"
             placeholder={BUSINESS_ID.placeholder}
             error={fieldState.isTouched && fieldState.error}

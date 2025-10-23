@@ -5,7 +5,8 @@ export const BUSINESS_ID = {
   placeholder: "-제외 10자리 입력",
   validation_error: "10자리 숫자를 입력해주세요.",
   success_message: "사업자등록번호 확인이 완료되었어요",
-  progressVol: 11
+  api_error:"서버 에러입니다.",
+  progressVol: 21
 };
 
 export const PASSWORD = {
