@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Checkbox from "@/shared/ui/Checkbox/CheckBox";
@@ -22,20 +22,24 @@ export function PolicyCheckBoxForm() {
             onChange={() => toggleAll(checkBoxList.map((item) => item.content))}
           />
 
-          {checkBoxList.map(({ content, link }) => (
-            <div key={content} className="flex justify-between items-center">
-              <Checkbox
-                id={content}
-                checked={isChecked(content)}
-                type={"normal"}
-                content={content}
-                onChange={() => toggle(content)}
-              />
-              <a className="cursor-pointer" target="_blank" href={link}>
-                {link && <RightIcon />}
-              </a>
-            </div>
-          ))}
+          <div className="shrink-0 h-px w-full bg-[var(--color-line-400)] my-7"></div>
+
+          <div className="flex flex-col gap-6">
+            {checkBoxList.map(({ content, link }) => (
+              <div key={content} className="flex justify-between items-center">
+                <Checkbox
+                  id={content}
+                  checked={isChecked(content)}
+                  type={"normal"}
+                  content={content}
+                  onChange={() => toggle(content)}
+                />
+                <a className="cursor-pointer" target="_blank" href={link}>
+                  {link && <RightIcon />}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </CheckboxGroup>
