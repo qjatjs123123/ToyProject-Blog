@@ -1,0 +1,23 @@
+.gage-container {
+  width: 100%;
+  height: 20px;
+  background-color: #e5e7eb; /* Tailwind의 gray-200 */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gage {
+  height: 100%;
+  background-color: #3b82f6; /* Tailwind의 blue-500 */
+  border-radius: 10px;
+  width: 0; /* motion에서 animate로 변경 */
+}
+
+.top {
+  height: 4px;
+  width: 100%;
+  background-color: #9ca3af; /* Tailwind gray-400 */
+  margin-bottom: 6px;
+  border-radius: 2px;
+}

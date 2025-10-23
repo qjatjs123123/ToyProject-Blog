@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ProgressProvider } from './providers/ProgressProvider';
+import { ProgressProvider } from "../../src/shared/ui/Progress/model/ProgressProvider";
 type Props = { children: ReactNode };
 
 export const metadata = {

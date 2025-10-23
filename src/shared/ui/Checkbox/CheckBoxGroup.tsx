@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export function CheckboxGroup({ selectedId = [], onChange, children }: any) {
@@ -13,15 +13,15 @@ export function CheckboxGroup({ selectedId = [], onChange, children }: any) {
     }
   };
 
-  const toggleAll = (list: any) => {
-    onChange(list);
+  const toggleAll = (list: any[]) => {
+    if (allChecked(list)) onChange([]);
+    else onChange([...new Set([...selectedId, ...list])]);
   };
 
   return children({
     selectedId,
     toggle,
     isChecked: (id: any) => selectedId.includes(id),
-    // clear: () => onChange([]),
     toggleAll,
     allChecked,
   });

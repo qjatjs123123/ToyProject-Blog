@@ -1,3 +1,8 @@
+export { ProgressText } from './Progress/ui/ProgressText';
+export {ProgressBar } from './Progress/ui/ProgressBar';
+export { ProgressProvider } from "./Progress/model/ProgressProvider";
+
+
 export { Toast } from "./Toast/ui/Toast";
 export { ImageSkeletonWrapper } from "./Image/ImageSkeletonWrapper";
 export { ImageSkeleton } from "./Image/ImageSkeleton";
