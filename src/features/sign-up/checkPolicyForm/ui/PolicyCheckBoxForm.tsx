@@ -18,21 +18,21 @@ export function PolicyCheckBoxForm() {
             id={"전체 동의"}
             type={"title"}
             content="전체 동의"
-            checked={allChecked(checkBoxList.map((item) => item.content))}
-            onChange={() => toggleAll(checkBoxList.map((item) => item.content))}
+            checked={allChecked(checkBoxList.map((item) => item.id))}
+            onChange={() => toggleAll(checkBoxList.map((item) => item.id))}
           />
 
           <div className="shrink-0 h-px w-full bg-[var(--color-line-400)] my-7"></div>
 
           <div className="flex flex-col gap-6">
-            {checkBoxList.map(({ content, link }) => (
+            {checkBoxList.map(({ content, id, link }) => (
               <div key={content} className="flex justify-between items-center">
                 <Checkbox
-                  id={content}
-                  checked={isChecked(content)}
+                  id={id}
+                  checked={isChecked(id)}
                   type={"normal"}
                   content={content}
-                  onChange={() => toggle(content)}
+                  onChange={() => toggle(id)}
                 />
                 <a className="cursor-pointer" target="_blank" href={link}>
                   {link && <RightIcon />}

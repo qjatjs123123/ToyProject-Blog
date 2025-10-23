@@ -1,13 +1,15 @@
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
+import { checkBoxList } from "../config/constants";
 
 export type SelectedItem = {
   id: string;
 };
 
 type SelectedContextType = {
-  selected: SelectedItem[];
-  setSelected: (value: SelectedItem[]) => void;
+  selected: string[];
+  setSelected: (value: string[]) => void;
+  enabled: boolean;
 };
 
 const SelectedContext = createContext<SelectedContextType | undefined>(
@@ -19,10 +21,15 @@ interface SelectedProviderProps {
 }
 
 export const SelectedProvider = ({ children }: SelectedProviderProps) => {
-  const [selected, setSelected] = useState<SelectedItem[]>([]);
+  const [selected, setSelected] = useState<string[]>([]);
+
+  const enabled = checkBoxList
+    .filter((item) => item.required)
+    .map((item) => item.id)
+    .every((item) => selected.includes(item));
 
   return (
-    <SelectedContext.Provider value={{ selected, setSelected }}>
+    <SelectedContext.Provider value={{ selected, setSelected, enabled }}>
       {children}
     </SelectedContext.Provider>
   );
