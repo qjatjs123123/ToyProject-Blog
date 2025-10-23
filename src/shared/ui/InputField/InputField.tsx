@@ -6,6 +6,8 @@ import { Text } from "../Text/Text";
 interface InputFieldProps {
   title: ReactNode;
   content: (field: any, fieldState: any) => ReactNode;
+  footer: (field: any, fieldState: any) => ReactNode; // optional
+  successMessage?: string;
   rules?: any;
   control: any;
   name: string;
@@ -16,35 +18,23 @@ export function InputField({
   content,
   rules,
   control,
+  footer,
   name,
 }: InputFieldProps) {
   return (
     <Controller
-      name={name as string}
+      name={name}
       control={control}
       rules={rules}
       render={({ field, fieldState }) => (
         <div className="flex flex-col gap-1">
-          {
-            <div className="flex items-center justify-between h-[32px]">
-              {title}
-            </div>
-          }
+          <div className="flex items-center justify-between h-[32px]">
+            {title}
+          </div>
 
-          {/* Input */}
           {content(field, fieldState)}
 
-          {/* Error Message */}
-          {fieldState.isTouched && fieldState.error && (
-            <Text
-              align="left"
-              type="caption"
-              size="1"
-              className="text-[var(--color-status-error)]"
-            >
-              {fieldState.error.message}
-            </Text>
-          )}
+          {footer(field, fieldState)}
         </div>
       )}
     />

@@ -1,1 +1,1 @@
-export { BusinessIdField } from "./ui/BusinessIdField"
+export { AuthBusinessId } from "./ui/AuthBusinessId"

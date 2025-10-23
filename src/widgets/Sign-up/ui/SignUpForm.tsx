@@ -1,12 +1,8 @@
-import { BusinessIdField } from "@/features/sign-up/authBusinessId";
-import { SingUpFormProps } from "@/features/sign-up/signUpForm";
-import { useForm } from "react-hook-form";
+
+import { AuthBusinessId } from "@/features/sign-up/authBusinessId"
+
 
 export function SignUpForm() {
-  const { control, handleSubmit, setError, reset } = useForm<SingUpFormProps>({
-    defaultValues: { businessNumber: "", password: "" },
-    mode: "onChange",
-  });
 
-  return <BusinessIdField control={control}/>;
+  return <AuthBusinessId />
 }
