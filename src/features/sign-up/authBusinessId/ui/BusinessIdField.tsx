@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Input, InputField } from "@/shared/ui";
+import { Button, Input, InputField } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import {
   title,
@@ -9,12 +9,14 @@ import {
   validation_error,
 } from "../config/constants";
 import { handleBusinessNumber } from "../model/action";
+import { useVerifyBusinessNumber } from "../model/useVerifyBusinessNumber";
 
 interface BusinessIdFieldProps {
   control: any;
 }
 
 export function BusinessIdField({ control }: BusinessIdFieldProps) {
+  const { mutate } = useVerifyBusinessNumber();
   return (
     <InputField
       control={control}
@@ -42,13 +44,25 @@ export function BusinessIdField({ control }: BusinessIdFieldProps) {
         </>
       }
       content={(field, fieldState) => (
-        <Input
-          {...field}
-          type={"text"}
-          placeholder={placeholder}
-          error={fieldState.isTouched && fieldState.error}
-          onChange={(e) => handleBusinessNumber(e, field)}
-        />
+        <div className="flex gap-2 w-full">
+          <Input
+            {...field}
+            type={"text"}
+            placeholder={placeholder}
+            error={fieldState.isTouched && fieldState.error}
+            onChange={(e) => handleBusinessNumber(e, field)}
+          />
+          <Button
+            onClick={() => mutate(field.value)}
+            type={"primary"}
+            style={"fill"}
+            disabled={false}
+            className="!h-[48px] whitespace-nowrap"
+          >
+            {"인증하기"}
+            {/* {!isAuth ? "인증하기" : "인증성공"} */}
+          </Button>
+        </div>
       )}
     />
   );
