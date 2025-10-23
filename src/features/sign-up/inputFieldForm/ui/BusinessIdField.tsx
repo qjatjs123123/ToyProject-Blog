@@ -63,6 +63,8 @@ export function BusinessIdField({
         </div>
       )}
       footer={(_, fieldState) => {
+        const isError = fieldState.isTouched && fieldState.error
+
         if (isSuccess) {
           return (
             <Text
@@ -75,8 +77,7 @@ export function BusinessIdField({
             </Text>
           );
         }
-
-        if (fieldState.isTouched && fieldState.error) {
+        if (isError) {
           return (
             <Text
               align="left"
@@ -88,7 +89,6 @@ export function BusinessIdField({
             </Text>
           );
         }
-
         return null;
       }}
     />

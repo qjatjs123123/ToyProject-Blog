@@ -45,33 +45,24 @@ export function PasswordField({ control }: PasswordFieldProps) {
                     error={fieldState.isTouched && fieldState.error}
                     onChange={(e) => handlePasswordFirst(e, field)}
                   />
-                  <div
-                    onClick={() =>
-                      setType(type === "text" ? "password" : "text")
-                    }
-                    className="absolute top-1/2 transform -translate-y-1/2 right-5 cursor-pointer "
-                  >
-                    {type === "text" ? <EyeOffIcon /> : <EyeIcon />}
-                  </div>
+                  
+                  <WrapperIcon type={type} setType={setType}/>
                 </div>
               )}
             </InputWrapper>
           </div>
         )}
         footer={(_, fieldState) => {
-          if (fieldState.isTouched && fieldState.error) {
+          const isError = fieldState.isTouched && fieldState.error;
+
+          if (isError) {
             return (
-              <Text
-                align="left"
-                type="caption"
-                size="1"
-                className="text-[var(--color-status-error)]"
-              >
+              <Text align="left" type="caption" size="1" className="text-[var(--color-status-error)]">
                 {fieldState.error.message}
               </Text>
             );
           }
-          return;
+          return null;
         }}
       ></InputField>
 
@@ -94,37 +85,26 @@ export function PasswordField({ control }: PasswordFieldProps) {
                   error={fieldState.isTouched && fieldState.error}
                   onChange={(e) => handlePasswordFirst(e, field)}
                 />
-                <div
-                  onClick={() => setType(type === "text" ? "password" : "text")}
-                  className="absolute top-1/2 transform -translate-y-1/2 right-5 cursor-pointer "
-                >
-                  {type === "text" ? <EyeOffIcon /> : <EyeIcon />}
-                </div>
+                
+                <WrapperIcon type={type} setType={setType}/>
               </div>
             )}
           </InputWrapper>
         )}
         footer={(field, fieldState) => {
-          if (fieldState.isTouched && fieldState.invalid) {
+          const isError = fieldState.isTouched && fieldState.invalid;
+          const isSuccess = !fieldState.invalid && field.value;
+
+          if (isError) {
             return (
-              <Text
-                align="left"
-                type="caption"
-                size="1"
-                className="text-[var(--color-status-error)]"
-              >
+              <Text align="left" type="caption" size="1" className="text-[var(--color-status-error)]">
                 {fieldState.error.message}
               </Text>
             );
           }
-          if (!fieldState.invalid && field.value) {
+          if (isSuccess) {
             return (
-              <Text
-                align="left"
-                type="caption"
-                size="1"
-                className="text-[var(--color-status-correct)]"
-              >
+              <Text align="left" type="caption" size="1" className="text-[var(--color-status-correct)]">
                 {PASSWORD.success_message}
               </Text>
             );
@@ -134,4 +114,21 @@ export function PasswordField({ control }: PasswordFieldProps) {
       />
     </div>
   );
+}
+
+
+interface WrapperIconProps {
+  setType: any,
+  type:string
+}
+
+function WrapperIcon({setType, type}: WrapperIconProps) {
+  return (
+    <div
+      onClick={() => setType(type === "text" ? "password" : "text")}
+      className="absolute top-1/2 transform -translate-y-1/2 right-5 cursor-pointer "
+    >
+      {type === "text" ? <EyeOffIcon /> : <EyeIcon />}
+    </div>
+  )
 }
