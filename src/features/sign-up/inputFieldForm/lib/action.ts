@@ -46,3 +46,11 @@ export function handlePhone(
   const formatValue = formatPhone(raw);
   field.onChange(formatValue);
 }
+
+export function handleEmail(
+  e: React.ChangeEvent<HTMLInputElement>,
+  field: { onChange: (value: string) => void }
+) {
+  const value = e.target.value;
+  field.onChange(value);
+}
