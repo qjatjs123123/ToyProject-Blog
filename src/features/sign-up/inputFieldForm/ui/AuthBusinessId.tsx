@@ -15,7 +15,7 @@ export function AuthBusinessId() {
 
   return (
     <FormProvider {...methods}>
-      <form>
+      <form className="flex flex-col gap-8">
         <BusinessIdField isSuccess={isSuccess} mutate={mutate}/>
         <PasswordField />
         {isSuccess && <div>성공</div>}

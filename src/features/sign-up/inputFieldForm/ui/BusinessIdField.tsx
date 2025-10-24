@@ -11,12 +11,9 @@ interface BusinessIdFieldProps {
   isSuccess: boolean;
 }
 
-export function BusinessIdField({
-  mutate,
-  isSuccess,
-}: BusinessIdFieldProps) {
+export function BusinessIdField({ mutate, isSuccess }: BusinessIdFieldProps) {
   const { control } = useFormContext<SingUpFormProps>();
-  
+
   return (
     <InputField
       control={control}
@@ -65,7 +62,7 @@ export function BusinessIdField({
         </div>
       )}
       footer={(_, fieldState) => {
-        const isError = fieldState.isTouched && fieldState.error
+        const isError = fieldState.isTouched && fieldState.error;
 
         if (isSuccess) {
           return (
@@ -91,7 +88,16 @@ export function BusinessIdField({
             </Text>
           );
         }
-        return null;
+        return (
+          <Text
+            align="left"
+            type="caption"
+            size="1"
+            className="opacity-0 select-none"
+          >
+            placeholder
+          </Text>
+        );
       }}
     />
   );

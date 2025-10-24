@@ -125,7 +125,16 @@ export function PasswordField() {
               </Text>
             );
           }
-          return null;
+          return (
+            <Text
+              align="left"
+              type="caption"
+              size="1"
+              className="opacity-0 select-none"
+            >
+              placeholder
+            </Text>
+          );
         }}
       />
     </div>
