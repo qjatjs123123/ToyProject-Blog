@@ -1,5 +1,7 @@
 export interface SingUpFormProps {
   businessNumber: string,
   password: string,
-  confirmPassword: string
+  confirmPassword: string,
+  companyName: string,
+  userName: string
 }

@@ -3,6 +3,7 @@ import { Input, InputField, InputWrapper } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import { useFormContext } from "react-hook-form";
 import { SingUpFormProps } from "../model/sign-up-form";
+import { COMPANY } from "../config/constants";
 
 interface CompanyFieldProps {
   company: string;
@@ -17,7 +18,7 @@ export function CompanyField({ company }: CompanyFieldProps) {
       name="companyName"
       title={
         <Text type="body" size="3" className="text-[var(--color-label-700)]">
-          {"상호명"}
+          {COMPANY.title}
         </Text>
       }
       content={(field) => (

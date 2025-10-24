@@ -1,4 +1,4 @@
-import { PASSWORD } from "../config/constants";
+import { OWNER, PASSWORD } from "../config/constants";
 
 export function validateBusinessNumber(value: string): boolean {
   return /^[0-9]{0,10}$/.test(value);
@@ -27,3 +27,9 @@ export const validateConfirmPassword = (value: string, password: string) => {
 
   return true;
 };
+
+
+export const validateOwner = (value : string) => {
+  if (value.length === 0) return OWNER.error_message;
+  return true;
+}

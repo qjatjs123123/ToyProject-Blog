@@ -19,3 +19,13 @@ export const PASSWORD = {
   progressVol1: 11,
   progressVol2: 10,
 }
+
+export const COMPANY = {
+  title: "상호명"
+}
+
+export const OWNER = {
+  title: "대표자",
+  placeholder: "사업자등록증에 기재된 대표자명 입력",
+  error_message: "대표자명을 입력해주세요"
+}

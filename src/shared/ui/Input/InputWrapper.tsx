@@ -21,7 +21,7 @@ export function InputWrapper({
   initialValue = "",
   initalType = "text",
 }: InputProps) {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(initialValue);
   const [type, setType] = useState(initalType);
 
   useEffect(() => {
