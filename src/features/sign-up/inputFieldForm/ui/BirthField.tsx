@@ -5,6 +5,7 @@ import { Text } from "@/shared/ui";
 import { validateBirth } from "../lib/validate";
 import { BIRTH } from "../config/constants";
 import { useBirth } from "../model/useBirth";
+import { handleBirth } from "../lib/action";
 
 
 export function BirthField() {
@@ -27,7 +28,7 @@ export function BirthField() {
           {() => (
             <Input
               {...field}
-              onChange={(e) => field.onChange(e.target.value)}
+              onChange={(e) => handleBirth(e, field)}
               placeholder={BIRTH.placeholder}
               type={"text"}
             />
