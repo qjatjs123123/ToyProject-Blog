@@ -1,24 +1,25 @@
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { useVerifyBusinessNumber } from "../model/useVerifyBusinessNumber";
 import { BusinessIdField } from "./BusinessIdField";
-import { SingUpFormProps } from "../model/sign-up-form";
 import { PasswordField } from "./PasswordField";
+import { SingUpFormProps } from "../model/sign-up-form";
 
 export function AuthBusinessId() {
   const { mutate, isSuccess } = useVerifyBusinessNumber();
-  const { control, handleSubmit, setError, reset } = useForm<SingUpFormProps>({
-    defaultValues: { businessNumber: "", password: "" },
-    mode: "all",
+
+  const methods = useForm<SingUpFormProps>({
+    defaultValues: { businessNumber: "", password: "",confirmPassword:"" },
+    mode: "onChange",
   });
+
+
   return (
-    <>
-      <BusinessIdField
-        control={control}
-        mutate={mutate}
-        isSuccess={isSuccess}
-      />
-      <PasswordField control={control}/>
-      {isSuccess && <div>성공</div>}
-    </>
+    <FormProvider {...methods}>
+      <form>
+        <BusinessIdField isSuccess={isSuccess} mutate={mutate}/>
+        <PasswordField />
+        {isSuccess && <div>성공</div>}
+      </form>
+    </FormProvider>
   );
 }

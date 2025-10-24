@@ -1,16 +1,18 @@
+"use client";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Input, InputWrapper, Text } from "@/shared/ui";
 import { InputField } from "@/shared/ui";
-import { handlePasswordFirst } from "../model/action";
+import { handlePassword } from "../model/action";
 import EyeOffIcon from "@/shared/ui/Icon/EyeOffIcon";
 import EyeIcon from "@/shared/ui/Icon/EyeIcon";
 import { useWatch } from "react-hook-form";
 import { PASSWORD } from "../config/constants";
+import { usePassword } from "../model/usePassword";
+import { validateConfirmPassword, validatePassword } from "../model/validate";
 
-interface PasswordFieldProps {
-  control: any;
-}
-export function PasswordField({ control }: PasswordFieldProps) {
+export function PasswordField() {
+  const { control, handleBlur } = usePassword();
   const password = useWatch({
     control,
     name: "password",
@@ -22,11 +24,8 @@ export function PasswordField({ control }: PasswordFieldProps) {
         control={control}
         name="password"
         rules={{
-          pattern: {
-            value:
-              /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d\d!@#$%^&*(),.?":{}|<>]{8,15}$/,
-            message: PASSWORD.first_validation_error,
-          },
+          required: PASSWORD.first_validation_error,
+          validate: validatePassword,
         }}
         title={
           <Text type="body" size="3" className="text-[var(--color-label-700)]">
@@ -43,10 +42,11 @@ export function PasswordField({ control }: PasswordFieldProps) {
                     type={type}
                     placeholder={PASSWORD.first_placeholder}
                     error={fieldState.isTouched && fieldState.error}
-                    onChange={(e) => handlePasswordFirst(e, field)}
+                    onChange={(e) => handlePassword(e, field)}
+                    onBlur={() => handleBlur(field, "password")}
                   />
-                  
-                  <WrapperIcon type={type} setType={setType}/>
+
+                  <WrapperIcon type={type} setType={setType} />
                 </div>
               )}
             </InputWrapper>
@@ -57,7 +57,12 @@ export function PasswordField({ control }: PasswordFieldProps) {
 
           if (isError) {
             return (
-              <Text align="left" type="caption" size="1" className="text-[var(--color-status-error)]">
+              <Text
+                align="left"
+                type="caption"
+                size="1"
+                className="text-[var(--color-status-error)]"
+              >
                 {fieldState.error.message}
               </Text>
             );
@@ -70,8 +75,7 @@ export function PasswordField({ control }: PasswordFieldProps) {
         control={control}
         name="confirmPassword"
         rules={{
-          validate: (value: string) =>
-            value === password || PASSWORD.second_validation_error,
+          validate: (value: string) => validateConfirmPassword(value, password),
         }}
         title={null}
         content={(field, fieldState) => (
@@ -83,10 +87,12 @@ export function PasswordField({ control }: PasswordFieldProps) {
                   type={type}
                   placeholder={PASSWORD.second_placeholder}
                   error={fieldState.isTouched && fieldState.error}
-                  onChange={(e) => handlePasswordFirst(e, field)}
+                  onChange={(e) => handlePassword(e, field)}
+                  onFocus={() => field.onChange(field.value)}
+                  onBlur={() => handleBlur(field, "confirmPassword")}
                 />
-                
-                <WrapperIcon type={type} setType={setType}/>
+
+                <WrapperIcon type={type} setType={setType} />
               </div>
             )}
           </InputWrapper>
@@ -97,14 +103,24 @@ export function PasswordField({ control }: PasswordFieldProps) {
 
           if (isError) {
             return (
-              <Text align="left" type="caption" size="1" className="text-[var(--color-status-error)]">
+              <Text
+                align="left"
+                type="caption"
+                size="1"
+                className="text-[var(--color-status-error)]"
+              >
                 {fieldState.error.message}
               </Text>
             );
           }
           if (isSuccess) {
             return (
-              <Text align="left" type="caption" size="1" className="text-[var(--color-status-correct)]">
+              <Text
+                align="left"
+                type="caption"
+                size="1"
+                className="text-[var(--color-status-correct)]"
+              >
                 {PASSWORD.success_message}
               </Text>
             );
@@ -116,13 +132,12 @@ export function PasswordField({ control }: PasswordFieldProps) {
   );
 }
 
-
 interface WrapperIconProps {
-  setType: any,
-  type:string
+  setType: any;
+  type: string;
 }
 
-function WrapperIcon({setType, type}: WrapperIconProps) {
+function WrapperIcon({ setType, type }: WrapperIconProps) {
   return (
     <div
       onClick={() => setType(type === "text" ? "password" : "text")}
@@ -130,5 +145,5 @@ function WrapperIcon({setType, type}: WrapperIconProps) {
     >
       {type === "text" ? <EyeOffIcon /> : <EyeIcon />}
     </div>
-  )
+  );
 }

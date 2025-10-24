@@ -4,7 +4,7 @@ import { createContext, useContext, useState, ReactNode, MutableRefObject } from
 
 type ProgressContextType = {
   progress: number;
-  setProgress: (value: number) => void;
+  setProgress: React.Dispatch<React.SetStateAction<number>>;
   handleProgress: (plus : number, result: boolean, isIncrease: MutableRefObject<boolean>) => void
 };
 

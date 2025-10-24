@@ -3,18 +3,20 @@ import { Button, Input, InputField } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import { BUSINESS_ID } from "../config/constants";
 import { handleBusinessNumber } from "../model/action";
+import { useFormContext } from "react-hook-form";
+import { SingUpFormProps } from "../model/sign-up-form";
 
 interface BusinessIdFieldProps {
-  control: any;
   mutate: (v: string) => void;
   isSuccess: boolean;
 }
 
 export function BusinessIdField({
-  control,
   mutate,
   isSuccess,
 }: BusinessIdFieldProps) {
+  const { control } = useFormContext<SingUpFormProps>();
+  
   return (
     <InputField
       control={control}

@@ -16,5 +16,6 @@ export const PASSWORD = {
   second_placeholder: "8~15자리/영문, 숫자, 특수문자 조합 재입력",
   second_validation_error: "비밀번호가 일치하지 않습니다.",
   success_message: "사용 가능한 비밀번호에요",
-  progressVol: 10,
+  progressVol1: 11,
+  progressVol2: 10,
 }
