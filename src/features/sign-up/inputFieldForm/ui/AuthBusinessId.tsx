@@ -6,6 +6,7 @@ import { SingUpFormProps } from "../model/sign-up-form";
 import { CompanyField } from "./CompanyField";
 import { OwnerField } from "./OwnerField";
 import { BirthField } from "./BirthField";
+import { PhoneField } from "./PhoneField";
 
 export function AuthBusinessId() {
   const { mutate, isSuccess, data } = useVerifyBusinessNumber();
@@ -17,7 +18,9 @@ export function AuthBusinessId() {
       confirmPassword: "",
       companyName: "",
       userName: "",
-      birthDate: ""
+      birthDate: "",
+      phone: "",
+      email: "" 
     },
     mode: "onChange",
   });
@@ -32,6 +35,7 @@ export function AuthBusinessId() {
             <CompanyField company={data.company} />
             <OwnerField owner={data.owner} />
             <BirthField />
+            <PhoneField />
           </>
         )}
       </form>

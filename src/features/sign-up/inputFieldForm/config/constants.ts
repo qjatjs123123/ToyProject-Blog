@@ -37,3 +37,19 @@ export const BIRTH = {
   error_message: "생년월일은 YYYYMMDD 형식입니다.",
   progressVol:11,
 }
+
+export const PHONE = {
+  title: "대표자 휴대폰 번호",
+  placeholder: "계약서 송부를 위해 꼭 본인정보 입력",
+  error_message: "전화번호는 010-1234-5678 형식입니다.",
+  progressVol:10,
+  name: "phone"
+}
+
+export const EMAIL = {
+  title: "대표자 이메일",
+  placeholder: "이메일 입력",
+  error_message: "이메일 형식이 올바르지 않습니다.",
+  progressVol:11,
+  name: "email"
+}

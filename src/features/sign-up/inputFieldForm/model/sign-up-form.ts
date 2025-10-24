@@ -5,4 +5,6 @@ export interface SingUpFormProps {
   companyName: string,
   userName: string,
   birthDate: string
+  phone: string,
+  email: string,
 }

@@ -50,3 +50,18 @@ export const validateBirth = (value: string) => {
 
   return isValid || BIRTH.error_message;
 };
+
+export const validatePhone = (value: string) => {
+  const raw = value.replace(/\D/g, "");
+
+  const isValid =
+    raw.length > 10 && /^01[016789]\d{7,8}$/.test(raw);
+
+  return isValid || "휴대폰 번호 형식이 올바르지 않습니다.";
+};
+
+export const validateEmail = (value: string) => {
+  const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+
+  return pattern.test(value) || "이메일 형식이 올바르지 않습니다.";
+};

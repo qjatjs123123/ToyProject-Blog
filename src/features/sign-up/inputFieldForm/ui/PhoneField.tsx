@@ -1,25 +1,25 @@
 'use client'
 import { Input, InputField, InputWrapper } from "@/shared/ui";
 import { Text } from "@/shared/ui";
-import { validateBirth } from "../lib/validate";
-import { BIRTH } from "../config/constants";
-import { useBirth } from "../model/useBirth";
-import { handleBirth } from "../lib/action";
+import { validatePhone } from "../lib/validate";
+import { PHONE } from "../config/constants";
+import { handlePhone } from "../lib/action";
+import { usePhone } from "../model/usePhone";
 
 
-export function BirthField() {
-  const { control } = useBirth();
+export function PhoneField() {
+  const { control } = usePhone();
 
   return (
     <InputField
       control={control}
-      name="birthDate"
+      name={PHONE.name}
       rules={{
-        validate: validateBirth,
+        validate: validatePhone,
       }}
       title={
         <Text type="body" size="3" className="text-[var(--color-label-700)]">
-          {BIRTH.title}
+          {PHONE.title}
         </Text>
       }
       content={(field) => (
@@ -27,8 +27,8 @@ export function BirthField() {
           {() => (
             <Input
               {...field}
-              onChange={(e) => handleBirth(e, field)}
-              placeholder={BIRTH.placeholder}
+              onChange={(e) => handlePhone(e, field)}
+              placeholder={PHONE.placeholder}
               type={"text"}
             />
           )}

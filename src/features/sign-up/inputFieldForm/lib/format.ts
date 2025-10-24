@@ -16,7 +16,7 @@ export const formatPhone = (value: string): string => {
   const len = raw.length;
 
   if (len < 4) return raw;
-  if (len < 7) return `${raw.slice(0, 3)}-${raw.slice(3)}`;
-  if (len < 11) return `${raw.slice(0, 3)}-${raw.slice(3, 6)}-${raw.slice(6)}`;
+  if (len < 8) return `${raw.slice(0, 3)}-${raw.slice(3)}`;
+  if (len < 11) return `${raw.slice(0, 3)}-${raw.slice(3, 7)}-${raw.slice(7)}`;
   return `${raw.slice(0, 3)}-${raw.slice(3, 7)}-${raw.slice(7, 11)}`;
 };

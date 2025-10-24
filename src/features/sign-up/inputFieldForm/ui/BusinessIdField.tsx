@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Button, Input, InputField } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import { BUSINESS_ID } from "../config/constants";
