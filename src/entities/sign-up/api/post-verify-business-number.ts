@@ -18,6 +18,6 @@ export async function postVerifyBusinessNumber(businessNumber: string) {
   }
 
   const data = await res.json();
-  console.log(data);
+
   return mapBusinessNumberVerifyToken(data);
 }
