@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Input, InputField, InputWrapper } from "@/shared/ui";
 import { Text } from "@/shared/ui";
-import { useFormContext } from "react-hook-form";
-import { SingUpFormProps } from "../model/sign-up-form";
 import { validateOwner } from "../model/validate";
 import { OWNER } from "../config/constants";
+import { useOwner } from "../model/useOwner";
 
 interface OwnerFieldProps {
   owner: string;
 }
 
 export function OwnerField({ owner }: OwnerFieldProps) {
-  const { control } = useFormContext<SingUpFormProps>();
+  const { control } = useOwner();
 
   return (
     <InputField
@@ -28,18 +27,16 @@ export function OwnerField({ owner }: OwnerFieldProps) {
       content={(field) => (
         <InputWrapper initialValue={owner}>
           {({ value, onChange }) => (
-            <div className="relative w-full">
-              <Input
-                {...field}
-                value={value}
-                onChange={(e) => {
-                  field.onChange(e.target.value);
-                  onChange(e);
-                }}
-                placeholder={OWNER.placeholder}
-                type={"text"}
-              />
-            </div>
+            <Input
+              {...field}
+              value={value}
+              onChange={(e) => {
+                field.onChange(e.target.value);
+                onChange(e);
+              }}
+              placeholder={OWNER.placeholder}
+              type={"text"}
+            />
           )}
         </InputWrapper>
       )}

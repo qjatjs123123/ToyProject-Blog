@@ -15,24 +15,11 @@ export function usePassword() {
   const { control } = useFormContext<SingUpFormProps>();
   const { errors, touchedFields } = useFormState({ control });
   const { trigger } = useFormContext();
-  const { setProgress } = useProgress();
+  const { handleProgress } = useProgress();
   const [blurPassword, setBlurPassword] = useState(false);
   const [blurConfirmPassword, setConfirmPassword] = useState(false);
   const isIncrease1 = useRef(false);
-  const isIncrease2 = useRef(false);
-
-  const handleProgress = useCallback(
-    (plus: number, result: boolean, isIncrease: MutableRefObject<boolean>) => {
-      if (result && isIncrease.current) {
-        setProgress((prev) => prev - plus);
-        isIncrease.current = false;
-      } else if (!result && !isIncrease.current) {
-        setProgress((prev) => prev + plus);
-        isIncrease.current = true;
-      }
-    },
-    [setProgress]
-  );
+  const isIncrease2 = useRef(false)
 
   const handleBlur = useCallback(
     async (field: any, type: "password" | "confirmPassword") => {

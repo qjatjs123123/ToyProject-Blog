@@ -24,14 +24,7 @@ export function CompanyField({ company }: CompanyFieldProps) {
       content={(field) => (
         <InputWrapper initialValue={company}>
           {() => (
-            <div className="relative w-full">
-              <Input
-                {...field}
-                value={company}
-                type={"text"}
-                readonly={true}
-              />
-            </div>
+            <Input {...field} value={company} type={"text"} readonly={true} />
           )}
         </InputWrapper>
       )}

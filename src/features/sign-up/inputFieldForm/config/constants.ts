@@ -27,5 +27,6 @@ export const COMPANY = {
 export const OWNER = {
   title: "대표자",
   placeholder: "사업자등록증에 기재된 대표자명 입력",
-  error_message: "대표자명을 입력해주세요"
+  error_message: "대표자명을 입력해주세요",
+  progressVol:11,
 }
