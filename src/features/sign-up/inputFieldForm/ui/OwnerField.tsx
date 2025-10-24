@@ -1,9 +1,9 @@
-
 import { Input, InputField, InputWrapper } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import { validateOwner } from "../lib/validate";
-import { OWNER } from "../config/constants";
+import { errorClass, OWNER } from "../config/constants";
 import { useOwner } from "../model/useOwner";
+import { BlankText } from "./BlankText";
 
 interface OwnerFieldProps {
   owner: string;
@@ -15,7 +15,7 @@ export function OwnerField({ owner }: OwnerFieldProps) {
   return (
     <InputField
       control={control}
-      name="userName"
+      name={OWNER.name}
       rules={{
         validate: validateOwner,
       }}
@@ -45,26 +45,12 @@ export function OwnerField({ owner }: OwnerFieldProps) {
 
         if (isError) {
           return (
-            <Text
-              align="left"
-              type="caption"
-              size="1"
-              className="text-[var(--color-status-error)]"
-            >
+            <Text align="left" type="caption" className={errorClass}>
               {fieldState.error.message}
             </Text>
           );
         }
-        return (
-          <Text
-            align="left"
-            type="caption"
-            size="1"
-            className="opacity-0 select-none"
-          >
-            placeholder
-          </Text>
-        );
+        return <BlankText />;
       }}
     />
   );

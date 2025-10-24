@@ -1,11 +1,11 @@
-'use client'
+"use client";
 import { Input, InputField, InputWrapper } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import { validateBirth } from "../lib/validate";
-import { BIRTH } from "../config/constants";
+import { BIRTH, errorClass } from "../config/constants";
 import { useBirth } from "../model/useBirth";
 import { handleBirth } from "../lib/action";
-
+import { BlankText } from "./BlankText";
 
 export function BirthField() {
   const { control } = useBirth();
@@ -13,7 +13,7 @@ export function BirthField() {
   return (
     <InputField
       control={control}
-      name="birthDate"
+      name={BIRTH.name}
       rules={{
         validate: validateBirth,
       }}
@@ -39,26 +39,12 @@ export function BirthField() {
 
         if (isError) {
           return (
-            <Text
-              align="left"
-              type="caption"
-              size="1"
-              className="text-[var(--color-status-error)]"
-            >
+            <Text align="left" type="caption" className={errorClass}>
               {fieldState.error.message}
             </Text>
           );
         }
-        return (
-          <Text
-            align="left"
-            type="caption"
-            size="1"
-            className="opacity-0 select-none"
-          >
-            placeholder
-          </Text>
-        );
+        return <BlankText />;
       }}
     />
   );

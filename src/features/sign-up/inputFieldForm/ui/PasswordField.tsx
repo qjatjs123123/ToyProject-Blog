@@ -7,9 +7,10 @@ import { handlePassword } from "../lib/action";
 import EyeOffIcon from "@/shared/ui/Icon/EyeOffIcon";
 import EyeIcon from "@/shared/ui/Icon/EyeIcon";
 import { useWatch } from "react-hook-form";
-import { PASSWORD } from "../config/constants";
+import { correctClass, errorClass, PASSWORD } from "../config/constants";
 import { usePassword } from "../model/usePassword";
 import { validateConfirmPassword, validatePassword } from "../lib/validate";
+import { BlankText } from "./BlankText";
 
 export function PasswordField() {
   const { control, handleBlur } = usePassword();
@@ -22,7 +23,7 @@ export function PasswordField() {
     <div className="flex flex-col gap-1 w-full">
       <InputField
         control={control}
-        name="password"
+        name={PASSWORD.name.pw}
         rules={{
           required: PASSWORD.first_validation_error,
           validate: validatePassword,
@@ -57,12 +58,7 @@ export function PasswordField() {
 
           if (isError) {
             return (
-              <Text
-                align="left"
-                type="caption"
-                size="1"
-                className="text-[var(--color-status-error)]"
-              >
+              <Text align="left" type="caption" className={errorClass}>
                 {fieldState.error.message}
               </Text>
             );
@@ -73,7 +69,7 @@ export function PasswordField() {
 
       <InputField
         control={control}
-        name="confirmPassword"
+        name={PASSWORD.name.pwc}
         rules={{
           validate: (value: string) => validateConfirmPassword(value, password),
         }}
@@ -103,38 +99,19 @@ export function PasswordField() {
 
           if (isError) {
             return (
-              <Text
-                align="left"
-                type="caption"
-                size="1"
-                className="text-[var(--color-status-error)]"
-              >
+              <Text align="left" type="caption" className={errorClass}>
                 {fieldState.error.message}
               </Text>
             );
           }
           if (isSuccess) {
             return (
-              <Text
-                align="left"
-                type="caption"
-                size="1"
-                className="text-[var(--color-status-correct)]"
-              >
+              <Text align="left" type="caption" className={correctClass}>
                 {PASSWORD.success_message}
               </Text>
             );
           }
-          return (
-            <Text
-              align="left"
-              type="caption"
-              size="1"
-              className="opacity-0 select-none"
-            >
-              placeholder
-            </Text>
-          );
+          return <BlankText />;
         }}
       />
     </div>

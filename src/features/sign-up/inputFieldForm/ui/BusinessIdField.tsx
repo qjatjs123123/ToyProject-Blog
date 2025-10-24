@@ -1,10 +1,10 @@
-
 import { Button, Input, InputField } from "@/shared/ui";
 import { Text } from "@/shared/ui";
-import { BUSINESS_ID } from "../config/constants";
+import { BUSINESS_ID, correctClass, errorClass } from "../config/constants";
 import { handleBusinessNumber } from "../lib/action";
 import { useFormContext } from "react-hook-form";
 import { SingUpFormProps } from "../model/sign-up-form";
+import { BlankText } from "./BlankText";
 
 interface BusinessIdFieldProps {
   mutate: (v: string) => void;
@@ -17,7 +17,7 @@ export function BusinessIdField({ mutate, isSuccess }: BusinessIdFieldProps) {
   return (
     <InputField
       control={control}
-      name="businessNumber"
+      name={BUSINESS_ID.name}
       rules={{
         pattern: {
           value: /^\d{10}$/,
@@ -66,38 +66,19 @@ export function BusinessIdField({ mutate, isSuccess }: BusinessIdFieldProps) {
 
         if (isSuccess) {
           return (
-            <Text
-              align="left"
-              type="caption"
-              size="1"
-              className="text-[var(--color-status-correct)]"
-            >
+            <Text align="left" type="caption" className={correctClass}>
               {BUSINESS_ID.success_message}
             </Text>
           );
         }
         if (isError) {
           return (
-            <Text
-              align="left"
-              type="caption"
-              size="1"
-              className="text-[var(--color-status-error)]"
-            >
+            <Text align="left" type="caption" className={errorClass}>
               {fieldState.error.message}
             </Text>
           );
         }
-        return (
-          <Text
-            align="left"
-            type="caption"
-            size="1"
-            className="opacity-0 select-none"
-          >
-            placeholder
-          </Text>
-        );
+        return <BlankText />;
       }}
     />
   );

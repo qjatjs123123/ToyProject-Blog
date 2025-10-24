@@ -1,11 +1,11 @@
-'use client'
+"use client";
 import { Input, InputField, InputWrapper } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import { validatePhone } from "../lib/validate";
-import { PHONE } from "../config/constants";
+import { errorClass, PHONE } from "../config/constants";
 import { handlePhone } from "../lib/action";
 import { usePhone } from "../model/usePhone";
-
+import { BlankText } from "./BlankText";
 
 export function PhoneField() {
   const { control } = usePhone();
@@ -37,28 +37,14 @@ export function PhoneField() {
       footer={(_, fieldState) => {
         const isError = fieldState.isTouched && fieldState.error;
 
-        if (isError) {
+        if (isError)
           return (
-            <Text
-              align="left"
-              type="caption"
-              size="1"
-              className="text-[var(--color-status-error)]"
-            >
+            <Text align="left" type="caption" className={errorClass}>
               {fieldState.error.message}
             </Text>
           );
-        }
-        return (
-          <Text
-            align="left"
-            type="caption"
-            size="1"
-            className="opacity-0 select-none"
-          >
-            placeholder
-          </Text>
-        );
+
+        return <BlankText />;
       }}
     />
   );

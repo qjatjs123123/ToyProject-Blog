@@ -1,11 +1,11 @@
-'use client'
+"use client";
 import { Input, InputField, InputWrapper } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import { validateEmail } from "../lib/validate";
-import { EMAIL } from "../config/constants";
+import { EMAIL, errorClass } from "../config/constants";
 import { handleEmail } from "../lib/action";
 import { useEmail } from "../model/useEmail";
-
+import { BlankText } from "./BlankText";
 
 export function EmailField() {
   const { control } = useEmail();
@@ -37,28 +37,14 @@ export function EmailField() {
       footer={(_, fieldState) => {
         const isError = fieldState.isTouched && fieldState.error;
 
-        if (isError) {
+        if (isError)
           return (
-            <Text
-              align="left"
-              type="caption"
-              size="1"
-              className="text-[var(--color-status-error)]"
-            >
+            <Text align="left" type="caption" className={errorClass}>
               {fieldState.error.message}
             </Text>
           );
-        }
-        return (
-          <Text
-            align="left"
-            type="caption"
-            size="1"
-            className="opacity-0 select-none"
-          >
-            placeholder
-          </Text>
-        );
+
+        return <BlankText />;
       }}
     />
   );

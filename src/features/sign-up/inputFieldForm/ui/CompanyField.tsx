@@ -1,9 +1,9 @@
-
 import { Input, InputField, InputWrapper } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import { useFormContext } from "react-hook-form";
 import { SingUpFormProps } from "../model/sign-up-form";
 import { COMPANY } from "../config/constants";
+import { BlankText } from "./BlankText";
 
 interface CompanyFieldProps {
   company: string;
@@ -15,7 +15,7 @@ export function CompanyField({ company }: CompanyFieldProps) {
   return (
     <InputField
       control={control}
-      name="companyName"
+      name={COMPANY.name}
       title={
         <Text type="body" size="3" className="text-[var(--color-label-700)]">
           {COMPANY.title}
@@ -28,18 +28,7 @@ export function CompanyField({ company }: CompanyFieldProps) {
           )}
         </InputWrapper>
       )}
-      footer={() => {
-        return (
-          <Text
-            align="left"
-            type="caption"
-            size="1"
-            className="opacity-0 select-none"
-          >
-            placeholder
-          </Text>
-        );
-      }}
+      footer={() => <BlankText />}
     />
   );
 }
