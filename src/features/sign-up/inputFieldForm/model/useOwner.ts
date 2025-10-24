@@ -7,14 +7,17 @@ import { SingUpFormProps } from "./sign-up-form";
 
 export function useOwner() {
   const { control } = useFormContext<SingUpFormProps>();
-  const { errors } = useFormState({ control });
+  const { errors, touchedFields } = useFormState({ control });
   const { handleProgress } = useProgress();
-  const isIncrease = useRef(false);
+  const ref = useRef({
+    isIncreased: false,
+    isLocked: false,
+  })
 
   useEffect(() => {
     const isError = Boolean(errors.userName);
-    handleProgress(OWNER.progressVol, isError, isIncrease);
-  }, [errors.userName, handleProgress]);
+    handleProgress(OWNER.progressVol, isError, ref);
+  }, [touchedFields.userName, errors.userName, handleProgress]);
 
   return { control };
 }

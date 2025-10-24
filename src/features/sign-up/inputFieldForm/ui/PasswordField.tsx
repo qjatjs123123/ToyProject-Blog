@@ -6,14 +6,15 @@ import { InputField } from "@/shared/ui";
 import { handlePassword } from "../lib/action";
 import EyeOffIcon from "@/shared/ui/Icon/EyeOffIcon";
 import EyeIcon from "@/shared/ui/Icon/EyeIcon";
-import { useWatch } from "react-hook-form";
+import { useFormContext, useWatch } from "react-hook-form";
 import { correctClass, errorClass, PASSWORD } from "../config/constants";
 import { usePassword } from "../model/usePassword";
 import { validateConfirmPassword, validatePassword } from "../lib/validate";
 import { BlankText } from "./BlankText";
 
 export function PasswordField() {
-  const { control, handleBlur } = usePassword();
+  const { control } = usePassword();
+  const { trigger } = useFormContext();
   const password = useWatch({
     control,
     name: "password",
@@ -44,7 +45,10 @@ export function PasswordField() {
                     placeholder={PASSWORD.first_placeholder}
                     error={fieldState.isTouched && fieldState.error}
                     onChange={(e) => handlePassword(e, field)}
-                    onBlur={() => handleBlur(field, "password")}
+                    onBlur={async (e) => {
+                      field.onBlur(e);
+                      trigger("password");
+                    }}
                   />
 
                   <WrapperIcon type={type} setType={setType} />
@@ -85,7 +89,10 @@ export function PasswordField() {
                   error={fieldState.isTouched && fieldState.error}
                   onChange={(e) => handlePassword(e, field)}
                   onFocus={() => field.onChange(field.value)}
-                  onBlur={() => handleBlur(field, "confirmPassword")}
+                  onBlur={async (e) => {
+                    field.onBlur(e);
+                    trigger("confirmPassword");
+                  }}
                 />
 
                 <WrapperIcon type={type} setType={setType} />

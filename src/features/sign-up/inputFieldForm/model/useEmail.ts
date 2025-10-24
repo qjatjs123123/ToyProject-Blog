@@ -6,14 +6,19 @@ import { EMAIL } from "../config/constants";
 
 export function useEmail() {
   const { control } = useFormContext<SingUpFormProps>();
-  const { errors } = useFormState({ control });
+  const { errors, touchedFields } = useFormState({ control });
   const { handleProgress } = useProgress();
-  const isIncrease = useRef(false);
+  const ref = useRef({
+    isIncreased: false,
+    isLocked: false,
+  });
 
   useEffect(() => {
+    if (!touchedFields.email) return;
+
     const isError = Boolean(errors.email);
-    handleProgress(EMAIL.progressVol, isError, isIncrease);
-  }, [errors.email, handleProgress]);
+    handleProgress(EMAIL.progressVol, isError, ref);
+  }, [errors.email, handleProgress, touchedFields.email]);
 
   return { control };
 }

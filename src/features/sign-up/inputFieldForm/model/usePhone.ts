@@ -6,14 +6,19 @@ import { PHONE } from "../config/constants";
 
 export function usePhone() {
   const { control } = useFormContext<SingUpFormProps>();
-  const { errors } = useFormState({ control });
+  const { errors, touchedFields } = useFormState({ control });
   const { handleProgress } = useProgress();
-  const isIncrease = useRef(false);
+  const ref = useRef({
+    isIncreased: false,
+    isLocked: false,
+  })
 
   useEffect(() => {
+    if(!touchedFields.phone) return;
+
     const isError = Boolean(errors.phone);
-    handleProgress(PHONE.progressVol, isError, isIncrease);
-  }, [errors.phone, handleProgress]);
+    handleProgress(PHONE.progressVol, isError, ref);
+  }, [touchedFields.phone, errors.phone, handleProgress]);
 
   return { control };
 }

@@ -6,10 +6,11 @@ import { errorClass, PHONE } from "../config/constants";
 import { handlePhone } from "../lib/action";
 import { usePhone } from "../model/usePhone";
 import { BlankText } from "./BlankText";
+import { useFormContext } from "react-hook-form";
 
 export function PhoneField() {
   const { control } = usePhone();
-
+  const { trigger } = useFormContext();
   return (
     <InputField
       control={control}
@@ -28,6 +29,10 @@ export function PhoneField() {
             <Input
               {...field}
               onChange={(e) => handlePhone(e, field)}
+              onBlur={async (e) => {
+                field.onBlur(e);
+                trigger(PHONE.name);
+              }}
               placeholder={PHONE.placeholder}
               type={"text"}
             />

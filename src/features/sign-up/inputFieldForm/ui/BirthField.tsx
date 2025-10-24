@@ -6,10 +6,11 @@ import { BIRTH, errorClass } from "../config/constants";
 import { useBirth } from "../model/useBirth";
 import { handleBirth } from "../lib/action";
 import { BlankText } from "./BlankText";
+import { useFormContext } from "react-hook-form";
 
 export function BirthField() {
   const { control } = useBirth();
-
+  const { trigger } = useFormContext();
   return (
     <InputField
       control={control}
@@ -28,6 +29,10 @@ export function BirthField() {
             <Input
               {...field}
               onChange={(e) => handleBirth(e, field)}
+              onBlur={async (e) => {
+                field.onBlur(e);
+                trigger(BIRTH.name);
+              }}
               placeholder={BIRTH.placeholder}
               type={"text"}
             />

@@ -6,10 +6,11 @@ import { EMAIL, errorClass } from "../config/constants";
 import { handleEmail } from "../lib/action";
 import { useEmail } from "../model/useEmail";
 import { BlankText } from "./BlankText";
+import { useFormContext } from "react-hook-form";
 
 export function EmailField() {
   const { control } = useEmail();
-
+  const { trigger } = useFormContext();
   return (
     <InputField
       control={control}
@@ -28,6 +29,10 @@ export function EmailField() {
             <Input
               {...field}
               onChange={(e) => handleEmail(e, field)}
+              onBlur={async (e) => {
+                field.onBlur(e);
+                trigger(EMAIL.name);
+              }}
               placeholder={EMAIL.placeholder}
               type={"text"}
             />

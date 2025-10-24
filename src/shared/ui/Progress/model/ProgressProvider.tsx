@@ -1,31 +1,46 @@
-'use client';
+"use client";
 
-import { createContext, useContext, useState, ReactNode, MutableRefObject } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  MutableRefObject,
+} from "react";
+
+type refProps = MutableRefObject<{
+  isIncreased: boolean;
+  isLocked: boolean;
+}>;
 
 type ProgressContextType = {
   progress: number;
   setProgress: React.Dispatch<React.SetStateAction<number>>;
-  handleProgress: (plus : number, result: boolean, isIncrease: MutableRefObject<boolean>) => void
+  handleProgress: (plus: number, result: boolean, ref: refProps) => void;
 };
 
-const ProgressContext = createContext<ProgressContextType | undefined>(undefined);
+const ProgressContext = createContext<ProgressContextType | undefined>(
+  undefined
+);
 
 export const ProgressProvider = ({ children }: { children: ReactNode }) => {
   const [progress, setProgress] = useState(0);
 
-    const handleProgress = (plus : number, result: boolean, isIncrease: MutableRefObject<boolean>) => {
+  const handleProgress = (plus: number, result: boolean, ref: refProps) => {
+    console.log(ref.current)
     if (result) {
-      if (!isIncrease.current) return;
+      if (ref.current.isIncreased === false) return;
+      if (ref.current.isLocked === false) return
 
       setProgress(progress - plus);
-      isIncrease.current = false;
+      ref.current.isLocked = false;
     } else {
-      if (isIncrease.current) return;
-
+      if (ref.current.isLocked === true) return;
       setProgress(progress + plus);
-      isIncrease.current = true;
+      ref.current.isLocked = true;
+      ref.current.isIncreased = true;
     }
-  }
+  };
 
   return (
     <ProgressContext.Provider value={{ progress, setProgress, handleProgress }}>

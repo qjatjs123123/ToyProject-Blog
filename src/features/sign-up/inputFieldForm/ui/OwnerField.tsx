@@ -11,7 +11,6 @@ interface OwnerFieldProps {
 
 export function OwnerField({ owner }: OwnerFieldProps) {
   const { control } = useOwner();
-
   return (
     <InputField
       control={control}
@@ -41,7 +40,7 @@ export function OwnerField({ owner }: OwnerFieldProps) {
         </InputWrapper>
       )}
       footer={(_, fieldState) => {
-        const isError = fieldState.isTouched && fieldState.error;
+        const isError = fieldState.error;
 
         if (isError) {
           return (

@@ -6,14 +6,19 @@ import { BIRTH } from "../config/constants";
 
 export function useBirth() {
   const { control } = useFormContext<SingUpFormProps>();
-  const { errors } = useFormState({ control });
+  const { errors, touchedFields } = useFormState({ control });
   const { handleProgress } = useProgress();
-  const isIncrease = useRef(false);
+  const ref = useRef({
+    isIncreased: false,
+    isLocked: false,
+  })
 
   useEffect(() => {
+    if (!touchedFields.birthDate) return;
+
     const isError = Boolean(errors.birthDate);
-    handleProgress(BIRTH.progressVol, isError, isIncrease);
-  }, [errors.birthDate, handleProgress]);
+    handleProgress(BIRTH.progressVol, isError, ref);
+  }, [errors.birthDate, handleProgress, touchedFields.birthDate]);
 
   return { control };
 }
