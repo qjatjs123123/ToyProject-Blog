@@ -30,3 +30,10 @@ export const OWNER = {
   error_message: "대표자명을 입력해주세요",
   progressVol:11,
 }
+
+export const BIRTH = {
+  title: "대표자 생년월일",
+  placeholder: "생년월일 8자리 입력 (19900101)",
+  error_message: "생년월일은 YYYYMMDD 형식입니다.",
+  progressVol:11,
+}

@@ -3,13 +3,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Input, InputWrapper, Text } from "@/shared/ui";
 import { InputField } from "@/shared/ui";
-import { handlePassword } from "../model/action";
+import { handlePassword } from "../lib/action";
 import EyeOffIcon from "@/shared/ui/Icon/EyeOffIcon";
 import EyeIcon from "@/shared/ui/Icon/EyeIcon";
 import { useWatch } from "react-hook-form";
 import { PASSWORD } from "../config/constants";
 import { usePassword } from "../model/usePassword";
-import { validateConfirmPassword, validatePassword } from "../model/validate";
+import { validateConfirmPassword, validatePassword } from "../lib/validate";
 
 export function PasswordField() {
   const { control, handleBlur } = usePassword();

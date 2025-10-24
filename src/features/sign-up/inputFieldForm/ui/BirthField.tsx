@@ -1,40 +1,34 @@
+'use client'
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Input, InputField, InputWrapper } from "@/shared/ui";
 import { Text } from "@/shared/ui";
-import { validateOwner } from "../lib/validate";
-import { OWNER } from "../config/constants";
-import { useOwner } from "../model/useOwner";
+import { validateBirth } from "../lib/validate";
+import { BIRTH } from "../config/constants";
+import { useBirth } from "../model/useBirth";
 
-interface OwnerFieldProps {
-  owner: string;
-}
 
-export function OwnerField({ owner }: OwnerFieldProps) {
-  const { control } = useOwner();
+export function BirthField() {
+  const { control } = useBirth();
 
   return (
     <InputField
       control={control}
-      name="userName"
+      name="birthDate"
       rules={{
-        validate: validateOwner,
+        validate: validateBirth,
       }}
       title={
         <Text type="body" size="3" className="text-[var(--color-label-700)]">
-          {OWNER.title}
+          {BIRTH.title}
         </Text>
       }
       content={(field) => (
-        <InputWrapper initialValue={owner}>
-          {({ value, onChange }) => (
+        <InputWrapper>
+          {() => (
             <Input
               {...field}
-              value={value}
-              onChange={(e) => {
-                field.onChange(e.target.value);
-                onChange(e);
-              }}
-              placeholder={OWNER.placeholder}
+              onChange={(e) => field.onChange(e.target.value)}
+              placeholder={BIRTH.placeholder}
               type={"text"}
             />
           )}

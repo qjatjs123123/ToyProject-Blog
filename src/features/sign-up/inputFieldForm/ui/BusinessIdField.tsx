@@ -2,7 +2,7 @@
 import { Button, Input, InputField } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import { BUSINESS_ID } from "../config/constants";
-import { handleBusinessNumber } from "../model/action";
+import { handleBusinessNumber } from "../lib/action";
 import { useFormContext } from "react-hook-form";
 import { SingUpFormProps } from "../model/sign-up-form";
 
