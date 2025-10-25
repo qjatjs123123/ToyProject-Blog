@@ -7,7 +7,7 @@ import { CompanyField } from "./CompanyField";
 import { OwnerField } from "./OwnerField";
 import { BirthField } from "./BirthField";
 import { PhoneField } from "./PhoneField";
-import { EmailField } from "./EmailField";
+import { EmailFieldWithSuggest } from "./EmailField/EmailFieldWithSuggest";
 
 export function AuthBusinessId() {
   const { mutate, isSuccess, data } = useVerifyBusinessNumber();
@@ -37,7 +37,7 @@ export function AuthBusinessId() {
             <OwnerField owner={data.owner} />
             <BirthField />
             <PhoneField />
-            <EmailField />
+            <EmailFieldWithSuggest />
           </>
         )}
       </form>

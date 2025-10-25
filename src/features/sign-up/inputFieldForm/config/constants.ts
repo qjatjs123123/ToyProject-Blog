@@ -62,3 +62,23 @@ export const EMAIL = {
 
 export const correctClass = "text-[var(--color-status-correct)]";
 export const errorClass = "text-[var(--color-status-error)]";
+
+export const domains = [
+  "gmail.com",
+  "naver.com",
+  "daum.net",
+  "hanmail.net",
+  "kakao.com",
+  "hotmail.com",
+  "yahoo.com",
+  "outlook.com",
+  "icloud.com",
+  "protonmail.com",
+  "live.com",
+  "gmx.com",
+  "aol.com",
+  "me.com",
+  "msn.com",
+  "naver.me",
+  "hanmail.co.kr",
+];
