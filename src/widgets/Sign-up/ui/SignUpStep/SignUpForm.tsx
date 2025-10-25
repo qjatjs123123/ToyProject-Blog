@@ -7,6 +7,7 @@ import {
 } from "@/features/sign-up/inputFieldForm";
 import { FormProvider, useForm } from "react-hook-form";
 import { AuthSuccessForm } from "./AuthSuccessForm";
+import { SubmitButton } from "@/features/sign-up/submitForm";
 
 export function SignUpForm() {
   const { mutate, isSuccess, data } = useVerifyBusinessNumber();
@@ -33,6 +34,7 @@ export function SignUpForm() {
           <AuthSuccessForm company={data.company} owner={data.owner} />
         )}
       </form>
+      <SubmitButton />
     </FormProvider>
   );
 }
