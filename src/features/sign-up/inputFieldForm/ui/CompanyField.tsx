@@ -22,11 +22,7 @@ export function CompanyField({ company }: CompanyFieldProps) {
         </Text>
       }
       content={(field) => (
-        <InputWrapper initialValue={company}>
-          {() => (
-            <Input {...field} value={company} type={"text"} readonly={true} />
-          )}
-        </InputWrapper>
+        <Input {...field} value={company} type={"text"} readonly={true} />
       )}
       footer={() => <BlankText />}
     />

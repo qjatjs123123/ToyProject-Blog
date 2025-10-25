@@ -5,14 +5,20 @@ import { useProgress } from "@/shared/ui/Progress/model/ProgressProvider";
 import { OWNER } from "../config/constants";
 import { SingUpFormProps } from "./sign-up-form";
 
-export function useOwner() {
-  const { control } = useFormContext<SingUpFormProps>();
+export function useOwner(owner: string) {
+  const { control, reset } = useFormContext<SingUpFormProps>();
   const { errors, touchedFields } = useFormState({ control });
   const { handleProgress } = useProgress();
   const ref = useRef({
     isIncreased: false,
     isLocked: false,
-  })
+  });
+
+  useEffect(() => {
+    if (owner) {
+      reset({ [OWNER.name]: owner });
+    }
+  }, [owner, reset]);
 
   useEffect(() => {
     const isError = Boolean(errors.userName);

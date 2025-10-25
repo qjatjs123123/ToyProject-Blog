@@ -13,6 +13,7 @@ interface InputFieldProps {
   rules?: any;
   control: any;
   name: string;
+  defaultValue?: string
 }
 
 export function InputField({
@@ -22,11 +23,13 @@ export function InputField({
   control,
   footer,
   name,
+  defaultValue,
 }: InputFieldProps) {
   return (
     <Controller
       name={name}
       control={control}
+      defaultValue={defaultValue}
       rules={rules}
       render={({ field, fieldState }) => (
         <div className="flex flex-col gap-1">

@@ -10,11 +10,13 @@ interface OwnerFieldProps {
 }
 
 export function OwnerField({ owner }: OwnerFieldProps) {
-  const { control } = useOwner();
+  const { control } = useOwner(owner);
+  
   return (
     <InputField
       control={control}
       name={OWNER.name}
+      defaultValue={owner}
       rules={{
         validate: validateOwner,
       }}
@@ -24,20 +26,13 @@ export function OwnerField({ owner }: OwnerFieldProps) {
         </Text>
       }
       content={(field) => (
-        <InputWrapper initialValue={owner}>
-          {({ value, onChange }) => (
-            <Input
-              {...field}
-              value={value}
-              onChange={(e) => {
-                field.onChange(e.target.value);
-                onChange(e);
-              }}
-              placeholder={OWNER.placeholder}
-              type={"text"}
-            />
-          )}
-        </InputWrapper>
+        <Input
+          {...field}
+          value={field.value}
+          onChange={(e) => field.onChange(e.target.value)}
+          placeholder={OWNER.placeholder}
+          type={"text"}
+        />
       )}
       footer={(_, fieldState) => {
         const isError = fieldState.error;

@@ -24,20 +24,16 @@ export function PhoneField() {
         </Text>
       }
       content={(field) => (
-        <InputWrapper>
-          {() => (
-            <Input
-              {...field}
-              onChange={(e) => handlePhone(e, field)}
-              onBlur={async (e) => {
-                field.onBlur(e);
-                trigger(PHONE.name);
-              }}
-              placeholder={PHONE.placeholder}
-              type={"text"}
-            />
-          )}
-        </InputWrapper>
+        <Input
+          {...field}
+          onChange={(e) => handlePhone(e, field)}
+          onBlur={async (e) => {
+            field.onBlur(e);
+            trigger(PHONE.name);
+          }}
+          placeholder={PHONE.placeholder}
+          type={"text"}
+        />
       )}
       footer={(_, fieldState) => {
         const isError = fieldState.isTouched && fieldState.error;

@@ -24,20 +24,16 @@ export function BirthField() {
         </Text>
       }
       content={(field) => (
-        <InputWrapper>
-          {() => (
-            <Input
-              {...field}
-              onChange={(e) => handleBirth(e, field)}
-              onBlur={async (e) => {
-                field.onBlur(e);
-                trigger(BIRTH.name);
-              }}
-              placeholder={BIRTH.placeholder}
-              type={"text"}
-            />
-          )}
-        </InputWrapper>
+        <Input
+          {...field}
+          onChange={(e) => handleBirth(e, field)}
+          onBlur={async (e) => {
+            field.onBlur(e);
+            trigger(BIRTH.name);
+          }}
+          placeholder={BIRTH.placeholder}
+          type={"text"}
+        />
       )}
       footer={(_, fieldState) => {
         const isError = fieldState.isTouched && fieldState.error;
