@@ -27,7 +27,7 @@ export function BirthField() {
         <Input
           {...field}
           onChange={(e) => handleBirth(e, field)}
-          onBlur={async (e) => {
+          onBlur={(e) => {
             field.onBlur(e);
             trigger(BIRTH.name);
           }}

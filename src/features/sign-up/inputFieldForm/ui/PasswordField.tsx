@@ -89,7 +89,7 @@ export function PasswordField() {
                   error={fieldState.isTouched && fieldState.error}
                   onChange={(e) => handlePassword(e, field)}
                   onFocus={() => field.onChange(field.value)}
-                  onBlur={async (e) => {
+                  onBlur={(e) => {
                     field.onBlur(e);
                     trigger("confirmPassword");
                   }}

@@ -27,7 +27,7 @@ export function EmailField() {
         <Input
           {...field}
           onChange={(e) => handleEmail(e, field)}
-          onBlur={async (e) => {
+          onBlur={(e) => {
             field.onBlur(e);
             trigger(EMAIL.name);
           }}

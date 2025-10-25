@@ -27,7 +27,7 @@ export function PhoneField() {
         <Input
           {...field}
           onChange={(e) => handlePhone(e, field)}
-          onBlur={async (e) => {
+          onBlur={(e) => {
             field.onBlur(e);
             trigger(PHONE.name);
           }}
