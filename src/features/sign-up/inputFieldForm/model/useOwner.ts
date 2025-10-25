@@ -3,10 +3,10 @@ import { useEffect, useRef } from "react";
 import { useFormContext, useFormState } from "react-hook-form";
 import { useProgress } from "@/shared/ui/Progress/model/ProgressProvider";
 import { OWNER } from "../config/constants";
-import { SingUpFormProps } from "./sign-up-form";
+import { SignUpFormProps } from "./sign-up-form";
 
 export function useOwner(owner: string) {
-  const { control, reset } = useFormContext<SingUpFormProps>();
+  const { control, reset } = useFormContext<SignUpFormProps>();
   const { errors, touchedFields } = useFormState({ control });
   const { handleProgress } = useProgress();
   const ref = useRef({

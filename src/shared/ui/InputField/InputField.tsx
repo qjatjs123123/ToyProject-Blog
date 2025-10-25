@@ -23,7 +23,7 @@ export function InputField({
   control,
   footer,
   name,
-  defaultValue,
+  defaultValue = "",
 }: InputFieldProps) {
   return (
     <Controller

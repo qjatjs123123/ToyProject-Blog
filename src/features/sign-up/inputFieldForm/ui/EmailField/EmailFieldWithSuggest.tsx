@@ -20,6 +20,7 @@ export function EmailFieldWithSuggest() {
           control={control}
           name={EMAIL.name}
           rules={{
+            require: EMAIL.error_message,
             validate: validateEmail,
           }}
           title={
@@ -31,9 +32,10 @@ export function EmailFieldWithSuggest() {
               {EMAIL.title}
             </Text>
           }
-          content={(field) => (
+          content={(field,fieldState) => (
             <Input
               {...field}
+              error={fieldState.isTouched && fieldState.error}
               onChange={(e) => {
                 handleEmail(e, field);
                 setShowEmailSuggest(true);

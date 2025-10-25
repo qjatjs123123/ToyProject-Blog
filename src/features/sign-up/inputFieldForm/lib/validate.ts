@@ -1,4 +1,4 @@
-import { BIRTH, OWNER, PASSWORD } from "../config/constants";
+import { BIRTH, EMAIL, OWNER, PASSWORD, PHONE } from "../config/constants";
 
 export function validateBusinessNumber(value: string): boolean {
   return /^[0-9]{0,10}$/.test(value);
@@ -6,6 +6,7 @@ export function validateBusinessNumber(value: string): boolean {
 
 
 export const validatePassword = (value: string) => {
+  console.log(value);
   const pattern =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,15}$/;
 
@@ -57,11 +58,11 @@ export const validatePhone = (value: string) => {
   const isValid =
     raw.length > 10 && /^01[016789]\d{7,8}$/.test(raw);
 
-  return isValid || "휴대폰 번호 형식이 올바르지 않습니다.";
+  return isValid || PHONE.error_message;
 };
 
 export const validateEmail = (value: string) => {
   const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 
-  return pattern.test(value) || "이메일 형식이 올바르지 않습니다.";
+  return pattern.test(value) || EMAIL.error_message;
 };

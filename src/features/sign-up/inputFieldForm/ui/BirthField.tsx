@@ -1,5 +1,5 @@
 "use client";
-import { Input, InputField, InputWrapper } from "@/shared/ui";
+import { Input, InputField } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import { validateBirth } from "../lib/validate";
 import { BIRTH, errorClass } from "../config/constants";
@@ -14,8 +14,9 @@ export function BirthField() {
   return (
     <InputField
       control={control}
-      name={BIRTH.name}
+      name={"birthDate"}
       rules={{
+        required: BIRTH.error_message,
         validate: validateBirth,
       }}
       title={
@@ -23,13 +24,14 @@ export function BirthField() {
           {BIRTH.title}
         </Text>
       }
-      content={(field) => (
+      content={(field, fieldState) => (
         <Input
           {...field}
+          error={fieldState.isTouched && fieldState.error}
           onChange={(e) => handleBirth(e, field)}
           onBlur={(e) => {
             field.onBlur(e);
-            trigger(BIRTH.name);
+            trigger("birthDate");
           }}
           placeholder={BIRTH.placeholder}
           type={"text"}

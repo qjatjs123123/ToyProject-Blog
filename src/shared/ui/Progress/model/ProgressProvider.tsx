@@ -6,6 +6,7 @@ import {
   useState,
   ReactNode,
   MutableRefObject,
+  useCallback,
 } from "react";
 
 type refProps = MutableRefObject<{
@@ -26,21 +27,26 @@ const ProgressContext = createContext<ProgressContextType | undefined>(
 export const ProgressProvider = ({ children }: { children: ReactNode }) => {
   const [progress, setProgress] = useState(0);
 
-  const handleProgress = (plus: number, result: boolean, ref: refProps) => {
-    console.log(ref.current)
-    if (result) {
-      if (ref.current.isIncreased === false) return;
-      if (ref.current.isLocked === false) return
+  const handleProgress = useCallback(
+    (plus: number, result: boolean, ref: refProps) => {
+      const store = ref.current;
 
-      setProgress(progress - plus);
-      ref.current.isLocked = false;
-    } else {
-      if (ref.current.isLocked === true) return;
-      setProgress(progress + plus);
-      ref.current.isLocked = true;
-      ref.current.isIncreased = true;
-    }
-  };
+      if (result) {
+        if (!store.isIncreased) return;
+        if (!store.isLocked) return;
+
+        setProgress((prev) => prev - plus);
+        store.isLocked = false;
+      } else {
+        if (store.isLocked) return;
+
+        setProgress((prev) => prev + plus);
+        store.isLocked = true;
+        store.isIncreased = true;
+      }
+    },
+    [setProgress]
+  );
 
   return (
     <ProgressContext.Provider value={{ progress, setProgress, handleProgress }}>

@@ -16,6 +16,7 @@ export function PhoneField() {
       control={control}
       name={PHONE.name}
       rules={{
+        required: PHONE.error_message,
         validate: validatePhone,
       }}
       title={
@@ -23,10 +24,11 @@ export function PhoneField() {
           {PHONE.title}
         </Text>
       }
-      content={(field) => (
+      content={(field, fieldState) => (
         <Input
           {...field}
           onChange={(e) => handlePhone(e, field)}
+          error={fieldState.isTouched && fieldState.error}
           onBlur={(e) => {
             field.onBlur(e);
             trigger(PHONE.name);

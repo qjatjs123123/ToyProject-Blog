@@ -18,6 +18,7 @@ export function OwnerField({ owner }: OwnerFieldProps) {
       name={OWNER.name}
       defaultValue={owner}
       rules={{
+        require: OWNER.error_message,
         validate: validateOwner,
       }}
       title={
@@ -25,10 +26,11 @@ export function OwnerField({ owner }: OwnerFieldProps) {
           {OWNER.title}
         </Text>
       }
-      content={(field) => (
+      content={(field, fieldState) => (
         <Input
           {...field}
           value={field.value}
+          error={fieldState.isTouched && fieldState.error}
           onChange={(e) => field.onChange(e.target.value)}
           placeholder={OWNER.placeholder}
           type={"text"}

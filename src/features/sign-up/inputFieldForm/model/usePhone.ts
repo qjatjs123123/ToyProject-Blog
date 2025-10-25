@@ -1,11 +1,11 @@
 import { useFormContext, useFormState } from "react-hook-form";
-import { SingUpFormProps } from "./sign-up-form";
+import { SignUpFormProps } from "./sign-up-form";
 import { useProgress } from "@/shared/ui/Progress/model/ProgressProvider";
 import { useEffect, useRef } from "react";
 import { PHONE } from "../config/constants";
 
 export function usePhone() {
-  const { control } = useFormContext<SingUpFormProps>();
+  const { control } = useFormContext<SignUpFormProps>();
   const { errors, touchedFields } = useFormState({ control });
   const { handleProgress } = useProgress();
   const ref = useRef({
