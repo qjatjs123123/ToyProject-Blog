@@ -1,3 +1,4 @@
+"use client";
 import {
   BusinessIdField,
   PasswordField,
@@ -9,7 +10,6 @@ import { AuthSuccessForm } from "./AuthSuccessForm";
 
 export function SignUpForm() {
   const { mutate, isSuccess, data } = useVerifyBusinessNumber();
-
   const methods = useForm<SignUpFormProps>({
     defaultValues: {
       businessNumber: "",

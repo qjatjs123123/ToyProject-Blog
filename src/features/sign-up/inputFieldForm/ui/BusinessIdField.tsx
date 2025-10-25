@@ -13,12 +13,14 @@ interface BusinessIdFieldProps {
 
 export function BusinessIdField({ mutate, isSuccess }: BusinessIdFieldProps) {
   const { control } = useFormContext<SignUpFormProps>();
+  const { trigger } = useFormContext();
 
   return (
     <InputField
       control={control}
       name={BUSINESS_ID.name}
       rules={{
+        required: BUSINESS_ID.validation_error,
         pattern: {
           value: /^\d{10}$/,
           message: BUSINESS_ID.validation_error,
@@ -45,10 +47,15 @@ export function BusinessIdField({ mutate, isSuccess }: BusinessIdFieldProps) {
           <Input
             {...field}
             readonly={isSuccess}
+            value={field.value}
             type="text"
             placeholder={BUSINESS_ID.placeholder}
             error={fieldState.isTouched && fieldState.error}
             onChange={(e) => handleBusinessNumber(e, field)}
+            onBlur={async (e) => {
+              field.onBlur(e);
+              trigger(BUSINESS_ID.name);
+            }}
           />
           <Button
             onClick={() => mutate(field.value)}

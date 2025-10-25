@@ -6,7 +6,7 @@ import { OWNER } from "../config/constants";
 import { SignUpFormProps } from "./sign-up-form";
 
 export function useOwner(owner: string) {
-  const { control, reset } = useFormContext<SignUpFormProps>();
+  const { control, setValue } = useFormContext<SignUpFormProps>();
   const { errors, touchedFields } = useFormState({ control });
   const { handleProgress } = useProgress();
   const ref = useRef({
@@ -16,9 +16,9 @@ export function useOwner(owner: string) {
 
   useEffect(() => {
     if (owner) {
-      reset({ [OWNER.name]: owner });
+      setValue("userName", owner);
     }
-  }, [owner, reset]);
+  }, [owner, setValue ]);
 
   useEffect(() => {
     const isError = Boolean(errors.userName);
