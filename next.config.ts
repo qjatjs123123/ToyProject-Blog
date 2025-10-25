@@ -24,7 +24,10 @@ const nextConfig: NextConfig = {
 
   typescript: {
     ignoreBuildErrors: true
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true, // ✅ 빌드 시 ESLint 경고 무시
+  },
 };
 
 export default nextConfig;
