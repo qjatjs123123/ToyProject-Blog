@@ -46,8 +46,8 @@ export function PasswordField() {
                     error={fieldState.isTouched && fieldState.error}
                     onChange={(e) => handlePassword(e, field)}
                     onBlur={async (e) => {
+                      await trigger("password");
                       field.onBlur(e);
-                      trigger("password");
                     }}
                   />
 
@@ -89,9 +89,9 @@ export function PasswordField() {
                   error={fieldState.isTouched && fieldState.error}
                   onChange={(e) => handlePassword(e, field)}
                   onFocus={() => field.onChange(field.value)}
-                  onBlur={(e) => {
-                    field.onBlur(e);
-                    trigger("confirmPassword");
+                  onBlur={async (e) => {
+                    await trigger("confirmPassword");
+                    field.onBlur(e);  
                   }}
                 />
 

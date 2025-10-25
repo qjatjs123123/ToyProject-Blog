@@ -53,8 +53,8 @@ export function BusinessIdField({ mutate, isSuccess }: BusinessIdFieldProps) {
             error={fieldState.isTouched && fieldState.error}
             onChange={(e) => handleBusinessNumber(e, field)}
             onBlur={async (e) => {
+              await trigger(BUSINESS_ID.name);
               field.onBlur(e);
-              trigger(BUSINESS_ID.name);
             }}
           />
           <Button

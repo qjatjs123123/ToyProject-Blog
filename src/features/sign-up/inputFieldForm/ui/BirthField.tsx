@@ -29,9 +29,9 @@ export function BirthField() {
           {...field}
           error={fieldState.isTouched && fieldState.error}
           onChange={(e) => handleBirth(e, field)}
-          onBlur={(e) => {
-            field.onBlur(e);
-            trigger("birthDate");
+          onBlur={async (e) => {
+            await trigger("birthDate");
+            field.onBlur(e);   
           }}
           placeholder={BIRTH.placeholder}
           type={"text"}

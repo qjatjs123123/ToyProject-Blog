@@ -29,9 +29,9 @@ export function PhoneField() {
           {...field}
           onChange={(e) => handlePhone(e, field)}
           error={fieldState.isTouched && fieldState.error}
-          onBlur={(e) => {
+          onBlur={async (e) => {
+            await trigger(PHONE.name);
             field.onBlur(e);
-            trigger(PHONE.name);
           }}
           placeholder={PHONE.placeholder}
           type={"text"}

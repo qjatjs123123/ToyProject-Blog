@@ -40,9 +40,9 @@ export function EmailFieldWithSuggest() {
                 handleEmail(e, field);
                 setShowEmailSuggest(true);
               }}
-              onBlur={(e) => {
+              onBlur={async (e) => {
+                await trigger(EMAIL.name);
                 field.onBlur(e);
-                trigger(EMAIL.name);
                 setShowEmailSuggest(false);
               }}
               placeholder={EMAIL.placeholder}
