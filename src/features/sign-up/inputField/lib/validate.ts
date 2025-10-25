@@ -6,7 +6,6 @@ export function validateBusinessNumber(value: string): boolean {
 
 
 export const validatePassword = (value: string) => {
-  console.log(value);
   const pattern =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,15}$/;
 
