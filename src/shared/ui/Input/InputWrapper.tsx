@@ -1,36 +1,20 @@
 "use client";
-import { useState, ReactNode, ChangeEvent, useEffect } from "react";
+import { useState, ReactNode } from "react";
 
-type t = "text" | "password";
+type typeProps = "text" | "password";
 
 interface InputRenderProps {
-  value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  setType: (v: t) => void;
-  type: t;
+  setType: (v: typeProps) => void;
+  type: typeProps;
 }
 
 interface InputProps {
   children: (props: InputRenderProps) => ReactNode;
-  initialValue?: string;
-  initalType?: t;
+  initalType?: typeProps;
 }
 
-export function InputWrapper({
-  children,
-  initialValue = "",
-  initalType = "text",
-}: InputProps) {
-  const [value, setValue] = useState(initialValue);
+export function InputWrapper({ children, initalType = "text" }: InputProps) {
   const [type, setType] = useState(initalType);
 
-  useEffect(() => {
-    setValue(initialValue);
-  }, [initialValue]);
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-
-  return <>{children({ value, onChange: handleChange, setType, type })}</>;
+  return <>{children({ setType, type })}</>;
 }

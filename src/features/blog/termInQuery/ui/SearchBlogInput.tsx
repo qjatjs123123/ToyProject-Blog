@@ -1,53 +1,35 @@
 "use client";
 
-import { CATEGORY, PAGE, TERM } from "@/entities/blog";
-import { Input, InputWrapper } from "@/shared/ui";
+import { TERM } from "@/entities/blog";
+import { Input } from "@/shared/ui";
 import { SearchIcon } from "@/shared/ui";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback } from "react";
+import { Controller } from "react-hook-form";
+import { useSearchBlog } from "../model/useSearchBlog";
+import { SEARCH } from "../config/constants";
 
 export function SearchBlogInput() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const term = searchParams?.get(TERM) ?? "";
-
-  const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === "Enter") {
-        const params = new URLSearchParams(window.location.search);
-        const value = (e.target as HTMLInputElement).value;
-
-        if (value) {
-          params.set(TERM, value);
-        } else {
-          params.delete(TERM);
-        }
-        params.delete(CATEGORY);
-        params.delete(PAGE);
-        const newUrl = `${window.location.pathname}?${params.toString()}`;
-        router.replace(newUrl);
-      }
-    },
-    []
-  );
+  const { control, handleKeyDown } = useSearchBlog();
 
   return (
-    <InputWrapper initialValue={term}>
-      {({ value, onChange }) => (
+    <Controller
+      name={TERM}
+      control={control}
+      render={({ field }) => (
         <div className="relative w-full">
-          <div className="absolute top-1/2 transform -translate-y-1/2 left-5 pointer ">
+          <div className="absolute top-1/2 transform -translate-y-1/2 left-5 pointer-events-none">
             <SearchIcon />
           </div>
           <Input
-            value={value}
-            onChange={onChange}
+            {...field}
+            placeholder={SEARCH.placeholder}
+            value={field.value}
             onKeyDown={handleKeyDown}
-            placeholder="검색어를 입력해주세요"
+            onChange={(e) => field.onChange(e.target.value)}
             error={false}
-            className="!pl-[3rem] md:!w-[400px] lg:!w-[468px] "
+            className="!pl-[3rem] md:!w-[400px] lg:!w-[468px]"
           />
         </div>
       )}
-    </InputWrapper>
+    />
   );
 }
