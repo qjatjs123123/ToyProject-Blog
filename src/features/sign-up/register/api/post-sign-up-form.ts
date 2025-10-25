@@ -1,4 +1,4 @@
-import { SignUpFormProps } from "../../inputFieldForm";
+import { SignUpFormProps } from "../../inputField";
 
 export async function postSignUpForm(formData: SignUpFormProps) {
   const res = await fetch(

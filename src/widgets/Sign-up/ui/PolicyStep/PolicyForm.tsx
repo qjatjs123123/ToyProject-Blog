@@ -1,5 +1,8 @@
-import { PolicyCheckBoxForm, PolicyFormButton } from "@/features/sign-up/checkPolicyForm";
-import { SelectedProvider } from "@/features/sign-up/checkPolicyForm/model/SelectedProvider";
+import {
+  PolicyCheckBoxForm,
+  PolicyFormButton,
+} from "@/features/sign-up/checkPolicy";
+import { SelectedProvider } from "@/features/sign-up/checkPolicy/model/SelectedProvider";
 
 export function PolicyForm() {
   return (

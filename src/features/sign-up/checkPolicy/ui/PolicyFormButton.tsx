@@ -3,7 +3,7 @@
 import { useProgress } from "@/shared/ui/Progress/model/ProgressProvider";
 import { Button } from "@/shared/ui";
 import { useSelected } from "../model/SelectedProvider";
-import { useStep } from "../../stepSignUpForm/model/StepProvider";
+import { useStep } from "../../changeStep/model/StepProvider";
 
 export function PolicyFormButton() {
   const { setProgress } = useProgress();

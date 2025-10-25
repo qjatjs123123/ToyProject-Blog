@@ -4,7 +4,7 @@ import {
   EmailFieldWithSuggest,
   OwnerField,
   PhoneField,
-} from "@/features/sign-up/inputFieldForm";
+} from "@/features/sign-up/inputField";
 
 interface AuthSuccessFormProps {
   company: string;

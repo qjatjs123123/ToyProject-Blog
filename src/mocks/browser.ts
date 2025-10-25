@@ -2,7 +2,7 @@ import { setupWorker } from "msw/browser";
 import { blogHandlers } from "@/entities/blog/api/__mocks__/get-blog-list-handler";
 import { blogBannerListHandler } from "@/entities/blog";
 import { verifyBusinessNumberhandlers } from "@/entities/sign-up/api/__mocks__/post-verify-business-number-handler";
-import { registerhandlers } from "@/features/sign-up/submitForm/api/__mocks__/post-sign-up-handler";
+import { registerhandlers } from "@/features/sign-up/register/api/__mocks__/post-sign-up-handler";
 
 export const worker = setupWorker(
   ...blogHandlers,

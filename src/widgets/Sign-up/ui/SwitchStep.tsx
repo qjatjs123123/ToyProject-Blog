@@ -1,4 +1,4 @@
-import { useStep } from "@/features/sign-up/stepSignUpForm/model/StepProvider";
+import { useStep } from "@/features/sign-up/changeStep/model/StepProvider";
 import { PolicyForm } from "./PolicyStep/PolicyForm";
 import { SignUpForm } from "./SignUpStep/SignUpForm";
 

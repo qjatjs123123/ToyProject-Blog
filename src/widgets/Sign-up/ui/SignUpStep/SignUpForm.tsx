@@ -4,10 +4,10 @@ import {
   PasswordField,
   SignUpFormProps,
   useVerifyBusinessNumber,
-} from "@/features/sign-up/inputFieldForm";
+} from "@/features/sign-up/inputField";
 import { FormProvider, useForm } from "react-hook-form";
 import { AuthSuccessForm } from "./AuthSuccessForm";
-import { SubmitButton } from "@/features/sign-up/submitForm";
+import { SubmitButton } from "@/features/sign-up/register";
 
 export function SignUpForm() {
   const { mutate, isSuccess, data } = useVerifyBusinessNumber();

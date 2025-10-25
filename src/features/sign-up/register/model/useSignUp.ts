@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useSetAtom } from "jotai";
 import { postSignUpForm } from "../api/post-sign-up-form";
 import { toastMessage } from "@/shared/ui/Toast/model/action";
-import { SignUpFormProps } from "../../inputFieldForm";
+import { SignUpFormProps } from "../../inputField";
 import { Dispatch, SetStateAction } from "react";
 
 interface UseSignUpParams {
