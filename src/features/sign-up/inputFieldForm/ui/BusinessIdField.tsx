@@ -3,7 +3,7 @@ import { Text } from "@/shared/ui";
 import { BUSINESS_ID, correctClass, errorClass } from "../config/constants";
 import { handleBusinessNumber } from "../lib/action";
 import { useFormContext } from "react-hook-form";
-import { SingUpFormProps } from "../model/sign-up-form";
+import { SignUpFormProps } from "../model/sign-up-form";
 import { BlankText } from "./BlankText";
 
 interface BusinessIdFieldProps {
@@ -12,7 +12,7 @@ interface BusinessIdFieldProps {
 }
 
 export function BusinessIdField({ mutate, isSuccess }: BusinessIdFieldProps) {
-  const { control } = useFormContext<SingUpFormProps>();
+  const { control } = useFormContext<SignUpFormProps>();
 
   return (
     <InputField

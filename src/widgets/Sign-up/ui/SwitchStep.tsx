@@ -1,6 +1,6 @@
 import { useStep } from "@/features/sign-up/stepSignUpForm/model/StepProvider";
-import { PolicyForm } from "./PolicyForm";
-import { SignUpForm } from "./SignUpForm";
+import { PolicyForm } from "./PolicyStep/PolicyForm";
+import { SignUpForm } from "./SignUpStep/SignUpForm";
 
 export function SwitchStep() {
   const { step } = useStep();
@@ -9,7 +9,7 @@ export function SwitchStep() {
     case "policy":
       return <PolicyForm />;
     case "form":
-      return <SignUpForm />;
+      return <SignUpForm />
     default:
       return null;
   }

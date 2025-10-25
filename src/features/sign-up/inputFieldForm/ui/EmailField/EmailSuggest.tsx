@@ -1,13 +1,13 @@
 import { domains } from "../../config/constants";
 import { useFormContext, useWatch } from "react-hook-form";
-import { SingUpFormProps } from "../../model/sign-up-form";
+import { SignUpFormProps } from "../../model/sign-up-form";
 
 type EmailSuggestProps = {
   setShowEmailSuggest: (v: boolean) => void;
 };
 
 export function EmailSuggest({ setShowEmailSuggest }: EmailSuggestProps) {
-  const { control, setValue } = useFormContext<SingUpFormProps>();
+  const { control, setValue } = useFormContext<SignUpFormProps>();
   const value = useWatch({
     control,
     name: "email",

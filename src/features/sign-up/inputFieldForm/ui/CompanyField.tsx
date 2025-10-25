@@ -1,7 +1,7 @@
 import { Input, InputField, InputWrapper } from "@/shared/ui";
 import { Text } from "@/shared/ui";
 import { useFormContext } from "react-hook-form";
-import { SingUpFormProps } from "../model/sign-up-form";
+import { SignUpFormProps } from "../model/sign-up-form";
 import { COMPANY } from "../config/constants";
 import { BlankText } from "./BlankText";
 
@@ -10,7 +10,7 @@ interface CompanyFieldProps {
 }
 
 export function CompanyField({ company }: CompanyFieldProps) {
-  const { control } = useFormContext<SingUpFormProps>();
+  const { control } = useFormContext<SignUpFormProps>();
 
   return (
     <InputField

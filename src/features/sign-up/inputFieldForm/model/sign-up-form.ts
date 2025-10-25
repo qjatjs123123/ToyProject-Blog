@@ -1,4 +1,4 @@
-export interface SingUpFormProps {
+export interface SignUpFormProps {
   businessNumber: string,
   password: string,
   confirmPassword: string,

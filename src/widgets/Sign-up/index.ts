@@ -1,4 +1,4 @@
 export { SwitchStep } from "./ui/SwitchStep";
-export { PolicyForm } from "./ui/PolicyForm";
-export { SignUpTitle } from "./ui/SignUpTitle";
-export { SignUpProgress } from "./ui/SignUpProgress";
+export { PolicyForm } from "./ui/PolicyStep/PolicyForm";
+export { SignUpTitle } from "./ui/Common/SignUpTitle";
+export { SignUpProgress } from "./ui/Common/SignUpProgress";

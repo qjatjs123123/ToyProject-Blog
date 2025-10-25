@@ -2,7 +2,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { useVerifyBusinessNumber } from "../model/useVerifyBusinessNumber";
 import { BusinessIdField } from "./BusinessIdField";
 import { PasswordField } from "./PasswordField";
-import { SingUpFormProps } from "../model/sign-up-form";
+import { SignUpFormProps } from "../model/sign-up-form";
 import { CompanyField } from "./CompanyField";
 import { OwnerField } from "./OwnerField";
 import { BirthField } from "./BirthField";
@@ -12,7 +12,7 @@ import { EmailFieldWithSuggest } from "./EmailField/EmailFieldWithSuggest";
 export function AuthBusinessId() {
   const { mutate, isSuccess, data } = useVerifyBusinessNumber();
 
-  const methods = useForm<SingUpFormProps>({
+  const methods = useForm<SignUpFormProps>({
     defaultValues: {
       businessNumber: "",
       password: "",

@@ -3,10 +3,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useFormContext, useFormState } from "react-hook-form";
 import { useProgress } from "@/shared/ui/Progress/model/ProgressProvider";
 import { PASSWORD } from "../config/constants";
-import { SingUpFormProps } from "./sign-up-form";
+import { SignUpFormProps } from "./sign-up-form";
 
 export function usePassword() {
-  const { control } = useFormContext<SingUpFormProps>();
+  const { control } = useFormContext<SignUpFormProps>();
   const { errors, touchedFields } = useFormState({ control });
   const { handleProgress } = useProgress();
   const ref_pw = useRef({
