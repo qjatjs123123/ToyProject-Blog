@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Text from "@/app_/_components/Text";
+import { Text } from "@/shared/ui";
 import { BlogCard as BlogCardType } from "../model/blog-list"
 import { ImageSkeleton, ImageSkeletonWrapper } from "@/shared/ui";
 

@@ -14,7 +14,7 @@ import { SignInFormProps } from "@/entities/sign-in";
 export function SingInForm() {
   const methods = useForm<SignInFormProps>({
     defaultValues: {
-      businessNumber: getIdInLocalStorage(),
+      businessNumber: "",
       password: "",
     },
     mode: "onChange",

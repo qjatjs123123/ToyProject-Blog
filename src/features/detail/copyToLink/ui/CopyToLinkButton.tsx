@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/app_/_components/Button";
+import { Button } from "@/shared/ui";
 import { toastMessage } from "@/shared/ui/Toast/model/action";
 import { useSetAtom } from "jotai";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import Button from "@/app_/_components/Button";
+import { Button } from "@/shared/ui";
 
 export function BackToBlogButton() {
   const router = useRouter();
