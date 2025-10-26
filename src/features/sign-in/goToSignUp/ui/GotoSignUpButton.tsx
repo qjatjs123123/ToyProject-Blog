@@ -10,7 +10,7 @@ export function GoToSignUpPageButton() {
     <Button
       type="primary"
       style="outline"
-      className="w-full"
+      className="w-full mt-[8px]"
       onClick={() => router.push("/sign-up")}
     >
       회원가입

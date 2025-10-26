@@ -8,6 +8,7 @@ export function SaveIdCheckBox() {
       content="아이디 저장"
       checked={true}
       onChange={() => {}}
+      className="pt-[25px]"
     />
   );
 }

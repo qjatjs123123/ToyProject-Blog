@@ -24,7 +24,7 @@ export function PasswordField() {
         validate: validatePassword,
       }}
       title={
-        <Text type="body" size="3" className="text-[var(--color-label-700)]">
+        <Text type="body" size="3" className="text-[var(--color-label-700)] mt-[25px]">
           {PASSWORD.title}
         </Text>
       }

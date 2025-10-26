@@ -23,7 +23,7 @@ export function BusinessIdField() {
         },
       }}
       title={
-        <Text type="body" size="3" className="text-[var(--color-label-700)]">
+        <Text type="body" size="3" className="text-[var(--color-label-700)] mt-[30px]">
           {BUSINESS_ID.title}
         </Text>
       }

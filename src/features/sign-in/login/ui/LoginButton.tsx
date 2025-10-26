@@ -8,7 +8,7 @@ export function LoginButton() {
     <Button
       type="primary"
       style="fill"
-      className="w-full mt-[20px]"
+      className="w-full mt-[25px]"
       onClick={() => mutate()}
     >
       로그인

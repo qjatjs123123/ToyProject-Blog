@@ -23,13 +23,14 @@ function Checkbox(props: Props) {
     content,
     onChange,
     id,
+    className,
   } = props;
 
   return (
-    <div className={"flex items-center gap-2"}>
+    <div className={`flex items-center gap-2 ${className}`}>
       <button
         type="button"
-        className={classNames(styles.button)}
+        className={(classNames(styles.button))}
         onClick={onChange}
       >
         <span className="w-full h-full flex justify-center items-center cursor-pointer">
