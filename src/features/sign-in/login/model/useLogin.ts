@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { useFormContext } from "react-hook-form";
 import { useCheck } from "../../saveBusinessID/model/CheckProvider";
 import { deleteIdInLocalStorage, saveIdInLocalStorage } from "../../saveBusinessID";
+import { useUserInfo } from "@/entities/user/model/useUserInfo";
 
 export function useLogin() {
   const queryClient = useQueryClient();
@@ -19,6 +20,7 @@ export function useLogin() {
   const { getValues } = useFormContext<SignInFormProps>();
   const setToastMessage = useSetAtom(toastMessage);
   const router = useRouter();
+  const { refetch } = useUserInfo();
 
   return useMutation({
     mutationFn: async () => {
@@ -35,6 +37,8 @@ export function useLogin() {
       const allValues = getValues();
       if (checked) saveIdInLocalStorage(allValues.businessNumber);
       else deleteIdInLocalStorage();
+
+      refetch();
     },
 
     onError: (error: unknown) => {

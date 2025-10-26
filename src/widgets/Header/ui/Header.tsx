@@ -1,11 +1,17 @@
 "use client";
 
+import { useUserInfo } from "@/entities/user/model/useUserInfo";
+import { UserInfo } from "@/entities/user/ui/UserInfo";
 import { Button } from "@/shared/ui";
 import Nav from "@/shared/ui/Nav/ui/Nav";
 import Image from "next/image";
 import Link from "next/link";
+import { BeforeLogin } from "./BeforeLogin";
 
 export function Header() {
+  const { data } = useUserInfo();
+  const isAuth = !data ? false : true;
+
   return (
     <div className="fixed top-0 w-full flex items-center h-[60px] bg-white border-b border-[var(--color-line-400)] z-[100]">
       <div className="container flex justify-between items-center">
@@ -20,19 +26,7 @@ export function Header() {
             style={{ color: "transparent" }}
           />
         </Link>
-
-        <div className="flex gap-3">
-          <Link href="/sign-up">
-            <Button type="primary" style="outline" className="!h-[35px]">
-              회원가입
-            </Button>
-          </Link>
-          <Link href="/sign-in">
-            <Button type="default" style="outline" className="!h-[35px]">
-              로그인
-            </Button>
-          </Link>
-        </div>
+        {isAuth ? <UserInfo data={data} /> : <BeforeLogin />}
       </div>
       <Nav />
     </div>
