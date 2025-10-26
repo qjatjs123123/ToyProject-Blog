@@ -4,6 +4,7 @@ import App from "../src/app/index";
 import "../src/app/styles/globals.css";
 import { Toast } from "@/shared/ui";
 import { Header } from "@/widgets/Header";
+import Nav from "@/shared/ui/Nav/ui/Nav";
 
 if (typeof window === "undefined") {
   (async () => {

@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/shared/ui";
+import Nav from "@/shared/ui/Nav/ui/Nav";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -33,6 +34,7 @@ export function Header() {
           </Link>
         </div>
       </div>
+      <Nav />
     </div>
   );
 }

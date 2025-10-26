@@ -25,7 +25,6 @@ export function ImageSkeletonWrapper({ data, Skeleton }: ImageSkeletonProps) {
         fill
         loading="lazy"
         onLoadingComplete={() => setLoaded(true)}
-        className={`object-cover transition-opacity duration-300`}
       />
     </>
   );

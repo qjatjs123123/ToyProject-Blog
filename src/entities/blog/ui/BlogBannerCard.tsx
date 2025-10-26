@@ -11,11 +11,11 @@ export function BlogBannerCard({ banner }: BlogCardProps) {
       <ImageSkeletonWrapper data={banner} Skeleton={<ImageSkeleton />} />
 
       {/* 아래 summary 오버레이 */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 p-4 text-2xl text-white transition-opacity duration-300 group-hover:opacity-0">
+      {/* <div className="absolute bottom-0 left-0 right-0 z-20 p-4 text-2xl text-white transition-opacity duration-300 group-hover:opacity-0">
         <p className="overflow-hidden text-ellipsis custom-line-clamp">
           {banner.summary}
         </p>
-      </div>
+      </div> */}
 
       {/* 아래쪽 그림자 */}
       <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-black/50 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-0"></div>
