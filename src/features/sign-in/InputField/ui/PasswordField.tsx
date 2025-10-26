@@ -4,7 +4,7 @@
 import { Input, InputWrapper, Text } from "@/shared/ui";
 import { InputField } from "@/shared/ui";
 import { useFormContext } from "react-hook-form";
-import { SignInFormProps } from "../model/sign-in-form";
+import { SignInFormProps } from "@/entities/sign-in";
 import { PASSWORD } from "../config/constants";
 import { validatePassword } from "../lib/validate";
 import EyeOffIcon from "@/shared/ui/Icon/EyeOffIcon";

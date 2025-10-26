@@ -1,6 +1,6 @@
 import { Button, Input, InputField } from "@/shared/ui";
 import { Text } from "@/shared/ui";
-import { SignInFormProps } from "../model/sign-in-form";
+import { SignInFormProps } from "@/entities/sign-in";
 import { useFormContext } from "react-hook-form";
 import { BUSINESS_ID } from "../config/constants";
 import { handleBusinessNumber } from "../lib/action";
