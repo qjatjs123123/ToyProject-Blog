@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { publicApi } from "@/utils/axiosConfig";
+import { publicApi } from "../../../utils/axiosConfig";
 import { useAtom } from "jotai";
 import { userInfoAtom } from "@/utils/atoms";
 

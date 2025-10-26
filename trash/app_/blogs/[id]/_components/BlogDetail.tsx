@@ -3,7 +3,7 @@ import Text from "@/app_/_components/Text";
 import Image from "next/image";
 import Link from "next/link";
 import RightIcon from "@/app_/_components/svg/RightIcon";
-import { blogNavigationData } from "@/utils/constants";
+import { blogNavigationData } from "../../../../utils/constants";
 
 interface ThumbnailProps {
   thumbnail: string;

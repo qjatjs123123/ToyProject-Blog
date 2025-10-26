@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { FormValues } from "../types/type";
-import { publicApi } from "@/utils/axiosConfig";
+import { publicApi } from "../../../utils/axiosConfig";
 
 export function useSignup() {
   const queryClient = useQueryClient();

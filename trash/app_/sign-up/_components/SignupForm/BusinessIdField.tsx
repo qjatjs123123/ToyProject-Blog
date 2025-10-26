@@ -4,12 +4,12 @@ import Button from "@/app_/_components/Button";
 import { Field, useFieldContext } from "@/app_/_components/Field";
 import { useVerifyBusinessNumber } from "../../hooks/useVerifyBusinessNumber";
 import { RefObject, useState } from "react";
-import { formatBusinessId } from "@/utils/format";
+import { formatBusinessId } from "../../../../utils/format";
 import { useAtom } from "jotai";
 import { useProgress } from "../../_providers/ProgressProvider";
 import { snackMsg } from "@/utils/atoms";
 import { BusinessDataProps, FormValues } from "../../types/type";
-import { BusinessIdMSG } from "@/utils/constants";
+import { BusinessIdMSG } from "../../../../utils/constants";
 
 type AuthProps = {
   isAuth: boolean;

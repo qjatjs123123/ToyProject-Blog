@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Text from "@/app_/_components/Text";
 import classname from "classnames";
-import { blogNavigationData } from "@/utils/constants";
+import { blogNavigationData } from "../../../utils/constants";
 import { useRouter } from "next/navigation";
 
 export default function BlogNavigation() {

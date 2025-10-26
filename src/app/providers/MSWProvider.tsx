@@ -6,7 +6,7 @@ import { Suspense, use } from 'react';
 let workerPromise: Promise<any> | null = null;
 
 if (typeof window !== 'undefined') {
-  workerPromise = import('@/mocks/browser').then(async ({ worker }) => {
+  workerPromise = import('@/shared/config/mocks/browser').then(async ({ worker }) => {
     await worker.start({
       onUnhandledRequest(request, print) {
         if (request.url.includes('_next')) return;

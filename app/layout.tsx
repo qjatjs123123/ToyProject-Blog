@@ -7,7 +7,7 @@ import { Header } from "@/widgets/Header";
 
 if (typeof window === "undefined") {
   (async () => {
-    const { server } = await import("@/mocks/server");
+    const { server } = await import("@/shared/config/mocks/server");
     server.listen({
       onUnhandledRequest: "bypass",
     });

@@ -3,7 +3,7 @@ import { Control, Controller, useForm } from "react-hook-form";
 import React, { useEffect, useState } from "react";
 import Button from "../_components/Button";
 import InputField from "../_components/InputField";
-import { pwRegex } from "@/utils/constants";
+import { pwRegex } from "../../utils/constants";
 import Checkbox from "../_components/CheckBox";
 import { useRouter } from "next/navigation";
 import { useLogin } from "./hooks/useLogin";

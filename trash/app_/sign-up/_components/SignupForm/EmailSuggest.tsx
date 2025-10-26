@@ -1,5 +1,5 @@
 import {  useFieldContext } from "@/app_/_components/Field";
-import { domains } from "@/utils/constants";
+import { domains } from "../../../../utils/constants";
 
 export function EmailSuggest() {
   const { value, setValue, showEmailSuggest, setShowEmailSuggest } =

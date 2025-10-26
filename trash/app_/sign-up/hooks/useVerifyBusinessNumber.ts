@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { publicApi } from "@/utils/axiosConfig";
+import { publicApi } from "../../../utils/axiosConfig";
 
 export function useVerifyBusinessNumber() {
   const queryClient = useQueryClient();

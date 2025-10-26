@@ -2,7 +2,7 @@ import Image from "next/image";
 import Text from "./Text";
 import Link from "next/link";
 import DotIcon from "./svg/Dot";
-import { partners } from "@/utils/constants";
+import { partners } from "../../utils/constants";
 
 export default function Footer() {
   return (

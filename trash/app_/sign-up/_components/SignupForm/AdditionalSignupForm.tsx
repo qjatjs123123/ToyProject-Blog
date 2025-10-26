@@ -1,7 +1,7 @@
 import { Field } from "@/app_/_components/Field";
 import { BusinessDataProps, FormValues } from "../../types/type";
-import { formatBirth, formatPhone } from "@/utils/format";
-import { invalidBirth, invalidEmail, invalidPhone } from "@/utils/validations";
+import { formatBirth, formatPhone } from "../../../../utils/format";
+import { invalidBirth, invalidEmail, invalidPhone } from "../../../../utils/validations";
 import { useProgress } from "../../_providers/ProgressProvider";
 import { EmailSuggest } from "./EmailSuggest";
 import { RefObject } from "react";

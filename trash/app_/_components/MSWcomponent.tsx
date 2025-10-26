@@ -5,7 +5,7 @@ import { handlers } from '@/mocks/handlers'
 
 const mockingEnabledPromise =
   typeof window !== 'undefined'
-    ? import('@/mocks/browser').then(async ({  worker }) => {
+    ? import('@/shared/config/mocks/browser').then(async ({  worker }) => {
       if (process.env.NODE_ENV === 'production') {
         return;
       }

@@ -4,7 +4,7 @@ import Checkbox from "@/app_/_components/CheckBox";
 import Button from "@/app_/_components/Button";
 import RightIcon from "@/app_/_components/svg/RightIcon";
 import { useProgress } from "../../_providers/ProgressProvider";
-import { checkBoxList } from "@/utils/constants";
+import { checkBoxList } from "../../../../utils/constants";
 
 type CheckBoxFormProps = {
   setStep: React.Dispatch<React.SetStateAction<number>>;

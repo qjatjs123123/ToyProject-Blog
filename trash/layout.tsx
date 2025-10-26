@@ -12,7 +12,7 @@ if (
   process.env.NODE_ENV !== "production"
 ) {
   (async () => {
-    const { server } = await import("@/mocks/server");
+    const { server } = await import("@/shared/config/mocks/server");
     server.listen({
       onUnhandledRequest: "bypass",
     });

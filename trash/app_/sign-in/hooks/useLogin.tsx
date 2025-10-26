@@ -1,6 +1,6 @@
 import { LoginRequestProps } from "@/app_/sign-up/types/type";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { publicApi } from "@/utils/axiosConfig";
+import { publicApi } from "../../../utils/axiosConfig";
 import { AxiosError } from "axios";
 import { useUserInfo } from "./useUserInfo";
 import { UseFormSetError } from "react-hook-form";

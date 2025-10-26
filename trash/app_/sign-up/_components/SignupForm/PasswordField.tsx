@@ -2,7 +2,7 @@ import Input from "@/app_/_components/Input";
 import Text from "@/app_/_components/Text";
 import { RefObject, useReducer, useRef } from "react";
 import { useProgress } from "../../_providers/ProgressProvider";
-import { pwRegex } from "@/utils/constants";
+import { pwRegex } from "../../../../utils/constants";
 import { FormValues } from "../../types/type";
 
 type PasswordFieldProps = {
