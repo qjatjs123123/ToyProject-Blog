@@ -7,7 +7,7 @@ export const BUSINESS_ID = {
 
 export const PASSWORD = {
   title: "비밀번호",
-  name: "name",
+  name: "password",
   error_message: "8~15자리 영문, 숫자, 특수문자로 조합하여 입력해주세요",
   placeholder: "비밀번호를 입력해주세요.",
 };

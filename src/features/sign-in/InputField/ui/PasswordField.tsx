@@ -61,7 +61,6 @@ export function PasswordField() {
             </Text>
           );
         }
-        return null;
       }}
     ></InputField>
   );

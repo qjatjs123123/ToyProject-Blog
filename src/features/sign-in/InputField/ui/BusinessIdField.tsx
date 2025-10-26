@@ -7,8 +7,6 @@ import { handleBusinessNumber } from "../lib/action";
 import { errorClass } from "@/shared/config/constants";
 import { BlankText } from "@/shared/ui/Blank/BlankText";
 
-
-
 export function BusinessIdField() {
   const { control } = useFormContext<SignInFormProps>();
   const { trigger } = useFormContext();
@@ -53,7 +51,6 @@ export function BusinessIdField() {
             </Text>
           );
         }
-        return <BlankText />;
       }}
     />
   );

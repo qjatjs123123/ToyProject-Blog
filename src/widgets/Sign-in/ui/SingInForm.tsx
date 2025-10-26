@@ -21,7 +21,7 @@ export function SingInForm() {
   return (
     <FormProvider {...methods}>
       <form className="flex flex-col gap-4">
-        <div className="mb-[10px]">
+        <div className="mb-[10px] ">
           <SignInTitle />
         </div>
         <BusinessIdField />
