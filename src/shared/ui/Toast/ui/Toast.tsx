@@ -1,9 +1,9 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { useMessage } from "../model/useMessage";
+import { useAutoResetToast } from "../model/useAutoResetToast";
 
 export function Toast() {
-  const msg = useMessage();
+  const msg = useAutoResetToast();
   const isShow = msg === '' ? false : true;
 
   return (

@@ -3,7 +3,6 @@ import { Text } from "@/shared/ui";
 import { useQueryClient } from "@tanstack/react-query";
 
 export function UserInfo(data: any) {
-  console.log(data.data);
   if (!data) return null;
   return (
     <Text type="body" size="1" weight="bold">
