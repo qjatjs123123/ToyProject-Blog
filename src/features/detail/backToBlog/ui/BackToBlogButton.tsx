@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/shared/ui";
-import { useNavigationHistory } from "@/shared/model/useRouterHistory";
+import { useNavigationHistory } from "@/shared/model/useNavigationHistory";
 
 export function BackToBlogButton() {
   const { goBack } = useNavigationHistory();

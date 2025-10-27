@@ -1,6 +1,6 @@
 "use client";
 
-import { useNavigationHistory } from "@/shared/model/useRouterHistory";
+import { useNavigationHistory } from "@/shared/model/useNavigationHistory";
 import { Button } from "@/shared/ui";
 
 export function GoToSignUpPageButton() {

@@ -1,13 +1,10 @@
 import { Button } from "@/shared/ui";
 import { useProgress } from "@/shared/ui/Progress/model/ProgressProvider";
-import { useState } from "react";
-import { SuccessModal } from "./SuccessModal";
-import { useSignUp } from "../model/useSignUp";
+import { useSignUpWithModal } from "../model/useSignUpWithModal";
 
 export function SubmitButton() {
   const { progress } = useProgress();
-  const [isOpen, setOpen] = useState(false);
-  const { mutate } = useSignUp({ setOpen });
+  const { mutate, modal } = useSignUpWithModal();
 
   return (
     <div className="mt-12 w-[100%]">
@@ -20,7 +17,7 @@ export function SubmitButton() {
       >
         가입하기
       </Button>
-      {isOpen && <SuccessModal setOpen={setOpen} />}
+      {modal}
     </div>
   );
 }

@@ -13,7 +13,7 @@ import { useFormContext } from "react-hook-form";
 import { useCheck } from "../../saveBusinessID/model/CheckProvider";
 import { deleteIdInLocalStorage, saveIdInLocalStorage } from "../../saveBusinessID";
 import { useUserInfo } from "@/entities/user/model/useUserInfo";
-import { useNavigationHistory } from "@/shared/model/useRouterHistory";
+import { useNavigationHistory } from "@/shared/model/useNavigationHistory";
 import { useToastService } from "@/shared/ui";
 import { MESSAGE } from "../config/constants";
 

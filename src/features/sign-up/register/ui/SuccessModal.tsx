@@ -1,9 +1,9 @@
 import { Modal } from "@/shared/ui/Modal/Modal";
 import { Button, Text } from "@/shared/ui";
-import { useRouter } from "next/navigation";
+import { useNavigationHistory } from "@/shared/model/useNavigationHistory";
 
 export function SuccessModal({ setOpen }: { setOpen: (a: boolean) => void }) {
-  const router = useRouter();
+  const { goTo } = useNavigationHistory();
 
   return (
     <Modal
@@ -30,7 +30,7 @@ export function SuccessModal({ setOpen }: { setOpen: (a: boolean) => void }) {
           className="w-full"
           onClick={() => {
             setOpen(false);
-            router.push("/");
+            goTo("/");
           }}
         >
           정산금 조회하기
