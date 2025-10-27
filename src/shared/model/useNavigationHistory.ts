@@ -19,5 +19,9 @@ export function useNavigationHistory() {
     router.push(path);
   };
 
-  return { goBack, goForward, goTo };
+  const replace = (path: string) => {
+    router.replace(path);
+  };
+
+  return { goBack, goForward, goTo, replace };
 }
