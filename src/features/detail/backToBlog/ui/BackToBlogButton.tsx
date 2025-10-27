@@ -1,13 +1,13 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { Button } from "@/shared/ui";
+import { useNavigationHistory } from "@/shared/model/useRouterHistory";
 
 export function BackToBlogButton() {
-  const router = useRouter();
+  const { goBack } = useNavigationHistory();
 
   return (
-    <Button type="default" style="outline" onClick={() => router.back()}>
+    <Button type="default" style="outline" onClick={goBack}>
       목록으로 돌아가기
     </Button>
   );
