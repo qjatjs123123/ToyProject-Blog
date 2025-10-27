@@ -18,7 +18,7 @@ export function BlogBannerCard({ banner }: BlogCardProps) {
       </div> */}
 
       {/* 아래쪽 그림자 */}
-      <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-black/50 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-0"></div>
+      {/* <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-black/50 to-transparent pointer-events-none transition-opacity duration-300 group-hover:opacity-0"></div> */}
     </div>
   );
 }
