@@ -9,7 +9,7 @@ export type SelectedItem = {
 type SelectedContextType = {
   selected: string[];
   setSelected: (value: string[]) => void;
-  enabled: boolean;
+  allSelected: boolean;
 };
 
 const SelectedContext = createContext<SelectedContextType | undefined>(
@@ -23,13 +23,13 @@ interface SelectedProviderProps {
 export const SelectedProvider = ({ children }: SelectedProviderProps) => {
   const [selected, setSelected] = useState<string[]>([]);
 
-  const enabled = checkBoxList
+  const allSelected = checkBoxList
     .filter((item) => item.required)
     .map((item) => item.id)
     .every((item) => selected.includes(item));
 
   return (
-    <SelectedContext.Provider value={{ selected, setSelected, enabled }}>
+    <SelectedContext.Provider value={{ selected, setSelected, allSelected }}>
       {children}
     </SelectedContext.Provider>
   );
