@@ -1,17 +1,17 @@
 "use client";
 
+import { useNavigationHistory } from "@/shared/model/useRouterHistory";
 import { Button } from "@/shared/ui";
-import { useRouter } from "next/navigation";
 
 export function GoToSignUpPageButton() {
-  const router = useRouter();
+  const { goTo } = useNavigationHistory();
 
   return (
     <Button
       type="primary"
       style="outline"
       className="w-full mt-[8px]"
-      onClick={() => router.push("/sign-up")}
+      onClick={() => goTo("/sign-up")}
     >
       회원가입
     </Button>
