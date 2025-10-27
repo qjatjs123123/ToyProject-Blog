@@ -7,7 +7,8 @@
 ## 🚀 프로젝트 개요
 
 개인 프로젝트 입니다. <br />
-`Jotai`, `Tanstack-Query`, `Next`, `react-error-boundary`, `react-hook-form`, `framer-motion` 등 라이브러리를 학습하고, 각각을 왜 사용하는지와 장단점을 더 깊이 이해하기 위해 직접 프로젝트를 기획했습니다. 
+클린 코드 및, 클린 아키텍쳐에 대해서 고민한 프로젝트입니다.
+
 
 <br />
 
