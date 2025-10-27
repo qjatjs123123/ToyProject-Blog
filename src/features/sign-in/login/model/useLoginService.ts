@@ -13,13 +13,16 @@ import { useFormContext } from "react-hook-form";
 import { useCheck } from "../../saveBusinessID/model/CheckProvider";
 import { deleteIdInLocalStorage, saveIdInLocalStorage } from "../../saveBusinessID";
 import { useUserInfo } from "@/entities/user/model/useUserInfo";
+import { useNavigationHistory } from "@/shared/model/useRouterHistory";
+import { useToastService } from "@/shared/ui";
+import { MESSAGE } from "../config/constants";
 
-export function useLogin() {
+export function useLoginService() {
   const queryClient = useQueryClient();
   const { checked } = useCheck();
   const { getValues } = useFormContext<SignInFormProps>();
-  const setToastMessage = useSetAtom(toastMessage);
-  const router = useRouter();
+  const { goTo } = useNavigationHistory();
+  const { show } = useToastService();
   const { refetch } = useUserInfo();
 
   return useMutation({
@@ -29,10 +32,10 @@ export function useLogin() {
     },
 
     onSuccess: (data: LoginToken) => {
-      setToastMessage("로그인 성공했어요");
+      show(MESSAGE.success);
       queryClient.setQueryData(["accessToken"], data.accessToken);
       localStorage.setItem("refreshToken", data.refreshToken);
-      router.push("/");
+      goTo("/");
 
       const allValues = getValues();
       if (checked) saveIdInLocalStorage(allValues.businessNumber);
@@ -42,7 +45,7 @@ export function useLogin() {
     },
 
     onError: (error: unknown) => {
-      setToastMessage("로그인 실패했어요");
+      show(MESSAGE.error);
     },
   });
 }

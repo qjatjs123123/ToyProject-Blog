@@ -1,8 +1,8 @@
 import { Button } from "@/shared/ui";
-import { useLogin } from "../model/useLogin";
+import { useLoginService } from "../model/useLoginService";
 
 export function LoginButton() {
-  const { mutate } = useLogin();
+  const { mutate } = useLoginService();
 
   return (
     <Button
