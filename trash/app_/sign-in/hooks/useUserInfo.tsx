@@ -1,7 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { publicApi } from "../../../utils/axiosConfig";
 import { useAtom } from "jotai";
-import { userInfoAtom } from "@/utils/atoms";
 
 export function useUserInfo() {
   const [, setUserInfo] = useAtom(userInfoAtom);

@@ -88,7 +88,12 @@ const Input = forwardRef<HTMLInputElement, Props>(function Input(
       />
 
       {type === "password" && (
-        
+        <div
+          onClick={() => setShowPassword(!showPassword)}
+          className="absolute top-1/2 transform -translate-y-1/2 right-5 cursor-pointer "
+        >
+          {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+        </div>
       )}
     </div>
   );
