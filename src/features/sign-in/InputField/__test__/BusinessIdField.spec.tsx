@@ -14,7 +14,7 @@ const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return <FormProvider {...methods}>{children}</FormProvider>;
 };
 
-describe("아이디 인풋 필드 테스트", () => {
+describe("BusinessIdField blur 테스트", () => {
   test("input에 입력하면 변경된다", () => {
     const { container } = render(
       <Wrapper>
@@ -28,7 +28,7 @@ describe("아이디 인풋 필드 테스트", () => {
     expect(input.value).toBe("1234567890");
   });
 
-  test("blur 이벤트 이전, 에러메시지는 뜨지 않는다.", async () => {
+  test("blur 이벤트 이전, 유효성 오류더라도 에러메시지는 뜨지 않는다.", async () => {
     const { container } = render(
       <Wrapper>
         <BusinessIdField />
@@ -70,5 +70,38 @@ describe("아이디 인풋 필드 테스트", () => {
 
     const errorMessage = screen.queryByText("10자리 숫자를 입력해주세요.");
     expect(errorMessage).toBeNull();
+  });
+});
+
+
+describe("BusinessIdField 유효성 검사", () => {
+  const errorMessage = "10자리 숫자를 입력해주세요.";
+
+  test("숫자가 아닌 값을 입력하면 blur 이후 에러 메시지가 나타난다", async () => {
+    const { container } = render(
+      <Wrapper>
+        <BusinessIdField />
+      </Wrapper>
+    );
+    const input = container.querySelector("input") as HTMLInputElement;
+    fireEvent.change(input, { target: { value: "abcdefghij" } });
+    fireEvent.blur(input);
+
+    const error = await screen.findByText(errorMessage);
+    expect(error).toBeInTheDocument();
+  });
+
+  test("blur 이후, 10자리 미만이면 에러 메시지가 나타난다", async () => {
+    const { container } = render(
+      <Wrapper>
+        <BusinessIdField />
+      </Wrapper>
+    );
+    const input = container.querySelector("input") as HTMLInputElement;
+    fireEvent.change(input, { target: { value: "123456" } });
+    fireEvent.blur(input);
+
+    const error = await screen.findByText(errorMessage);
+    expect(error).toBeInTheDocument();
   });
 });
