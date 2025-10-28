@@ -13,8 +13,8 @@ export async function postSignInForm(formData: SignInFormProps) {
       body: JSON.stringify({ formData }),
     }
   );
-
   if (!res.ok) {
+
     const errorData = await res.json();
     throw new Error(errorData.errorMessage || "로그인 실패");
   }

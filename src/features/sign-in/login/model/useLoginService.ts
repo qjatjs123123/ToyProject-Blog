@@ -1,4 +1,5 @@
-'use client'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 
 import {
   LoginToken,
@@ -11,7 +12,10 @@ import { useSetAtom } from "jotai";
 import { useRouter } from "next/navigation";
 import { useFormContext } from "react-hook-form";
 import { useCheck } from "../../saveBusinessID/model/CheckProvider";
-import { deleteIdInLocalStorage, saveIdInLocalStorage } from "../../saveBusinessID";
+import {
+  deleteIdInLocalStorage,
+  saveIdInLocalStorage,
+} from "../../saveBusinessID";
 import { useUserInfo } from "@/entities/user/model/useUserInfo";
 import { useNavigationHistory } from "@/shared/model/useNavigationHistory";
 import { useToastService } from "@/shared/ui";
@@ -45,7 +49,19 @@ export function useLoginService() {
     },
 
     onError: (error: unknown) => {
-      show(MESSAGE.error);
+      const response = (error as any).response;
+      const data = response?.data;
+
+      if (data?.errorCode === "INVALID_REQUEST") {
+        show(MESSAGE.INVALID_REQUEST);
+        return;
+      }
+
+      if (data?.errorCode === "NOT_FOUND") {
+        show(MESSAGE.NOT_FOUND);
+        return;
+      }
+      show(MESSAGE.DEFAULT_ERROR);
     },
   });
 }
