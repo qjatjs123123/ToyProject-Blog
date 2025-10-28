@@ -10,7 +10,7 @@ jest.mock("@/shared/model/useNavigationHistory", () => ({
   }),
 }));
 
-describe("GoToSignUpPageButton", () => {
+describe("회원가입 버튼 테스트", () => {
   beforeEach(() => {
 
   })
