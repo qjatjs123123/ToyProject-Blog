@@ -18,7 +18,7 @@ export function OwnerField({ owner }: OwnerFieldProps) {
       name={OWNER.name}
       defaultValue={owner}
       rules={{
-        require: OWNER.error_message,
+        required: OWNER.error_message,
         validate: validateOwner,
       }}
       title={
