@@ -1,19 +1,31 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  act,
+} from "@testing-library/react";
 import { FormProvider, useForm } from "react-hook-form";
 import { BusinessIdField } from "../ui/BusinessIdField";
 import { BUSINESS_ID } from "../config/constants";
 import { ProgressProvider } from "@/shared/ui";
+import { useVerifyBusinessNumber } from "../model/useVerifyBusinessNumber";
+import { useProgress } from "@/shared/ui/Progress/model/ProgressProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const methods = useForm({
     defaultValues: { businessNumber: "" },
   });
   return (
-    <ProgressProvider>
-      <FormProvider {...methods}>{children}</FormProvider>
-    </ProgressProvider>
+    <QueryClientProvider client={queryClient}>
+      <ProgressProvider>
+        <FormProvider {...methods}>{children}</FormProvider>
+      </ProgressProvider>
+    </QueryClientProvider>
   );
 };
 
@@ -122,7 +134,6 @@ describe("BusinessIdField", () => {
     expect(button).toBeDisabled();
   });
 
-  
   test("유효한 10자리 숫자 입력 시 버튼이 활성화된다", async () => {
     const mockMutate = jest.fn();
     const { container } = render(

@@ -11,6 +11,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { BirthField } from "../ui/BirthField";
 import { BIRTH } from "../config/constants";
 import { ProgressProvider } from "@/shared/ui";
+import { useProgress } from "@/shared/ui/Progress/model/ProgressProvider";
 
 const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const methods = useForm({
@@ -102,6 +103,32 @@ describe("BirthField 테스트", () => {
     await waitFor(() => {
       const error = screen.queryByText(errorMessage);
       expect(error).toBeNull();
+    });
+  });
+
+  test("올바른 생년월일 입력 시 blur 후 프로그래스바 상태가 11 오른다.", async () => {
+    let progressValue = 0;
+    const ProgressWatcher = () => {
+      const { progress } = useProgress(); // 훅은 여기서 호출
+      progressValue = progress;
+      return null;
+    };
+    const { container } = render(
+      <Wrapper>
+        <BirthField />
+        <ProgressWatcher />
+      </Wrapper>
+    );
+
+    expect(progressValue).toBe(0);
+    const input = container.querySelector("input") as HTMLInputElement;
+    fireEvent.change(input, { target: { value: "19990101" } }); // 올바른 날짜
+    await act(async () => {
+      fireEvent.blur(input);
+    });
+
+    await waitFor(() => {
+      expect(progressValue).toBe(11);
     });
   });
 });
