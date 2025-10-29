@@ -1,23 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-  act,
-} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { FormProvider, useForm } from "react-hook-form";
 import { OwnerField } from "../ui/OwnerField";
 import { OWNER } from "../config/constants";
-import { validateOwner } from "../lib/validate";
-import { useOwner } from "../model/useOwner";
 import { ProgressProvider } from "@/shared/ui";
+import { useProgress } from "@/shared/ui/Progress/model/ProgressProvider";
 
 const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const methods = useForm({
     defaultValues: { birthDate: "" },
-     mode: "onChange",
+    mode: "onChange",
   });
 
   return (
@@ -75,5 +68,28 @@ describe("OwnerField 테스트", () => {
     // then -> 에러가 발생한다.
     const error = await screen.findByText(errorMessage);
     expect(error).toBeInTheDocument();
+  });
+
+  test("유효성 검사가 통과하면 프로그래스가 11 증가한다.", async () => {
+    // given -> OwnerField를 렌더링한다.
+    let progressValue = 0;
+    const ProgressWatcher = () => {
+      const { progress } = useProgress();
+      progressValue = progress;
+      return null;
+    };
+    const { container } = render(
+      <Wrapper>
+        <OwnerField owner={""} />
+        <ProgressWatcher />
+      </Wrapper>
+    );
+
+    // when -> input에 홍범선을 입력한다.
+    const input = container.querySelector("input") as HTMLInputElement;
+    fireEvent.change(input, { target: { value: "홍범선" } });
+
+    // then -> 프로그래스가 11 올라간다.
+    expect(progressValue).toBe(11);
   });
 });
