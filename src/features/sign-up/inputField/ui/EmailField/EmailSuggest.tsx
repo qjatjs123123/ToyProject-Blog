@@ -31,7 +31,10 @@ export function EmailSuggest({ setShowEmailSuggest }: EmailSuggestProps) {
   };
 
   return (
-    <ul className="w-full absolute top-[80px] left-0 bg-white border border-gray-300 border-t-0 rounded-b-md shadow-md z-50">
+    <ul
+      data-testid="email-suggest-list"
+      className="w-full absolute top-[80px] left-0 bg-white border border-gray-300 border-t-0 rounded-b-md shadow-md z-50"
+    >
       {suggestions.map((email, i) => (
         <li
           key={i}
