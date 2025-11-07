@@ -6,6 +6,7 @@ export function LoginButton() {
 
   return (
     <Button
+      dataCypress="login-button"
       type="primary"
       style="fill"
       className="w-full mt-[25px]"

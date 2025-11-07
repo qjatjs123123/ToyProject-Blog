@@ -20,7 +20,7 @@ export const loginhandlers = [
     }
 
     // NOT_FOUND: 계정 정보 틀린 경우
-    if (businessNumber === "wrongNumber" || password !== "wrongPassword") {
+    if (businessNumber === "wrongNumber" || password === "wrongPassword") {
       return HttpResponse.json(
         {
           errorCode: "NOT_FOUND",

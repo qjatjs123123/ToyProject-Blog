@@ -10,6 +10,7 @@ type Props = PropsWithChildren<{
   className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
   disabled?: boolean;
+  dataCypress?: string;
 }>;
 
 export function Button(props: Props) {
@@ -20,12 +21,14 @@ export function Button(props: Props) {
     disabled,
     children,
     className,
+    dataCypress,
     ...rest
   } = props;
 
   return (
     <button
       type="button"
+      data-cy={dataCypress}
       className={classNames(
         styles.button,
         styles[`button--type-${type}`],
