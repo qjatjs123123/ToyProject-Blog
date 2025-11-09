@@ -9,9 +9,7 @@ import Nav from "@/shared/ui/Nav/ui/Nav";
 if (typeof window === "undefined") {
   (async () => {
     const { server } = await import("@/shared/config/mocks/server");
-    server.listen({
-      onUnhandledRequest: "bypass",
-    });
+    server.listen();
     console.log("[MSW] Server-side mock enabled");
   })();
 }
