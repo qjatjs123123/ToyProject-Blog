@@ -40,7 +40,7 @@ export function useLoginService() {
       show(MESSAGE.success);
       queryClient.setQueryData(["accessToken"], data.accessToken);
       localStorage.setItem("refreshToken", data.refreshToken);
-      goTo("/");
+      goTo("/blogs");
 
       const allValues = getValues();
       if (checked) saveIdInLocalStorage(allValues.businessNumber);

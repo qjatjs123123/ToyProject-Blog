@@ -25,6 +25,8 @@ describe("로그인 화면", () => {
 
     // then - 로그인 버튼 클릭 후 URL 변경 된다.
     cy.get('[data-cy="login-button"]').should("be.enabled").click();
+        // 잠시 대기
+    cy.wait(1000); // 1
     cy.url().should("include", "http://localhost:3000/blogs");
   });
 
@@ -78,5 +80,20 @@ describe("로그인 화면", () => {
     cy.get('[data-cy="toast"]') 
       .should("be.visible")
       .and("contain.text", "계정 정보를 다시 확인해주세요.");
+  });
+
+  it("사용자는 회원가입 버튼을 누르면 페이지가 이동한다.", () => {
+    // given - 로그인 페이지에 접근한다
+    cy.visit("/sign-in");
+
+    // when - 회원가입 버튼을 클릭한다.
+    cy.get('[data-cy="goToSingUp-button"]').should("be.visible").click();
+
+    // 잠시 대기
+    cy.wait(2000); // 1
+
+    // then - 회원가입 URL 변경된다.
+    cy.url().should("include", "http://localhost:3000/sign-up");
+
   });
 });

@@ -8,6 +8,7 @@ export function GoToSignUpPageButton() {
 
   return (
     <Button
+      dataCypress="goToSingUp-button"
       type="primary"
       style="outline"
       className="w-full mt-[8px]"
