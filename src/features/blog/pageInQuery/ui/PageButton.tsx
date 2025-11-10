@@ -11,6 +11,7 @@ export function PageButton({ page, currentPage }: PageButtonProps) {
 
   return (
     <button
+      data-cy={`pageNation${page}`}
       onClick={() => changePageQuery(page)}
       className={`px-3 py-1 rounded-full cursor-pointer ${
         currentPage === page
