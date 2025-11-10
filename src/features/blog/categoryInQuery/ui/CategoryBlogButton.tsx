@@ -17,6 +17,7 @@ export function CategoryBlogButton({
 
   return (
     <button
+      data-cy={title}
       key={title}
       onClick={() => selectTab(tabCategory)}
       className="relative py-2 cursor-pointer"
