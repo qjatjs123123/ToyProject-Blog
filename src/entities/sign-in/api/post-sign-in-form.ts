@@ -13,13 +13,12 @@ export async function postSignInForm(formData: SignInFormProps) {
       body: JSON.stringify({ formData }),
     }
   );
-  if (!res.ok) {
-
-    const errorData = await res.json();
-    throw new Error(errorData.errorMessage || "로그인 실패");
-  }
-
   const data = await res.json();
 
+  if (!res.ok) {
+    throw data;
+  }
+
+  // 정상 응답이면 mapLoginToken 호출
   return mapLoginToken(data);
 }

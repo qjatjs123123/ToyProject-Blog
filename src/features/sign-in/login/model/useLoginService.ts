@@ -20,6 +20,7 @@ import { useUserInfo } from "@/entities/user/model/useUserInfo";
 import { useNavigationHistory } from "@/shared/model/useNavigationHistory";
 import { useToastService } from "@/shared/ui";
 import { MESSAGE } from "../config/constants";
+import { Error } from "@/shared/model/Error";
 
 export function useLoginService() {
   const queryClient = useQueryClient();
@@ -48,17 +49,16 @@ export function useLoginService() {
       refetch();
     },
 
-    onError: (error: unknown) => {
-      const response = (error as any).response;
-      const data = response?.data;
+    onError: (error: Error) => {
+      const { errorCode, errorMessage } = error;
 
-      if (data?.errorCode === "INVALID_REQUEST") {
-        show(MESSAGE.INVALID_REQUEST);
+      if (errorCode === "INVALID_REQUEST") {
+        show(errorMessage);
         return;
       }
 
-      if (data?.errorCode === "NOT_FOUND") {
-        show(MESSAGE.NOT_FOUND);
+      if (errorCode === "NOT_FOUND") {
+        show(errorMessage);
         return;
       }
       show(MESSAGE.DEFAULT_ERROR);

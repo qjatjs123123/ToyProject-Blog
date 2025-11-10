@@ -3,12 +3,17 @@ import { http, HttpResponse } from "msw";
 
 export const loginhandlers = [
   http.post("/api/auth/login", async ({ request }) => {
-    const { businessNumber, password } = (await request.json()) as {
-      businessNumber: string;
-      password: string;
+    // 요청 JSON을 파싱
+    const { formData } = (await request.json()) as {
+      formData: {
+        businessNumber: string;
+        password: string;
+      };
     };
 
-    // INVALID_REQUEST: businessNumber나 password가 비었을 때
+    const { businessNumber, password } = formData;
+
+    // INVALID_REQUEST: businessNumber나 password가 잘못된 경우
     if (businessNumber === "invalidNumber" || password === "invalidPassword") {
       return HttpResponse.json(
         {
@@ -35,8 +40,8 @@ export const loginhandlers = [
       {
         accessToken: "mock_access_token_123",
         refreshToken: "mock_refresh_token_123",
-        accessTokenExpiresIn: 30, // 30초
-        refreshTokenExpiresIn: 300, // 5분 = 300초
+        accessTokenExpiresIn: 30,
+        refreshTokenExpiresIn: 300,
       },
       { status: 200 }
     );
