@@ -9,7 +9,7 @@ interface Params {
 
 export default function BlogCard({ data }: Params) {
   return (
-    <Link href={`/blogs/${data.id}`}>
+    <Link href={`/blogs/${data.id}`} data-cy={data.id}>
       <div className="flex flex-col gap-2">
         <div className="relative aspect-[2/1] overflow-hidden rounded-2xl">
           <ImageSkeletonWrapper data={data} Skeleton={<ImageSkeleton />} />

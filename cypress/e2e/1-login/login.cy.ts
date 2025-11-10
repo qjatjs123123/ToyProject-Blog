@@ -88,9 +88,7 @@ describe("로그인 화면", () => {
 
     // when - 회원가입 버튼을 클릭한다.
     cy.get('[data-cy="goToSingUp-button"]').should("be.visible").click();
-
-    // 잠시 대기
-    cy.wait(2000); // 1
+    cy.wait(2000); // 2
 
     // then - 회원가입 URL 변경된다.
     cy.url().should("include", "http://localhost:3000/sign-up");
